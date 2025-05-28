@@ -34,7 +34,7 @@ The terms below sometimes use the word **X** as a placeholder for the concrete b
 - <a name="def-supporting-vocab-rdf">X Vocabulary in RDF</a>: A machine-readable RDF document that formally defines all the terms of the binding, which allow semantic processing of a TD using those terms. The scope of these documents is not limited to WoT. This is a supporting document for a binding entry.
 - <a name="def-supporting-vocab-human">X Vocabulary Document</a>: A human-readable version of the vocabulary defined at [X Vocabulary in RDF](#def-supporting-vocab-rdf). This is a supporting document for a binding entry.
 - <a name="def-custodian">Custodian</a>: See <https://www.w3.org/policies/process/#custodian>.
-- <a name="def-reviewer">Reviewer</a>: A person who is an expert in the specification that the binding is targeting. 
+- <a name="def-reviewer">Reviewer</a>: A person who is an expert in the specification that the binding is targeting.
 - <a name="def-dependency">Dependency</a>: An entry that is used or referenced to from another entry.
 - <a name="def-dependent">Dependent</a>: An entry that uses or references another entry.
 
@@ -81,14 +81,13 @@ Each entry MUST contain this information, and all parts of the entry MUST not co
 - <a name="form-stat">Form-Stat</a>: Status: One of Initial, Current, Superseded or Obsolete
 - <a name="form-summ">Form-Summ</a>: Summary Document: Link to the summary document
 - <a name="form-ver">Form-Ver</a>: Version: A unique string for that entry's history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of `YYYY-MM-DD`.
-  
 
 ### Lifecycle
 
 - <a name="life-subm">Life-Subm</a>: Technical submission mechanism. How does a binding get submitted?
-   - We work with issues only. The information for the entry format is submitted as a list. This way, non-W3C members can submit a binding. Reviews from the custodian happen on the issue. The submitter is expected to answer until the custodian makes a PR to add the binding to the registry or change its status.
-   - A purpose built GitHub project for tracking submissions is used. When a submission comes in form an issue, it is automatically added to column "Binding Submitted". When the custodian and reviewers start looking at it, it goes to the "Under Review" column. If the review is in favour, the custodian makes the PR to add it to the registry and the issue goes to column "Accepted". If the review is not in favour, it goes to the column "Rejected". All these changes are reflected as comments in the original issue.
-   - If a new entry conflicts with another entry, the reviewer MUST mark the new submission accordingly. As two bindings that do the same are not allowed, either the old one MUST be deprecated or the new one MUST be rejected. See also point 13 under "Requirements on the Submitted Document".
+  - We work with issues only. The information for the entry format is submitted as a list. This way, non-W3C members can submit a binding. Reviews from the custodian happen on the issue. The submitter is expected to answer until the custodian makes a PR to add the binding to the registry or change its status.
+  - A purpose built GitHub project for tracking submissions is used. When a submission comes in form an issue, it is automatically added to column "Binding Submitted". When the custodian and reviewers start looking at it, it goes to the "Under Review" column. If the review is in favour, the custodian makes the PR to add it to the registry and the issue goes to column "Accepted". If the review is not in favour, it goes to the column "Rejected". All these changes are reflected as comments in the original issue.
+  - If a new entry conflicts with another entry, the reviewer MUST mark the new submission accordingly. As two bindings that do the same are not allowed, either the old one MUST be deprecated or the new one MUST be rejected. See also point 13 under "Requirements on the Submitted Document".
 - <a name="life-stat">Life-Stat</a>: Initial -> Current -> Superseded or Obsolete
   - Definitions:
     - Initial: Document is correctly written but no implementation experience has been necessarily documented.
@@ -130,32 +129,32 @@ What does the binding have to contain to go into the table
     - What is the content of the binding about, e.g., what is this protocol?
     - Who should use it?
     - For what purpose(s) should it be used, e.g., monitoring, process control? This SHOULD use terminology of the submitter, i.e., the custodian does not provide definitions for this.
-  -  Examples - It SHOULD contain examples (can be one) TDs or TMs demonstrating the use of the binding
-  -  It MUST contain Access/Usage restrictions about the binding, protocol, implementation, etc., using the terminology and/or documents of the submitter. A non-exhaustive list of examples of restrictions: 
-    - Reading the binding document
-    - Reading the protocol specification
-    - Implementing a non-commercial device/Thing
-    - Implementing a non-commercial Consumer application/driver
-    - Conditions for commercial use, e.g., building a commercial product with the binding
-    - Making a statement about your product's supporting that binding
+  - Examples - It SHOULD contain examples (can be one) TDs or TMs demonstrating the use of the binding
+  - It MUST contain Access/Usage restrictions about the binding, protocol, implementation, etc., using the terminology and/or documents of the submitter. A non-exhaustive list of examples of restrictions:
+  - Reading the binding document
+  - Reading the protocol specification
+  - Implementing a non-commercial device/Thing
+  - Implementing a non-commercial Consumer application/driver
+  - Conditions for commercial use, e.g., building a commercial product with the binding
+  - Making a statement about your product's supporting that binding
   - If the entry depends on another one, it MUST specify the exact version of the dependency upon which it depends at the time of submission.
   - The availability of the machine-readable documents MUST be indicated in the summary document using the submission mechanism. Also see [Req-Docs](#req-docs).
   - The previous version of the summary document MUST be listed as a link.
   - If the chronological ordering of the entries is not clear from the version string, the summary document MUST explain the ordering mechanism.
 - <a name="req-trancurr">Req-TranCurr</a>: Transition from "Initial" to "Current"
   - Starting from the initial submission, each binding has to demonstrate a certain level of concrete development maturity. This process involves real-world testing, which can take place in Plugfests, independent testing events, or even informal collaboration between developers. These testing events do not have to be organized by W3C and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding correctly maps protocol operations and is well understood by at least two parties.
-  - At each testing event, every operation defined in the binding MUST be validated automatically (e.g., scripts, test suites, etc.) and the results SHOULD be published in a dedicated document (README, or other human-readable documents) called *Test Report*.
-  - A *Test Report*
-      - MUST contain information on the testing environment
-      - MUST provide an example of the logical process (not necessarily code) about how a TD can be processed to establish a communication between consumer and exposer.
-      - MUST contain information about the scenario that was tested, e.g. controlling the room temperature by measuring temperature and adjusting the heater.
-      - MUST explain where discussions on implementation experience should be collected
-      - SHOULD provide the history of all the past testing events (or explain how to retrieve the history of the results gathered during those events)
-      - SHOULD contain a reference to the implementations of Consumers or Exposers. 
-  - For the binding to transition to the "Current" state, a *Test Report* MUST exist. The *Test Report* MUST contain at least one implementation of a Consumer (capable of understanding and performing all the operations described in the binding) and one Exposer (capable of handling all the operations and features described in the binding and optionally be able to create a valid TD). Additional implementations can be added even after the transition to the Current.
-  - The exact contents of the Test Report is not decided yet. See <https://github.com/w3c/wot-binding-templates-registry/issues/3>
+  - At each testing event, every operation defined in the binding MUST be validated automatically (e.g., scripts, test suites, etc.) and the results SHOULD be published in a dedicated document (README, or other human-readable documents) called _Test Report_.
+  - A _Test Report_
+    - MUST contain information on the testing environment
+    - MUST provide an example of the logical process (not necessarily code) about how a TD can be processed to establish a communication between consumer and exposer.
+    - MUST contain information about the scenario that was tested, e.g. controlling the room temperature by measuring temperature and adjusting the heater.
+    - MUST explain where discussions on implementation experience should be collected
+    - SHOULD provide the history of all the past testing events (or explain how to retrieve the history of the results gathered during those events)
+    - SHOULD contain a reference to the implementations of Consumers or Exposers.
+  - For the binding to transition to the "Current" state, a _Test Report_ MUST exist. The _Test Report_ MUST contain at least one implementation of a Consumer (capable of understanding and performing all the operations described in the binding) and one Exposer (capable of handling all the operations and features described in the binding and optionally be able to create a valid TD). Additional implementations can be added even after the transition to the Current.
+  - The exact contents of the Test Report is not decided yet. See <https://github.com/w3c/wot-bindings-registry/issues/3>
   - Submitters MAY call for transition but the custodian can also automatically trigger the process once it is verified that the condition above is reached.
-  - *Test Reports* and related resources SHOULD be published in a git repository. The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.  
+  - _Test Reports_ and related resources SHOULD be published in a git repository. The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.
   - Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a Plugfest or another structured testing session where different implementations can be evaluated collectively.
 - <a name="req-content">Req-Content</a>: The binding MUST contain the following sections in the order presented below. The binding CAN contain other sections anywhere, including between the required ones. The submitters are encouraged to look at the existing submissions. There MUST be at least one operation mapped to a protocol message/vocabulary term. The submitter SHOULD use the table template provided in the document for the vocabulary.
   - Introduction
@@ -165,6 +164,7 @@ What does the binding have to contain to go into the table
     - Default and possible mappings to operations as a Table
   - Examples
 - <a name="req-docs">Req-Docs</a>: The requirements for the machine-readable documents are as follows:
+
   - There MUST be a JSON Schema (version to be defined) that allows validating the elements added by the entry.
   - There SHOULD be a JSON-LD Context and an ontology for the entry. Note that the lack of JSON-LD Context creates an RDF representation that will probably cause issues in RDF databases.
 
@@ -173,6 +173,7 @@ What does the binding have to contain to go into the table
   - The reviewer MUST include these documents in their review.
   - All documents associated with the registry entry MUST have the same version string, i.e., the versions of all associated documents MUST be updated when there is a change to any of them.
   - The version MUST be a string that is visible in all the documents.
+
 - <a name="req-confl">Req-Confl</a>: The binding entry SHOULD NOT conflict with other entries in the registry, such as its other versions or its dependents, by redefining the same concepts, such as redefining the URI Scheme, the vocabulary terms, or the default assignments. If a previously stable binding is being improved upon by the same organization, that previous binding MUST be deprecated once the new one reaches the **stable** status.
 - <a name="req-redef">Req-Redef</a>: The namespace (prefix and its values) defined in a binding SHALL NOT be redefined or extended in any other binding, e.g., `cov:method` values shall not be extended in LWM2M and `cov:newTerm` shall not be added in LWM2M binding.
 - <a name="req-deps">Req-Deps</a>: If parts of the entry require the existence of another binding, i.e., has dependencies, the dependency MUST first be submitted as a separate entry. For example, before LWM2M can be submitted, the CoAP Binding must exist.

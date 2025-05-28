@@ -1,7 +1,7 @@
 {
-    "group": 95969
-  , "contacts":   ["ashimura"]
-  , "policy": "open"
-  , "shortName": "wot-binding-templates-registry"
-  , "repo-type": [ "registry" ]
+  "group": 95969,
+  "contacts": ["ashimura"],
+  "policy": "open",
+  "shortName": "wot-bindings-registry",
+  "repo-type": ["registry"]
 }

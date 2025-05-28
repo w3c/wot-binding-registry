@@ -1,0 +1,6 @@
+node_modules
+.install
+visualization/*.dot
+
+visualization/json-schema.svg
+*.drawio.bkp

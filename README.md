@@ -1,4 +1,3 @@
-# wot-binding-templates-registry
+# WoT Bindings Registry
 
-Repository for the WoT Binding Templates Registry
-
+Repository for the WoT Bindings Registry
