@@ -59,5 +59,215 @@
   <body>
     <section id="abstract"></section>
     <section id="sotd"></section>
+    
+    <section id="introduction">
+      <h2>Introduction</h2>
+      TODO
+    </section>
+    
+    <section id="usecase">
+      <h2>Use Case</h2>
+      <p>
+        From the charter:
+        <blockquote>
+          Support WoT Interoperability: The WG will improve out-of-the-box interoperability and enable the integration of WoT into other ecosystems and communities. Thus, the WG will define core binding and profiling mechanisms, and define additional profiles and bindings, as appropriate.
+        </blockquote>
+      </p>
+      <p>
+        Our Story and Use Case:
+      </p>
+      <p>
+        The goal of the W3C Web of Things is to support multiple protocols via the bindings mechanism. There are domains like smart cities and infrastructure where multiple stakeholders bring different devices and systems with different protocols. This means existing systems should be made interoperable with a descriptive approach via Thing Descriptions.
+      </p>
+      <p>
+        It is unrealistic to incorporate a complete list of bindings into a REC document before its publication; thus, we need a more flexible mechanism.
+      </p>
+    </section>
+    
+    <section id="conformance">
+    </section>
+    
+    <section id="terminology">
+      <h2>Terminology</h2>
+      
+      <p>
+        The terms below sometimes use the word <em>X</em> as a placeholder for the concrete binding that is referred to.
+      </p>
+      <dl>
+        <dt>
+          <dfn id="dfn-wot-x-binding">WoT X Binding</dfn>
+        </dt>
+        <dd>
+          A human-readable document that gives guidance on how to describe a specific IoT protocol, data format or IoT platform in the context of WoT. This is also the registry entry. See <a href="https://www.w3.org/policies/process/#registry-entry">registry entry</a> for more information.
+        </dd>
+        <dt>
+          <dfn id="dfn-binding-instance">Binding Instance</dfn>
+        </dt>
+        <dd>
+          A form element in a TD or TM that contains the concrete mapping of the operation to a binding. Thus it is a machine-readable description of how to activate an affordance.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-bindings-registry">WoT Bindings Registry</dfn>
+        </dt>
+        <dd>
+          A W3C Registry Track document that contains the WoT Bindings Registry Table, its requirements and possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more information on the definition.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-bindings-registry-table">WoT Bindings Registry Table</dfn>
+        </dt>
+        <dd>
+          A list of bindings that are usable in the context of WoT. See <a href="https://www.w3.org/policies/process/#registry-table">registry table</a> for more information.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-bindings-registry-definition">WoT Bindings Registry Definition</dfn>
+        </dt>
+        <dd>
+          A set of requirements that explain how the registry table is structured and maintained. See <a href="https://www.w3.org/policies/process/#registry-definition">registry definition</a> for more information.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-x-binding-implementation">WoT X Binding Implementation</dfn>
+        </dt>
+        <dd>
+          One of the codebases that implements the X binding to build the correct network messages
+        </dd>
+        <dt>
+          <dfn id="dfn-execution-binding-instance">Execution of a Binding Instance</dfn>
+        </dt>
+        <dd>
+          The request on the wire that is sent after parsing a TD's binding instance.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-x-binding-summary">WoT X Binding Summary</dfn>
+        </dt>
+        <dd>
+          A custodian-owned document that summarizes the binding with an abstract, examples, access/usage rights and possibly more. This is a supporting document for a binding entry.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-x-binding-json-schema">WoT X Binding JSON Schema</dfn>
+        </dt>
+        <dd>
+          A JSON Schema that allows validating the elements added by the WoT X Binding (registry entry). This is a supporting document for a binding entry.
+        </dd>
+        <dt>
+          <dfn id="dfn-wot-x-binding-json-ld-context">WoT X Binding JSON-LD Context</dfn>
+        </dt>
+        <dd>
+          A machine-readable JSON-LD document that defines all the terms to be used in a binding instance, which allows the terms to be dereferenced correctly by a JSON-LD parser. This is a supporting document for a binding entry.
+        </dd>
+        <dt>
+          <dfn id="dfn-x-vocabulary-rdf">X Vocabulary in RDF</dfn>
+        </dt>
+        <dd>
+          A machine-readable RDF document that formally defines all the terms of the binding, which allow semantic processing of a TD using those terms. The scope of these documents is not limited to WoT. This is a supporting document for a binding entry.
+        </dd>
+        <dt>
+          <dfn id="dfn-x-vocabulary-document">X Vocabulary Document</dfn>
+        </dt>
+        <dd>
+          A human-readable version of the vocabulary defined at X Vocabulary in RDF. This is a supporting document for a binding entry.
+        </dd>
+        <dt>
+          <dfn id="dfn-custodian">Custodian</dfn>
+        </dt>
+        <dd>
+          See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>.
+        </dd>
+        <dt>
+          <dfn id="dfn-reviewer">Reviewer</dfn>
+        </dt>
+        <dd>
+          A person who is an expert in the specification that the binding is targeting.
+        </dd>
+        <dt>
+          <dfn id="dfn-dependency">Dependency</dfn>
+        </dt>
+        <dd>
+          An entry that is used or referenced to from another entry.
+        </dd>
+        <dt>
+          <dfn id="dfn-dependent">Dependent</dfn>
+        </dt>
+        <dd>
+          An entry that uses or references another entry.
+        </dd>
+      </dl>
+    </section>
+    
+    <section id="introSectionDocument">
+      <h2>Intro Section of the Document</h2>
+      <p class="ednote">
+        I think we should not speak about "document" but rather about "registry". Also in the title.
+      </p>
+      <dl>
+        <dt>
+          <dfn id="int-exp">Int-Exp</dfn>
+        </dt>
+        <dd>
+          <p>A binding SHOULD be written by people with a good understanding of the protocol and media type (or similar), who are not necessarily the TD Editors. This includes people and organizations inside and outside of the WoT WG.</p>
+          <ul>
+            <li>
+              Reasons Behind the Requirement:
+              <ul>
+                <li>Instead of WG learning each new protocol and media type, it is more efficient for people with a good understanding of the protocol or media type to write a binding</li>
+                <li>Engaging other communities</li>
+              </ul>
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          <dfn id="int-sep">Int-Sep</dfn>
+        </dt>
+        <dd>
+          <p>The binding registry MUST be a separate document but associated with a TD version.</p>
+          <ul>
+            <li>
+              Reasons Behind the Requirement: It is easier to update in the long term.
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          <dfn id="int-asso">Int-Asso</dfn>
+        </dt>
+        <dd>
+          <p>Association of a binding with the TD specification (registry entry) SHOULD be confirmed by the WoT Working Group or its custodian. In other words, a person needs some permission and/or confirmation to authoritatively say that a given binding can be used with TD version X. The custodian of this registry is the WoT WG in the beginning.</p>
+          <ul>
+            <li>
+              Reasons Behind the Requirement: WoT WG is the manager of the registry.
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          <dfn id="int-oth">Int-Oth</dfn>
+        </dt>
+        <dd>
+          <p>The binding document (registry entry) CAN be hosted by another entity than the custodian.</p>
+        </dd>
+      </dl>
+    </section>
+    
+    <section id="contentRegistryDefinition">
+      <h2>Content of Registry Definition</h2>
+      TODO
+      
+      <section>
+        <h2>Entry format</h2>
+      </section>
+      
+      <section>
+        <h2>Lifecycle</h2>
+      </section>
+      
+      <section>
+        <h2>Ownership</h2>
+      </section>
+      
+      <section>
+        <h2>Requirements on the Submitted Document</h2>
+      </section>
+      
+      
+    </section>
+    
+    
   </body>
 </html>
