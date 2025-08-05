@@ -209,56 +209,41 @@
       </dl>
     </section>
     
-    <section id="intro-section-document">
-      <h2>Intro Section of the Document</h2>
-      <p class="ednote">
-        [DP] I think we should not speak about "document" but rather about "registry". Also in the title.
-      </p>
-      <dl>
-        <dt>
-          <dfn id="int-exp">Int-Exp</dfn>
-        </dt>
-        <dd>
-          <p>A binding SHOULD be written by people with a good understanding of the protocol and media type (or similar), who are not necessarily the TD Editors. This includes people and organizations inside and outside of the WoT WG.</p>
-          <ul>
-            <li>
-              Reasons Behind the Requirement:
-              <ul>
-                <li>Instead of WG learning each new protocol and media type, it is more efficient for people with a good understanding of the protocol or media type to write a binding</li>
-                <li>Engaging other communities</li>
-              </ul>
-            </li>
-          </ul>
-        </dd>
-        <dt>
-          <dfn id="int-sep">Int-Sep</dfn>
-        </dt>
-        <dd>
-          <p>The binding registry MUST be a separate document but associated with a TD version.</p>
-          <ul>
-            <li>
-              Reasons Behind the Requirement: It is easier to update in the long term.
-            </li>
-          </ul>
-        </dd>
-        <dt>
-          <dfn id="int-asso">Int-Asso</dfn>
-        </dt>
-        <dd>
-          <p>Association of a binding with the TD specification (registry entry) SHOULD be confirmed by the WoT Working Group or its custodian. In other words, a person needs some permission and/or confirmation to authoritatively say that a given binding can be used with TD version X. The custodian of this registry is the WoT WG in the beginning.</p>
-          <ul>
-            <li>
-              Reasons Behind the Requirement: WoT WG is the manager of the registry.
-            </li>
-          </ul>
-        </dd>
-        <dt>
-          <dfn id="int-oth">Int-Oth</dfn>
-        </dt>
-        <dd>
-          <p>The binding document (registry entry) CAN be hosted by another entity than the custodian.</p>
-        </dd>
-      </dl>
+    
+    <section id="binding-document">
+      <h1>WoT Binding Document</h1>
+      <p>A binding document should meet the following requirements.</p> 
+      <ul>
+        <li><a href="#int-exp"></a></li>
+        <li><a href="#int-sep"></a></li>
+        <li><a href="#int-ass"></a></li>
+        <li><a href="#int-oth"></a></li>
+      </ul>
+      <section id="int-exp">
+        <h2>Expert Knowledge</h2><!-- Expertise ? -->
+        <p>A binding SHOULD be written by people with a good understanding of the protocol and media type (or similar), who are not necessarily the TD Editors. This includes people and organizations inside and outside of the WoT WG.</p>
+        <p class="note" title="Reasons Behind the Requirement">
+          Instead of WG learning each new protocol and media type, it is more efficient for people with a good understanding of the protocol or media type to write a binding. Engaging other communities.
+        </p>
+      </section>
+      <section id="int-sep">
+        <h3>Separate Document</h3>
+        <p>The binding registry MUST be a separate document but associated with a TD version.</p>
+        <p class="note" title="Reasons Behind the Requirement">
+          It is easier to update in the long term.
+        </p>
+      </section>
+      <section id="int-ass">
+        <h3>Association</h3>
+        <p>Association of a binding with the TD specification (registry entry) SHOULD be confirmed by the WoT Working Group or its custodian. In other words, a person needs some permission and/or confirmation to authoritatively say that a given binding can be used with TD version X. The custodian of this registry is the WoT WG in the beginning.</p>
+        <p class="note" title="Reasons Behind the Requirement">
+          WoT WG is the manager of the registry.
+        </p>
+      </section>
+      <section id="int-oth">
+        <h3>Other Entity</h3>
+        <p>The binding document (registry entry) CAN be hosted by another entity than the custodian.</p>
+      </section>
     </section>
     
     <section id="content-registry-definition">
