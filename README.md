@@ -14,9 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.w3.org/TR/2023/REC-wot-thing-description11-20231205/">
-    <img alt="Latest REC" src="https://img.shields.io/badge/W3C_REC-Latest-005a9c"></a>
-  <a href="https://w3c.github.io/wot-thing-description">
+  <a href="https://w3c.github.io/wot-bindings-registry/">
     <img alt="Latest Editor's Draft" src="https://img.shields.io/badge/Editor's_Draft-Latest-fe914a"></a>
 </p>
 
@@ -33,7 +31,7 @@ lifecycle and ease of use for the developers.
 ## Logistics
 
 - Call information: We use the W3C Calendar. You can find the next WoT TD/Binding Templates calls at
-  <https://www.w3.org/groups/wg/wot/calendar>.
+  <https://www.w3.org/groups/wg/wot/calendar>. 
 - Wiki (contains agenda): <https://www.w3.org/WoT/IG/wiki/WG_WoT_Thing_Description_WebConf>
 - [Contribution rules](./CONTRIBUTING.md)
 
