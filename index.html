@@ -76,28 +76,20 @@
     </section>
     <section id="sotd"></section>
     
-    <section id="introduction">
+    <section id="introduction" class="informative">
       <h2>Introduction</h2>
-      TODO
-    </section>
-    
-    <section id="usecase">
-      <h2>Use Case</h2>
+      
       <p>
-        From the charter:
+        The Web of Things (WoT) has the goal of improving interoperability in IoT and enabling the integration of various IoT ecosystems and communities.
+        While the [[WOT-THING-DESCRIPTION11]] defines the abstract operations and interaction affordances, bindings map these to concrete network messages.
+        Thus, thanks to bindings, the W3C Web of Things support multiple protocols and media types in a descriptive approach by adding further information to Thing Descriptions.
       </p>
-      <blockquote>
-        Support WoT Interoperability: The WG will improve out-of-the-box interoperability and enable the integration of WoT into other ecosystems and communities. Thus, the WG will define core binding and profiling mechanisms, and define additional profiles and bindings, as appropriate.
-      </blockquote>
+
       <p>
-        Our Story and Use Case:
+        As the list of such protocols and media types is vast and tend to change over time, this document defines a flexible mechanism called a Bindings Registry.
+        This document relies on the registry track mechanism of the <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and fit to the purposes of WoT bindings.
       </p>
-      <p>
-        The goal of the W3C Web of Things is to support multiple protocols via the bindings mechanism. There are domains like smart cities and infrastructure where multiple stakeholders bring different devices and systems with different protocols. This means existing systems should be made interoperable with a descriptive approach via Thing Descriptions.
-      </p>
-      <p>
-        It is unrealistic to incorporate a complete list of bindings into a REC document before its publication; thus, we need a more flexible mechanism.
-      </p>
+
     </section>
     
     <section id="conformance">
@@ -105,10 +97,34 @@
     
     <section id="terminology">
       <h2>Terminology</h2>
-      
-      <p>
-        The terms below sometimes use the word <em>X</em> as a placeholder for the concrete binding that is referred to.
+
+      <p>The fundamental WoT terminology such as
+        <dfn class="lint-ignore">Thing</dfn>,
+        <dfn class="lint-ignore">Consumer</dfn>,
+        <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>),
+        <dfn class="lint-ignore">Interaction Model</dfn>,
+        <dfn class="lint-ignore">Interaction Affordance</dfn>,
+        <dfn class="lint-ignore">Property</dfn>,
+        <dfn class="lint-ignore">Action</dfn>,
+        <dfn class="lint-ignore">Event</dfn>,
+        <dfn class="lint-ignore">Data Schema</dfn>,
+        <dfn class="lint-ignore">Content Type</dfn>,
+        <dfn class="lint-ignore">Protocol Binding</dfn>,
+        <dfn class="lint-ignore">Binding Template</dfn>,
+        <dfn class="lint-ignore">Servient</dfn>,
+        <dfn class="lint-ignore">Vocabulary</dfn>,
+        <dfn class="lint-ignore">WoT Interface</dfn>,
+        <dfn class="lint-ignore">WoT Runtime</dfn>,
+        <dfn class="lint-ignore">IoT Platform</dfn>,
+        etc. is defined in <a data-cite="WOT-ARCHITECTURE#terminology">Section 3</a>
+        of the WoT Architecture specification [[WOT-ARCHITECTURE]].
       </p>
+
+      <p>
+        In addition, this specification introduces further definitions below.
+        These terms sometimes use the word <em>X</em> as a placeholder for the concrete binding that is referred to.
+      </p>
+
       <dl>
         <dt>
           <dfn id="dfn-wot-x-binding">WoT X Binding</dfn>
