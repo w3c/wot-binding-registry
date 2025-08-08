@@ -264,103 +264,96 @@
     <section id="content-registry-definition">
       <h2>Content of Registry Definition</h2>
       
-      <p>A preliminary list of rules that is extending <a href="https://www.w3.org/2023/Process-20230612/#reg-def">https://www.w3.org/2023/Process-20230612/#reg-def</a> (needs more iteration):</p>
+      <p>A set of rules extending the <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a> can be found below and is structures as follows.</p>
       
       <ul>
-        <li>Entry format: what is put into the table and not what the binding should contain.</li>
-        <li>Lifecycle of entries: how are they submitted, updated, deprecated etc.</li>
-        <li>Submission Requirements: What the binding has to contain to go into the table</li>
+        <li><a href="#entry-format"></a>
+          <!-- what is put into the table and not what the binding should contain -->
+        </li>
+        <li><a href="#lifecycle"></a>
+           <!-- how are they submitted, updated, deprecated etc. -->
+        </li>
+        <li><a href="#ownership"></a></li>
+        <li><a href="#submission-requirements"></a>
+          <!--What the binding has to contain to go into the table-->
+        </li>
       </ul>
-      <p class="ednote">
-        [DP] I think we want to extend the list above with the additional sections below and point/link to it.
-      </p>
       
       <section id="entry-format">
         <h2>Entry format</h2>
         
-        <p>Each entry MUST contain this information, and all parts of the entry MUST not conflict with existing bindings.</p>
-        
-        <dl>
-          <dt>
-            <dfn id="form-name">Form-Name</dfn>
-          </dt>
-          <dd>
-            <p>Name of the binding</p>
-            <ul>
-              <li>Examples: <code>HTTP Binding</code>, <code>CoAP Binding</code></li>
-            </ul>
-          </dd>
-          <dt>
-            <dfn id="form-link">Form-Link</dfn>
-          </dt>
-          <dd>
-            <p>Link to the binding document: Stable link whose content cannot change (e.g., a date, version number, etc.)</p>
-            <ul>
-              <li>Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code></li>
-            </ul>
-          </dd>
-          <dt>
-            <dfn id="form-pref">Form-Pref</dfn>
-          </dt>
-          <dd>
-            <p>Binding ontology prefix</p>
-            <ul>
-              <li>Examples: <code>htv</code>, <code>modv</code>, <code>cov</code></li>
-            </ul>
-          </dd>
-          <dt>
-            <dfn id="form-id">Form-Id</dfn>
-          </dt>
-          <dd>
-            <p>Binding Identification in TD: URI Scheme or other TD terms reserved for this binding.</p>
-            <ul>
-              <li>Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>, <code>&quot;href&quot;:&quot;http://example.com&quot;</code>, <code>&quot;contentType&quot;:&quot;application/json&quot;</code></li>
-              <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
-              <li>Reasons Behind the Requirement:<ul>
-              <li>This avoids conflicts that are mentioned in the previous requirement</li>
-              </ul>
-              </li>
-              <li>TODO: These terms should be refined based on the additions/changes to the TD 2.0 mechanism, e.g., introducing a <code>protocol</code> term or putting restrictions on URI scheme and <code>subprotocol</code> combination, data mapping, etc.</li>
-              <li>Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.</li>
-              </ul>
-              </li>
-            </ul>
-          </dd>
-          <dt>
-            <dfn id="form-tdver">Form-TdVer</dfn>
-          </dt>
-          <dd>
-            <p>Supported TD version (no uniqueness needed):</p>
-            <ul>
-              <li>A binding SHOULD correspond to specific TD specification version(s).<ul>
-              <li>Reason Behind the Requirement: A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.</li>
-              </ul>
-              </li>
-            </ul>
-          </dd>
-          <dt>
-            <dfn id="form-stat">Form-Stat</dfn>
-          </dt>
-          <dd>
-            <p>Status: One of Initial, Current, Superseded or Obsolete</p>
-          </dd>
-          <dt>
-            <dfn id="form-summ">Form-Summ</dfn>
-          </dt>
-          <dd>
-            <p>Summary Document: Link to the summary document</p>
-          </dd>
-          <dt>
-            <dfn id="form-ver">Form-Ver</dfn>
-          </dt>
-          <dd>
-            <p>Version: A unique string for that entry&#39;s history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of <code>YYYY-MM-DD</code>.</p>
-          </dd>
-        </dl>
+        <p>Each entry MUST contain the following information, and all parts of the entry MUST not conflict with existing bindings.</p>
+        <table class="def numbered"><!-- -->
+          <caption>
+            Entry format information
+          </caption>
+          <thead>
+            <tr>
+              <th>Information</th>
+              <th>Additional Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="form-name">
+              <td>Name of the binding</td>
+              <td>Examples: <code>HTTP Binding</code>, <code>CoAP Binding</code></td>
+            </tr>
+            <tr id="form-link">
+              <td>Link to the binding document</td>
+              <td>Stable link whose content cannot change (e.g., a date, version number, etc.)  <br />
+                Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code>
+              </td>
+            </tr>
+            <tr id="form-pref">
+              <td>Binding ontology prefix</td>
+              <td>Examples: <code>htv</code>, <code>modv</code>, <code>cov</code></td>
+            </tr>
+            <tr id="form-id">
+              <td>Binding Identification in TD</td>
+              <td>URI Scheme or other TD terms reserved for this binding. <br />
+                Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>, <code>&quot;href&quot;:&quot;http://example.com&quot;</code>, <code>&quot;contentType&quot;:&quot;application/json&quot;</code>
+                <ul>
+                  
+                  <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
+                  <li>Reasons Behind the Requirement:<ul>
+                  <li>This avoids conflicts that are mentioned in the previous requirement</li>
+                  </ul>
+                  </li>
+                  <li>TODO: These terms should be refined based on the additions/changes to the TD 2.0 mechanism, e.g., introducing a <code>protocol</code> term or putting restrictions on URI scheme and <code>subprotocol</code> combination, data mapping, etc.</li>
+                  <li>Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.</li>
+                  </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="form-tdver">
+              <td>Supported TD version</td>
+              <td>A binding SHOULD correspond to specific TD specification version(s). <br />
+                Note: <em>no uniqueness needed</em>
+                <ul>
+                  <li>Reason Behind the Requirement: A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.</li>
+                </ul>
+                </li>
+              </td>
+            </tr>
+            <tr id="form-stat">
+              <td>Status</td>
+              <td>One of "Initial", "Current", "Superseded" or "Obsolete".</td>
+            </tr>
+            <tr id="form-summ">
+              <td>Summary Document</td>
+              <td>Link to the summary document.</td>
+            </tr>
+            <tr id="form-ver">
+              <td>Version</td>
+              <td>Version: A unique string for that entry&#39;s history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of <code>YYYY-MM-DD</code>.</td>
+            </tr>
+          </tbody>
+        </table>
         
       </section>
       
-      <section>
+      <section id="lifecycle">
         <h2>Lifecycle</h2>
         
         <dl>
@@ -425,7 +418,7 @@
         
       </section>
       
-      <section>
+      <section id="ownership">
         <h2>Ownership</h2>
         
         <dl>
@@ -448,8 +441,8 @@
         
       </section>
       
-      <section>
-        <h2>Requirements on the Submitted Document</h2>
+      <section id="submission-requirements">
+        <h2>Submission Requirements</h2><!-- Requirements on the Submitted Document -->
         
         <p>What does the binding have to contain to go into the table</p>
         
