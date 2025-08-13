@@ -317,8 +317,12 @@
               <td>???</td>
               <td>URI Scheme or other TD terms reserved for this binding. <br />
                 Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>, <code>&quot;href&quot;:&quot;http://example.com&quot;</code>, <code>&quot;contentType&quot;:&quot;application/json&quot;</code>
-                <ul>
-                  
+                
+                <!--
+                  TODO: These assertions should be moved to the registry definition.
+                  see https://github.com/w3c/wot-bindings-registry/pull/17#discussion_r2267069020
+                --> 
+                <!-- <ul>
                   <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
                   <li>Reasons Behind the Requirement:<ul>
                   <li>This avoids conflicts that are mentioned in the previous requirement</li>
@@ -328,7 +332,13 @@
                   <li>Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.</li>
                   </ul>
                   </li>
-                </ul>
+                </ul> -->
+                <p class="ednote">
+                  These terms should be refined based on the additions/changes to the TD 2.0 mechanism, e.g., introducing a <code>protocol</code> term or putting restrictions on URI scheme and <code>subprotocol</code> combination, data mapping, etc.
+                </p>
+                <p class="note">
+                  Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.
+                </p>
               </td>
             </tr>
             <tr id="form-tdver">
@@ -339,9 +349,9 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               <td>A binding SHOULD correspond to specific TD specification version(s). <br />
                 Note: <em>no uniqueness needed</em>
-                <ul>
-                  <li>Reason Behind the Requirement: A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.</li>
-                </ul>
+                <p class="note">
+                  A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.
+                </p>
                 </li>
               </td>
             </tr>
