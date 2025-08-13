@@ -290,26 +290,31 @@
           <thead>
             <tr>
               <th>Information</th>
-              <th>Additional Notes</th>
+              <th>Type</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr id="form-name">
               <td>Name of the binding</td>
+              <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a></td>
               <td>Examples: <code>HTTP Binding</code>, <code>CoAP Binding</code></td>
             </tr>
             <tr id="form-link">
               <td>Link to the binding document</td>
+              <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a></td>
               <td>Stable link whose content cannot change (e.g., a date, version number, etc.)  <br />
                 Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code>
               </td>
             </tr>
             <tr id="form-pref">
               <td>Binding ontology prefix</td>
+              <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a></td>
               <td>Examples: <code>htv</code>, <code>modv</code>, <code>cov</code></td>
             </tr>
             <tr id="form-id">
               <td>Binding Identification in TD</td>
+              <td>???</td>
               <td>URI Scheme or other TD terms reserved for this binding. <br />
                 Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>, <code>&quot;href&quot;:&quot;http://example.com&quot;</code>, <code>&quot;contentType&quot;:&quot;application/json&quot;</code>
                 <ul>
@@ -328,6 +333,10 @@
             </tr>
             <tr id="form-tdver">
               <td>Supported TD version</td>
+              <td>
+                <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a> or
+                Array of
+                <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               <td>A binding SHOULD correspond to specific TD specification version(s). <br />
                 Note: <em>no uniqueness needed</em>
                 <ul>
@@ -338,15 +347,18 @@
             </tr>
             <tr id="form-stat">
               <td>Status</td>
+              <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#rf-enumeration">enumeration</a> of [<code>Initial</code>, <code>Current</code>, <code>Superseded</code>, <code>Obsolete</code>]</td>
               <td>One of <code>Initial</code>, <code>Current</code>, <code>Superseded</code> or <code>Obsolete</code>.</td>
             </tr>
             <tr id="form-summ">
               <td>Summary Document</td>
+              <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a></td>
               <td>Link to the summary document.</td>
             </tr>
             <tr id="form-ver">
               <td>Version</td>
-              <td>Version: A unique string for that entry&#39;s history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of <code>YYYY-MM-DD</code>.</td>
+              <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a></td>
+              <td>A unique string for that entry&#39;s history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of <code>YYYY-MM-DD</code>.</td>
             </tr>
           </tbody>
         </table>
