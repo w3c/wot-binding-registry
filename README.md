@@ -31,7 +31,7 @@ lifecycle and ease of use for the developers.
 ## Logistics
 
 - Call information: We use the W3C Calendar. You can find the next WoT TD/Binding Templates calls at
-  <https://www.w3.org/groups/wg/wot/calendar>.
+  <https://www.w3.org/groups/wg/wot/calendar>. 
 - Wiki (contains agenda): <https://www.w3.org/WoT/IG/wiki/WG_WoT_Thing_Description_WebConf>
 - [Contribution rules](./CONTRIBUTING.md)
 

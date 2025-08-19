@@ -61,63 +61,68 @@
       <h2>Abstract</h2>
       <p>
         W3C Web of Things (WoT) enables applications to interact with and orchestrate connected Things at the Web scale.
-        The standardized abstract interaction model exposed by the WoT Thing Description enables applications to scale
-        and evolve independently of the individual Things. Through WoT Bindings, the abstract interactions can be bound
-        to various network-level protocols, standards, and platforms for connected Things, which already have have
-        millions of devices deployed in the field today. This is done through protocol-specific URI schemes, additional
-        descriptive vocabularies, and examples that guide the implementors of WoT Things and Consumers alike.
+        The standardized abstract interaction model exposed by the WoT Thing Description enables applications to
+        scale and evolve independently of the individual Things.
+        Through WoT Bindings, the abstract interactions can be bound to various network-level protocols, standards,
+        and platforms for connected Things, which already have have millions of devices deployed in the field today. 
+        This is done through protocol-specific URI schemes, additional descriptive vocabularies, and examples that 
+        guide the implementors of WoT Things and Consumers alike.
       </p>
       <p>
-        This document defines a registry of WoT bindings that make it possible to have a record of the different
-        bindings. Additionally, it sets the rules that govern this registry to guarantee a quality standard, long
-        lifecycle and ease of use for the developers.
+        This document defines a registry of WoT bindings that make it possible to have a record of the different bindings. 
+        Additionally, it sets the rules that govern this registry to guarantee a quality standard, long lifecycle and ease 
+        of use for the developers.
       </p>
     </section>
     <section id="sotd"></section>
-
+    
     <section id="introduction" class="informative">
       <h2>Introduction</h2>
-
+      
       <p>
-        The Web of Things (WoT) has the goal of improving interoperability in IoT and enabling the integration of
-        various IoT ecosystems and communities. While the [[WOT-THING-DESCRIPTION11]] defines the abstract operations
-        and interaction affordances, bindings map these to concrete network messages. Thus, thanks to bindings, the W3C
-        Web of Things support multiple protocols and media types in a descriptive approach by adding further information
-        to Thing Descriptions.
+        The Web of Things (WoT) has the goal of improving interoperability in IoT and enabling the integration of various IoT ecosystems and communities.
+        While the [[WOT-THING-DESCRIPTION11]] defines the abstract operations and interaction affordances, bindings map these to concrete network messages.
+        Thus, thanks to bindings, the W3C Web of Things support multiple protocols and media types in a descriptive approach by adding further information to Thing Descriptions.
       </p>
 
       <p>
-        As the number of such protocols and media types is vast and tends to change over time, this document defines a
-        flexible mechanism called a Bindings Registry. This document relies on the registry track mechanism of the
-        <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and fit
-        to the purposes of WoT bindings.
+        As the number of such protocols and media types is vast and tends to change over time, this document defines a flexible mechanism called a Bindings Registry.
+        This document relies on the registry track mechanism of the <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and fit to the purposes of WoT bindings.
       </p>
+
     </section>
-
-    <section id="conformance"></section>
-
+    
+    <section id="conformance">
+    </section>
+    
     <section id="terminology">
       <h2>Terminology</h2>
 
-      <p>
-        The fundamental WoT terminology such as <dfn class="lint-ignore">Thing</dfn>,
-        <dfn class="lint-ignore">Consumer</dfn>, <dfn class="lint-ignore">Thing Description</dfn> (<dfn
-          class="lint-ignore"
-          >TD</dfn
-        >), <dfn class="lint-ignore">Interaction Model</dfn>, <dfn class="lint-ignore">Interaction Affordance</dfn>,
-        <dfn class="lint-ignore">Property</dfn>, <dfn class="lint-ignore">Action</dfn>,
-        <dfn class="lint-ignore">Event</dfn>, <dfn class="lint-ignore">Data Schema</dfn>,
-        <dfn class="lint-ignore">Content Type</dfn>, <dfn class="lint-ignore">Protocol Binding</dfn>,
-        <dfn class="lint-ignore">Binding Template</dfn>, <dfn class="lint-ignore">Servient</dfn>,
-        <dfn class="lint-ignore">Vocabulary</dfn>, <dfn class="lint-ignore">WoT Interface</dfn>,
-        <dfn class="lint-ignore">WoT Runtime</dfn>, <dfn class="lint-ignore">IoT Platform</dfn>, etc. is defined in
-        <a data-cite="WOT-ARCHITECTURE#terminology">Section 3</a>
+      <p>The fundamental WoT terminology such as
+        <dfn class="lint-ignore">Thing</dfn>,
+        <dfn class="lint-ignore">Consumer</dfn>,
+        <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>),
+        <dfn class="lint-ignore">Interaction Model</dfn>,
+        <dfn class="lint-ignore">Interaction Affordance</dfn>,
+        <dfn class="lint-ignore">Property</dfn>,
+        <dfn class="lint-ignore">Action</dfn>,
+        <dfn class="lint-ignore">Event</dfn>,
+        <dfn class="lint-ignore">Data Schema</dfn>,
+        <dfn class="lint-ignore">Content Type</dfn>,
+        <dfn class="lint-ignore">Protocol Binding</dfn>,
+        <dfn class="lint-ignore">Binding Template</dfn>,
+        <dfn class="lint-ignore">Servient</dfn>,
+        <dfn class="lint-ignore">Vocabulary</dfn>,
+        <dfn class="lint-ignore">WoT Interface</dfn>,
+        <dfn class="lint-ignore">WoT Runtime</dfn>,
+        <dfn class="lint-ignore">IoT Platform</dfn>,
+        etc. is defined in <a data-cite="WOT-ARCHITECTURE#terminology">Section 3</a>
         of the WoT Architecture specification [[WOT-ARCHITECTURE]].
       </p>
 
       <p>
-        In addition, this specification introduces further definitions below. These terms sometimes use the word
-        <em>X</em> as a placeholder for the concrete binding that is referred to.
+        In addition, this specification introduces further definitions below.
+        These terms sometimes use the word <em>X</em> as a placeholder for the concrete binding that is referred to.
       </p>
 
       <dl>
@@ -125,103 +130,101 @@
           <dfn id="dfn-wot-x-binding">WoT X Binding</dfn>
         </dt>
         <dd>
-          A human-readable document that gives guidance on how to describe a specific IoT protocol, data format or IoT
-          platform in the context of WoT. This is also the registry entry. See
-          <a href="https://www.w3.org/policies/process/#registry-entry">registry entry</a> for more information.
+          A human-readable document that gives guidance on how to describe a specific IoT protocol, data format or IoT platform in the context of WoT. This is also the registry entry. See <a href="https://www.w3.org/policies/process/#registry-entry">registry entry</a> for more information.
         </dd>
         <dt>
           <dfn id="dfn-binding-instance">Binding Instance</dfn>
         </dt>
         <dd>
-          A form element in a TD or TM that contains the concrete mapping of the operation to a binding. Thus it is a
-          machine-readable description of how to activate an affordance.
+          A form element in a TD or TM that contains the concrete mapping of the operation to a binding. Thus it is a machine-readable description of how to activate an affordance.
         </dd>
         <dt>
           <dfn id="dfn-wot-bindings-registry">WoT Bindings Registry</dfn>
         </dt>
         <dd>
-          A W3C Registry Track document that contains the WoT Bindings Registry Table, its requirements and possibly
-          other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more
-          information on the definition.
+          A W3C Registry Track document that contains the WoT Bindings Registry Table, its requirements and possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more information on the definition.
         </dd>
         <dt>
           <dfn id="dfn-wot-bindings-registry-table">WoT Bindings Registry Table</dfn>
         </dt>
         <dd>
-          A list of bindings that are usable in the context of WoT. See
-          <a href="https://www.w3.org/policies/process/#registry-table">registry table</a> for more information.
+          A list of bindings that are usable in the context of WoT. See <a href="https://www.w3.org/policies/process/#registry-table">registry table</a> for more information.
         </dd>
         <dt>
           <dfn id="dfn-wot-bindings-registry-definition">WoT Bindings Registry Definition</dfn>
         </dt>
         <dd>
-          A set of requirements that explain how the registry table is structured and maintained. See
-          <a href="https://www.w3.org/policies/process/#registry-definition">registry definition</a> for more
-          information.
+          A set of requirements that explain how the registry table is structured and maintained. See <a href="https://www.w3.org/policies/process/#registry-definition">registry definition</a> for more information.
         </dd>
         <dt>
           <dfn id="dfn-wot-x-binding-implementation">WoT X Binding Implementation</dfn>
         </dt>
-        <dd>One of the codebases that implements the X binding to build the correct network messages</dd>
+        <dd>
+          One of the codebases that implements the X binding to build the correct network messages
+        </dd>
         <dt>
           <dfn id="dfn-execution-binding-instance">Execution of a Binding Instance</dfn>
         </dt>
-        <dd>The request on the wire that is sent after parsing a TD's binding instance.</dd>
+        <dd>
+          The request on the wire that is sent after parsing a TD's binding instance.
+        </dd>
         <dt>
           <dfn id="dfn-wot-x-binding-summary">WoT X Binding Summary</dfn>
         </dt>
         <dd>
-          A custodian-owned document that summarizes the binding with an abstract, examples, access/usage rights and
-          possibly more. This is a supporting document for a binding entry.
+          A custodian-owned document that summarizes the binding with an abstract, examples, access/usage rights and possibly more. This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-wot-x-binding-json-schema">WoT X Binding JSON Schema</dfn>
         </dt>
         <dd>
-          A JSON Schema that allows validating the elements added by the WoT X Binding (registry entry). This is a
-          supporting document for a binding entry.
+          A JSON Schema that allows validating the elements added by the WoT X Binding (registry entry). This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-wot-x-binding-json-ld-context">WoT X Binding JSON-LD Context</dfn>
         </dt>
         <dd>
-          A machine-readable JSON-LD document that defines all the terms to be used in a binding instance, which allows
-          the terms to be dereferenced correctly by a JSON-LD parser. This is a supporting document for a binding entry.
+          A machine-readable JSON-LD document that defines all the terms to be used in a binding instance, which allows the terms to be dereferenced correctly by a JSON-LD parser. This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-x-vocabulary-rdf">X Vocabulary in RDF</dfn>
         </dt>
         <dd>
-          A machine-readable RDF document that formally defines all the terms of the binding, which allow semantic
-          processing of a TD using those terms. The scope of these documents is not limited to WoT. This is a supporting
-          document for a binding entry.
+          A machine-readable RDF document that formally defines all the terms of the binding, which allow semantic processing of a TD using those terms. The scope of these documents is not limited to WoT. This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-x-vocabulary-document">X Vocabulary Document</dfn>
         </dt>
         <dd>
-          A human-readable version of the vocabulary defined at X Vocabulary in RDF. This is a supporting document for a
-          binding entry.
+          A human-readable version of the vocabulary defined at X Vocabulary in RDF. This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
         </dt>
-        <dd>See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>.</dd>
+        <dd>
+          See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>.
+        </dd>
         <dt>
           <dfn id="dfn-reviewer">Reviewer</dfn>
         </dt>
-        <dd>A person who is an expert in the specification that the binding is targeting.</dd>
+        <dd>
+          A person who is an expert in the specification that the binding is targeting.
+        </dd>
         <dt>
           <dfn id="dfn-dependency">Dependency</dfn>
         </dt>
-        <dd>An entry that is used or referenced to from another entry.</dd>
+        <dd>
+          An entry that is used or referenced to from another entry.
+        </dd>
         <dt>
           <dfn id="dfn-dependent">Dependent</dfn>
         </dt>
-        <dd>An entry that uses or references another entry.</dd>
+        <dd>
+          An entry that uses or references another entry.
+        </dd>
       </dl>
     </section>
-
+    
     <section id="intro-section-document">
       <h2>Intro Section of the Document</h2>
       <p class="ednote">
@@ -232,19 +235,12 @@
           <dfn id="int-exp">Int-Exp</dfn>
         </dt>
         <dd>
-          <p>
-            A binding SHOULD be written by people with a good understanding of the protocol and media type (or similar),
-            who are not necessarily the TD Editors. This includes people and organizations inside and outside of the WoT
-            WG.
-          </p>
+          <p>A binding SHOULD be written by people with a good understanding of the protocol and media type (or similar), who are not necessarily the TD Editors. This includes people and organizations inside and outside of the WoT WG.</p>
           <ul>
             <li>
               Reasons Behind the Requirement:
               <ul>
-                <li>
-                  Instead of WG learning each new protocol and media type, it is more efficient for people with a good
-                  understanding of the protocol or media type to write a binding
-                </li>
+                <li>Instead of WG learning each new protocol and media type, it is more efficient for people with a good understanding of the protocol or media type to write a binding</li>
                 <li>Engaging other communities</li>
               </ul>
             </li>
@@ -256,21 +252,20 @@
         <dd>
           <p>The binding registry MUST be a separate document but associated with a TD version.</p>
           <ul>
-            <li>Reasons Behind the Requirement: It is easier to update in the long term.</li>
+            <li>
+              Reasons Behind the Requirement: It is easier to update in the long term.
+            </li>
           </ul>
         </dd>
         <dt>
           <dfn id="int-asso">Int-Asso</dfn>
         </dt>
         <dd>
-          <p>
-            Association of a binding with the TD specification (registry entry) SHOULD be confirmed by the WoT Working
-            Group or its custodian. In other words, a person needs some permission and/or confirmation to
-            authoritatively say that a given binding can be used with TD version X. The custodian of this registry is
-            the WoT WG in the beginning.
-          </p>
+          <p>Association of a binding with the TD specification (registry entry) SHOULD be confirmed by the WoT Working Group or its custodian. In other words, a person needs some permission and/or confirmation to authoritatively say that a given binding can be used with TD version X. The custodian of this registry is the WoT WG in the beginning.</p>
           <ul>
-            <li>Reasons Behind the Requirement: WoT WG is the manager of the registry.</li>
+            <li>
+              Reasons Behind the Requirement: WoT WG is the manager of the registry.
+            </li>
           </ul>
         </dd>
         <dt>
@@ -281,18 +276,12 @@
         </dd>
       </dl>
     </section>
-
+    
     <section id="content-registry-definition">
       <h2>Content of Registry Definition</h2>
-
-      <p>
-        A preliminary list of rules that is extending
-        <a href="https://www.w3.org/2023/Process-20230612/#reg-def"
-          >https://www.w3.org/2023/Process-20230612/#reg-def</a
-        >
-        (needs more iteration):
-      </p>
-
+      
+      <p>A preliminary list of rules that is extending <a href="https://www.w3.org/2023/Process-20230612/#reg-def">https://www.w3.org/2023/Process-20230612/#reg-def</a> (needs more iteration):</p>
+      
       <ul>
         <li>Entry format: what is put into the table and not what the binding should contain.</li>
         <li>Lifecycle of entries: how are they submitted, updated, deprecated etc.</li>
@@ -301,14 +290,12 @@
       <p class="ednote">
         [DP] I think we want to extend the list above with the additional sections below and point/link to it.
       </p>
-
+      
       <section id="entry-format">
         <h2>Entry format</h2>
-
-        <p>
-          Each entry MUST contain this information, and all parts of the entry MUST not conflict with existing bindings.
-        </p>
-
+        
+        <p>Each entry MUST contain this information, and all parts of the entry MUST not conflict with existing bindings.</p>
+        
         <dl>
           <dt>
             <dfn id="form-name">Form-Name</dfn>
@@ -323,9 +310,7 @@
             <dfn id="form-link">Form-Link</dfn>
           </dt>
           <dd>
-            <p>
-              Link to the binding document: Stable link whose content cannot change (e.g., a date, version number, etc.)
-            </p>
+            <p>Link to the binding document: Stable link whose content cannot change (e.g., a date, version number, etc.)</p>
             <ul>
               <li>Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code></li>
             </ul>
@@ -345,34 +330,15 @@
           <dd>
             <p>Binding Identification in TD: URI Scheme or other TD terms reserved for this binding.</p>
             <ul>
-              <li>
-                Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>,
-                <code>&quot;href&quot;:&quot;http://example.com&quot;</code>,
-                <code>&quot;contentType&quot;:&quot;application/json&quot;</code>
+              <li>Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>, <code>&quot;href&quot;:&quot;http://example.com&quot;</code>, <code>&quot;contentType&quot;:&quot;application/json&quot;</code></li>
+              <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
+              <li>Reasons Behind the Requirement:<ul>
+              <li>This avoids conflicts that are mentioned in the previous requirement</li>
+              </ul>
               </li>
-              <li>
-                In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>,
-                <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the
-                TD.
-                <ul>
-                  <li>
-                    Reasons Behind the Requirement:
-                    <ul>
-                      <li>This avoids conflicts that are mentioned in the previous requirement</li>
-                    </ul>
-                  </li>
-                  <li>
-                    TODO: These terms should be refined based on the additions/changes to the TD 2.0 mechanism, e.g.,
-                    introducing a <code>protocol</code> term or putting restrictions on URI scheme and
-                    <code>subprotocol</code> combination, data mapping, etc.
-                  </li>
-                  <li>
-                    Until a custodian review, no registration is needed. A full IANA registration is required for the
-                    final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If
-                    needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional
-                    registration to simplify the process on the IANA side.
-                  </li>
-                </ul>
+              <li>TODO: These terms should be refined based on the additions/changes to the TD 2.0 mechanism, e.g., introducing a <code>protocol</code> term or putting restrictions on URI scheme and <code>subprotocol</code> combination, data mapping, etc.</li>
+              <li>Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.</li>
+              </ul>
               </li>
             </ul>
           </dd>
@@ -382,16 +348,9 @@
           <dd>
             <p>Supported TD version (no uniqueness needed):</p>
             <ul>
-              <li>
-                A binding SHOULD correspond to specific TD specification version(s).
-                <ul>
-                  <li>
-                    Reason Behind the Requirement: A binding may not fit newer or older versions of a TD specification
-                    (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive).
-                    Thus, when writing a binding, it must be associated with one or more known TD specification
-                    versions.
-                  </li>
-                </ul>
+              <li>A binding SHOULD correspond to specific TD specification version(s).<ul>
+              <li>Reason Behind the Requirement: A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.</li>
+              </ul>
               </li>
             </ul>
           </dd>
@@ -411,18 +370,15 @@
             <dfn id="form-ver">Form-Ver</dfn>
           </dt>
           <dd>
-            <p>
-              Version: A unique string for that entry&#39;s history that denotes the version of the entry that is
-              linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
-              <code>YYYY-MM-DD</code>.
-            </p>
+            <p>Version: A unique string for that entry&#39;s history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of <code>YYYY-MM-DD</code>.</p>
           </dd>
         </dl>
+        
       </section>
-
+      
       <section>
         <h2>Lifecycle</h2>
-
+        
         <dl>
           <dt>
             <dfn id="life-subm">Life-Subm</dfn>
@@ -430,24 +386,9 @@
           <dd>
             <p>Technical submission mechanism. How does a binding get submitted?</p>
             <ul>
-              <li>
-                We work with issues only. The information for the entry format is submitted as a list. This way, non-W3C
-                members can submit a binding. Reviews from the custodian happen on the issue. The submitter is expected
-                to answer until the custodian makes a PR to add the binding to the registry or change its status.
-              </li>
-              <li>
-                A purpose built GitHub project for tracking submissions is used. When a submission comes in form an
-                issue, it is automatically added to column &quot;Binding Submitted&quot;. When the custodian and
-                reviewers start looking at it, it goes to the &quot;Under Review&quot; column. If the review is in
-                favour, the custodian makes the PR to add it to the registry and the issue goes to column
-                &quot;Accepted&quot;. If the review is not in favour, it goes to the column &quot;Rejected&quot;. All
-                these changes are reflected as comments in the original issue.
-              </li>
-              <li>
-                If a new entry conflicts with another entry, the reviewer MUST mark the new submission accordingly. As
-                two bindings that do the same are not allowed, either the old one MUST be deprecated or the new one MUST
-                be rejected. See also point 13 under &quot;Requirements on the Submitted Document&quot;.
-              </li>
+              <li>We work with issues only. The information for the entry format is submitted as a list. This way, non-W3C members can submit a binding. Reviews from the custodian happen on the issue. The submitter is expected to answer until the custodian makes a PR to add the binding to the registry or change its status.</li>
+              <li>A purpose built GitHub project for tracking submissions is used. When a submission comes in form an issue, it is automatically added to column &quot;Binding Submitted&quot;. When the custodian and reviewers start looking at it, it goes to the &quot;Under Review&quot; column. If the review is in favour, the custodian makes the PR to add it to the registry and the issue goes to column &quot;Accepted&quot;. If the review is not in favour, it goes to the column &quot;Rejected&quot;. All these changes are reflected as comments in the original issue.</li>
+              <li>If a new entry conflicts with another entry, the reviewer MUST mark the new submission accordingly. As two bindings that do the same are not allowed, either the old one MUST be deprecated or the new one MUST be rejected. See also point 13 under &quot;Requirements on the Submitted Document&quot;.</li>
             </ul>
           </dd>
           <dt>
@@ -456,33 +397,19 @@
           <dd>
             <p>Initial -&gt; Current -&gt; Superseded or Obsolete</p>
             <ul>
-              <li>
-                Definitions:
-                <ul>
-                  <li>
-                    Initial: Document is correctly written but no implementation experience has been necessarily
-                    documented.
-                  </li>
-                  <li>
-                    Current: Custodian recommends it for new implementations and it has enough implementation experience
-                  </li>
-                  <li>Superseded: A previously &quot;current&quot; entry that is now superseded with a newer one</li>
-                  <li>Obsolete: Custodian does not recommend the usage of this binding</li>
-                </ul>
+              <li>Definitions:<ul>
+              <li>Initial: Document is correctly written but no implementation experience has been necessarily documented.</li>
+              <li>Current: Custodian recommends it for new implementations and it has enough implementation experience</li>
+              <li>Superseded: A previously &quot;current&quot; entry that is now superseded with a newer one</li>
+              <li>Obsolete: Custodian does not recommend the usage of this binding</li>
+              </ul>
               </li>
               <li>This is inspired by the TTWG Boilerplate</li>
-              <li>
-                Alternatives that can be reconsidered if needed:
-                <ul>
-                  <li>Initial: provisional, draft, in development</li>
-                  <li>Current: Final, Stable</li>
-                  <li>
-                    Outdated: Old, Deprecated (not preferred since it is still usable), Previous, Obsolete. Also see
-                    <a href="https://www.w3.org/policies/process/#RecsObs"
-                      >https://www.w3.org/policies/process/#RecsObs</a
-                    >
-                  </li>
-                </ul>
+              <li>Alternatives that can be reconsidered if needed:<ul>
+              <li>Initial: provisional, draft, in development</li>
+              <li>Current: Final, Stable</li>
+              <li>Outdated: Old, Deprecated (not preferred since it is still usable), Previous, Obsolete. Also see <a href="https://www.w3.org/policies/process/#RecsObs">https://www.w3.org/policies/process/#RecsObs</a></li>
+              </ul>
               </li>
             </ul>
           </dd>
@@ -490,62 +417,39 @@
             <dfn id="life-tran">Life-Tran</dfn>
           </dt>
           <dd>
-            <p>
-              What are the requirements for transitioning from one value to another? See the &quot;Requirements on the
-              Submitted Document&quot; section as well.
-            </p>
+            <p>What are the requirements for transitioning from one value to another? See the &quot;Requirements on the Submitted Document&quot; section as well.</p>
           </dd>
           <dt>
             <dfn id="life-ver">Life-Ver</dfn>
           </dt>
           <dd>
-            <p>
-              Versioning of registry entries (see
-              <a href="https://github.com/w3c/wot/tree/main/registry-analysis#versioning"
-                >https://github.com/w3c/wot/tree/main/registry-analysis#versioning</a
-              >)
-            </p>
+            <p>Versioning of registry entries (see <a href="https://github.com/w3c/wot/tree/main/registry-analysis#versioning">https://github.com/w3c/wot/tree/main/registry-analysis#versioning</a>)</p>
             <ul>
-              <li>
-                Ege: We do not allow updates to a registry document&#39;s content. A new version of a binding is a
-                resubmission and optional deprecation of the old one. However, new features need new implementations, so
-                it is not a completely new registration.
-              </li>
+              <li>Ege: We do not allow updates to a registry document&#39;s content. A new version of a binding is a resubmission and optional deprecation of the old one. However, new features need new implementations, so it is not a completely new registration.</li>
             </ul>
           </dd>
           <dt>
             <dfn id="life-deldep">Life-DelDep</dfn>
           </dt>
           <dd>
-            <p>
-              Deletion and deprecation (see
-              <a
-                href="https://github.com/w3c/wot/tree/main/registry-analysis#deletion-and-deprecation-of-registry-entries"
-                >https://github.com/w3c/wot/tree/main/registry-analysis#deletion-and-deprecation-of-registry-entries</a
-              >)
-            </p>
+            <p>Deletion and deprecation (see <a href="https://github.com/w3c/wot/tree/main/registry-analysis#deletion-and-deprecation-of-registry-entries">https://github.com/w3c/wot/tree/main/registry-analysis#deletion-and-deprecation-of-registry-entries</a>)</p>
             <ul>
-              <li>
-                No entry is ever deleted. Deprecated entries are moved to another table or are clearly marked
-                deprecated, colored differently, and moved to the bottom.
-              </li>
+              <li>No entry is ever deleted. Deprecated entries are moved to another table or are clearly marked deprecated, colored differently, and moved to the bottom.</li>
             </ul>
           </dd>
         </dl>
+        
       </section>
-
+      
       <section>
         <h2>Ownership</h2>
-
+        
         <dl>
           <dt>
             <dfn id="own-cust">Own-Cust</dfn>
           </dt>
           <dd>
-            <p>
-              If the WoT WG no longer exists, the W3C Team or their delegated entity becomes the custodian. For example,
-              a dedicated W3C community group can be created to maintain the registry.
-            </p>
+            <p>If the WoT WG no longer exists, the W3C Team or their delegated entity becomes the custodian. For example, a dedicated W3C community group can be created to maintain the registry.</p>
             <ul>
               <li>Reasons Behind the Requirement: Maintaining the registry without the WoT WG should be possible.</li>
             </ul>
@@ -554,44 +458,31 @@
             <dfn id="own-rev">Own-Rev</dfn>
           </dt>
           <dd>
-            <p>
-              Reviewer: If there is an expert of the binding entry&#39;s specification and a WoT expert within the
-              custodian entity, they CAN do the review independently. If not, the custodian MUST choose an expert for
-              that specification and a WoT expert who can be the same person.
-            </p>
+            <p>Reviewer: If there is an expert of the binding entry&#39;s specification and a WoT expert within the custodian entity, they CAN do the review independently. If not, the custodian MUST choose an expert for that specification and a WoT expert who can be the same person.</p>
           </dd>
         </dl>
+        
       </section>
-
+      
       <section>
         <h2>Requirements on the Submitted Document</h2>
-
+        
         <p>What does the binding have to contain to go into the table</p>
-
+        
         <dl>
           <dt>
             <dfn id="req-opmap">Req-opmap</dfn>
           </dt>
           <dd>
-            <p>
-              A binding that uses a protocol MUST map at least one WoT operation (<code>op</code> keyword value such as
-              <code>readproperty</code>) to a protocol message and vice versa
-            </p>
+            <p>A binding that uses a protocol MUST map at least one WoT operation (<code>op</code> keyword value such as <code>readproperty</code>) to a protocol message and vice versa</p>
           </dd>
           <dt>
             <dfn id="req-contmap">Req-contmap</dfn>
           </dt>
           <dd>
-            <p>
-              A binding that uses a serialization format via the <code>contentType</code> keyword MUST mention how the
-              Data Schema terms should be used to describe the messages. This avoids submission of a binding like
-              &quot;XML Binding&quot; that says &quot;Use <code>contentType:application/xml</code> and nothing more.
-              That alone would not be enough to serialize correct messages based on the data schema.
-            </p>
+            <p>A binding that uses a serialization format via the <code>contentType</code> keyword MUST mention how the Data Schema terms should be used to describe the messages. This avoids submission of a binding like &quot;XML Binding&quot; that says &quot;Use <code>contentType:application/xml</code> and nothing more. That alone would not be enough to serialize correct messages based on the data schema.</p>
             <ul>
-              <li>
-                TODO: We will need additional mechanisms (including vocabulary terms) to ensure that it is possible to
-                use other media types.
+              <li>TODO: We will need additional mechanisms (including vocabulary terms) to ensure that it is possible to use other media types.
               </li>
             </ul>
           </dd>
@@ -599,11 +490,7 @@
             <dfn id="req-traninit">Req-TranInit</dfn>
           </dt>
           <dd>
-            <p>
-              Initial entry MUST be a correct document which complies with <a href="#req-content">Req-content</a>. The
-              reviewer MUST NOT check whether the binding tries to map <code>readproperty</code> to a non-existent HTTP
-              method. A successful initial document triggers a &quot;Call for Implementation&quot;.
-            </p>
+            <p>Initial entry MUST be a correct document which complies with <a href="#req-content">Req-content</a>. The reviewer MUST NOT check whether the binding tries to map <code>readproperty</code> to a non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.</p>
           </dd>
           <dt>
             <dfn id="req-changelog">Req-Changelog</dfn>
@@ -615,86 +502,50 @@
             <dfn id="req-docsec">Req-DocSec</dfn>
           </dt>
           <dd>
-            <p>
-              The WoT binding MAY be just one section of the document. In that case, the &quot;Link to the binding
-              document&quot; in the registry entry MUST point to the specific location. PDF or similar document types
-              MAY be submitted if the &quot;Link to the binding document&quot; in the registry entry contains a text
-              pointing to the section. However, HTML and Webpages SHOULD be favoured.
-            </p>
+            <p>The WoT binding MAY be just one section of the document. In that case, the &quot;Link to the binding document&quot; in the registry entry MUST point to the specific location. PDF or similar document types MAY be submitted if the &quot;Link to the binding document&quot; in the registry entry contains a text pointing to the section. However, HTML and Webpages SHOULD be favoured.</p>
           </dd>
           <dt>
             <dfn id="req-copy">Req-Copy</dfn>
           </dt>
           <dd>
-            <p>
-              The WoT binding document DOES NOT have to follow the W3C copyright. The submitter is free to choose based
-              on the process they or their organization follows.
-            </p>
+            <p>The WoT binding document DOES NOT have to follow the W3C copyright. The submitter is free to choose based on the process they or their organization follows.</p>
           </dd>
           <dt>
             <dfn id="req-openread">Req-OpenRead</dfn>
           </dt>
           <dd>
-            <p>
-              The binding document linked in the registry entry SHOULD be open to read, use, and implement, but that is
-              not required for the document be added to the registry.
-            </p>
+            <p>The binding document linked in the registry entry SHOULD be open to read, use, and implement, but that is not required for the document be added to the registry.</p>
           </dd>
           <dt>
             <dfn id="req-openrev">Req-OpenRev</dfn>
           </dt>
           <dd>
-            <p>
-              Reviewer MUST have access to the binding document and to the protocol or media type specification (what
-              the binding specifies)
-            </p>
+            <p>Reviewer MUST have access to the binding document and to the protocol or media type specification (what the binding specifies)</p>
           </dd>
           <dt>
             <dfn id="req-summ">Req-Summ</dfn>
           </dt>
           <dd>
-            <p>
-              The submitter MUST fill the GitHub form provided by the custodian to generate the summary document, which
-              is hosted by the custodian together with the registry. This form contains the following:
-            </p>
+            <p>The submitter MUST fill the GitHub form provided by the custodian to generate the summary document, which is hosted by the custodian together with the registry. This form contains the following:</p>
             <ul>
-              <li>
-                Abstract - It MUST contain an abstract with the following information:
-                <ul>
-                  <li>What is the content of the binding about, e.g., what is this protocol?</li>
-                  <li>Who should use it?</li>
-                  <li>
-                    For what purpose(s) should it be used, e.g., monitoring, process control? This SHOULD use
-                    terminology of the submitter, i.e., the custodian does not provide definitions for this.
-                  </li>
-                </ul>
+              <li>Abstract - It MUST contain an abstract with the following information:<ul>
+              <li>What is the content of the binding about, e.g., what is this protocol?</li>
+              <li>Who should use it?</li>
+              <li>For what purpose(s) should it be used, e.g., monitoring, process control? This SHOULD use terminology of the submitter, i.e., the custodian does not provide definitions for this.</li>
+              </ul>
               </li>
-              <li>
-                Examples - It SHOULD contain examples (can be one) TDs or TMs demonstrating the use of the binding
-              </li>
-              <li>
-                It MUST contain Access/Usage restrictions about the binding, protocol, implementation, etc., using the
-                terminology and/or documents of the submitter. A non-exhaustive list of examples of restrictions:
-              </li>
+              <li>Examples - It SHOULD contain examples (can be one) TDs or TMs demonstrating the use of the binding</li>
+              <li>It MUST contain Access/Usage restrictions about the binding, protocol, implementation, etc., using the terminology and/or documents of the submitter. A non-exhaustive list of examples of restrictions:</li>
               <li>Reading the binding document</li>
               <li>Reading the protocol specification</li>
               <li>Implementing a non-commercial device/Thing</li>
               <li>Implementing a non-commercial Consumer application/driver</li>
               <li>Conditions for commercial use, e.g., building a commercial product with the binding</li>
               <li>Making a statement about your product&#39;s supporting that binding</li>
-              <li>
-                If the entry depends on another one, it MUST specify the exact version of the dependency upon which it
-                depends at the time of submission.
-              </li>
-              <li>
-                The availability of the machine-readable documents MUST be indicated in the summary document using the
-                submission mechanism. Also see <a href="#req-docs">Req-Docs</a>.
-              </li>
+              <li>If the entry depends on another one, it MUST specify the exact version of the dependency upon which it depends at the time of submission.</li>
+              <li>The availability of the machine-readable documents MUST be indicated in the summary document using the submission mechanism. Also see <a href="#req-docs">Req-Docs</a>.</li>
               <li>The previous version of the summary document MUST be listed as a link.</li>
-              <li>
-                If the chronological ordering of the entries is not clear from the version string, the summary document
-                MUST explain the ordering mechanism.
-              </li>
+              <li>If the chronological ordering of the entries is not clear from the version string, the summary document MUST explain the ordering mechanism.</li>
             </ul>
           </dd>
           <dt>
@@ -703,86 +554,36 @@
           <dd>
             <p>Transition from &quot;Initial&quot; to &quot;Current&quot;</p>
             <ul>
-              <li>
-                Starting from the initial submission, each binding has to demonstrate a certain level of concrete
-                development maturity. This process involves real-world testing, which can take place in Plugfests,
-                independent testing events, or even informal collaboration between developers. These testing events do
-                not have to be organized by W3C and can be conducted remotely, including over VPN. The goal is to
-                demonstrate that the binding correctly maps protocol operations and is well understood by at least two
-                parties.
+              <li>Starting from the initial submission, each binding has to demonstrate a certain level of concrete development maturity. This process involves real-world testing, which can take place in Plugfests, independent testing events, or even informal collaboration between developers. These testing events do not have to be organized by W3C and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding correctly maps protocol operations and is well understood by at least two parties.</li>
+              <li>At each testing event, every operation defined in the binding MUST be validated automatically (e.g., scripts, test suites, etc.) and the results SHOULD be published in a dedicated document (README, or other human-readable documents) called <em>Test Report</em>.</li>
+              <li>A <em>Test Report</em><ul>
+              <li>MUST contain information on the testing environment</li>
+              <li>MUST provide an example of the logical process (not necessarily code) about how a TD can be processed to establish a communication between consumer and exposer.</li>
+              <li>MUST contain information about the scenario that was tested, e.g. controlling the room temperature by measuring temperature and adjusting the heater.</li>
+              <li>MUST explain where discussions on implementation experience should be collected</li>
+              <li>SHOULD provide the history of all the past testing events (or explain how to retrieve the history of the results gathered during those events)</li>
+              <li>SHOULD contain a reference to the implementations of Consumers or Exposers.</li>
+              </ul>
               </li>
-              <li>
-                At each testing event, every operation defined in the binding MUST be validated automatically (e.g.,
-                scripts, test suites, etc.) and the results SHOULD be published in a dedicated document (README, or
-                other human-readable documents) called <em>Test Report</em>.
-              </li>
-              <li>
-                A <em>Test Report</em>
-                <ul>
-                  <li>MUST contain information on the testing environment</li>
-                  <li>
-                    MUST provide an example of the logical process (not necessarily code) about how a TD can be
-                    processed to establish a communication between consumer and exposer.
-                  </li>
-                  <li>
-                    MUST contain information about the scenario that was tested, e.g. controlling the room temperature
-                    by measuring temperature and adjusting the heater.
-                  </li>
-                  <li>MUST explain where discussions on implementation experience should be collected</li>
-                  <li>
-                    SHOULD provide the history of all the past testing events (or explain how to retrieve the history of
-                    the results gathered during those events)
-                  </li>
-                  <li>SHOULD contain a reference to the implementations of Consumers or Exposers.</li>
-                </ul>
-              </li>
-              <li>
-                For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST exist. The
-                <em>Test Report</em> MUST contain at least one implementation of a Consumer (capable of understanding
-                and performing all the operations described in the binding) and one Exposer (capable of handling all the
-                operations and features described in the binding and optionally be able to create a valid TD).
-                Additional implementations can be added even after the transition to the Current.
-              </li>
-              <li>
-                The exact contents of the Test Report is not decided yet. See
-                <a href="https://github.com/w3c/wot-bindings-registry/issues/3"
-                  >https://github.com/w3c/wot-bindings-registry/issues/3</a
-                >
-              </li>
-              <li>
-                Submitters MAY call for transition but the custodian can also automatically trigger the process once it
-                is verified that the condition above is reached.
-              </li>
-              <li>
-                <em>Test Reports</em> and related resources SHOULD be published in a git repository. The repository
-                SHOULD be public and it MUST be accessible to the reviewers and the custodian.
-              </li>
-              <li>
-                Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a
-                Plugfest or another structured testing session where different implementations can be evaluated
-                collectively.
-              </li>
+              <li>For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST exist. The <em>Test Report</em> MUST contain at least one implementation of a Consumer (capable of understanding and performing all the operations described in the binding) and one Exposer (capable of handling all the operations and features described in the binding and optionally be able to create a valid TD). Additional implementations can be added even after the transition to the Current.</li>
+              <li>The exact contents of the Test Report is not decided yet. See <a href="https://github.com/w3c/wot-bindings-registry/issues/3">https://github.com/w3c/wot-bindings-registry/issues/3</a></li>
+              <li>Submitters MAY call for transition but the custodian can also automatically trigger the process once it is verified that the condition above is reached.</li>
+              <li><em>Test Reports</em> and related resources SHOULD be published in a git repository. The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.</li>
+              <li>Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a Plugfest or another structured testing session where different implementations can be evaluated collectively.</li>
             </ul>
           </dd>
           <dt>
             <dfn id="req-content">Req-Content</dfn>
           </dt>
           <dd>
-            <p>
-              The binding MUST contain the following sections in the order presented below. The binding CAN contain
-              other sections anywhere, including between the required ones. The submitters are encouraged to look at the
-              existing submissions. There MUST be at least one operation mapped to a protocol message/vocabulary term.
-              The submitter SHOULD use the table template provided in the document for the vocabulary.
-            </p>
+            <p>The binding MUST contain the following sections in the order presented below. The binding CAN contain other sections anywhere, including between the required ones. The submitters are encouraged to look at the existing submissions. There MUST be at least one operation mapped to a protocol message/vocabulary term. The submitter SHOULD use the table template provided in the document for the vocabulary.</p>
             <ul>
               <li>Introduction</li>
-              <li>
-                Binding Content:
-                <ul>
-                  <li>URL Format</li>
-                  <li>Form Vocabulary Definition as Table</li>
-                  <li>Default and possible mappings to operations as a Table</li>
-                </ul>
+              <li>Binding Content:<ul>
+              <li>URL Format</li>
+              <li>Form Vocabulary Definition as Table</li>
+              <li>Default and possible mappings to operations as a Table</li>
+              </ul>
               </li>
               <li>Examples</li>
             </ul>
@@ -793,28 +594,14 @@
           <dd>
             <p>The requirements for the machine-readable documents are as follows:</p>
             <ul>
-              <li>
-                There MUST be a JSON Schema (version to be defined) that allows validating the elements added by the
-                entry.
+              <li>There MUST be a JSON Schema (version to be defined) that allows validating the elements added by the entry.</li>
+              <li><p>There SHOULD be a JSON-LD Context and an ontology for the entry. Note that the lack of JSON-LD Context creates an RDF representation that will probably cause issues in RDF databases.</p>
               </li>
-              <li>
-                <p>
-                  There SHOULD be a JSON-LD Context and an ontology for the entry. Note that the lack of JSON-LD Context
-                  creates an RDF representation that will probably cause issues in RDF databases.
-                </p>
-              </li>
-              <li>
-                <p>
-                  There MAY be other documents which are helpful to implementers, such as code, diagrams, and/or
-                  standalone examples.
-                </p>
+              <li><p>There MAY be other documents which are helpful to implementers, such as code, diagrams, and/or standalone examples.</p>
               </li>
               <li>These documents MUST be available to the reviewer.</li>
               <li>The reviewer MUST include these documents in their review.</li>
-              <li>
-                All documents associated with the registry entry MUST have the same version string, i.e., the versions
-                of all associated documents MUST be updated when there is a change to any of them.
-              </li>
+              <li>All documents associated with the registry entry MUST have the same version string, i.e., the versions of all associated documents MUST be updated when there is a change to any of them.</li>
               <li>The version MUST be a string that is visible in all the documents.</li>
             </ul>
           </dd>
@@ -822,53 +609,37 @@
             <dfn id="req-confl">Req-Confl</dfn>
           </dt>
           <dd>
-            <p>
-              The binding entry SHOULD NOT conflict with other entries in the registry, such as its other versions or
-              its dependents, by redefining the same concepts, such as redefining the URI Scheme, the vocabulary terms,
-              or the default assignments. If a previously stable binding is being improved upon by the same
-              organization, that previous binding MUST be deprecated once the new one reaches the
-              <strong>stable</strong> status.
-            </p>
+            <p>The binding entry SHOULD NOT conflict with other entries in the registry, such as its other versions or its dependents, by redefining the same concepts, such as redefining the URI Scheme, the vocabulary terms, or the default assignments. If a previously stable binding is being improved upon by the same organization, that previous binding MUST be deprecated once the new one reaches the <strong>stable</strong> status.</p>
           </dd>
           <dt>
             <dfn id="req-redef">Req-Redef</dfn>
           </dt>
           <dd>
-            <p>
-              The namespace (prefix and its values) defined in a binding SHALL NOT be redefined or extended in any other
-              binding, e.g., <code>cov:method</code> values shall not be extended in LWM2M and
-              <code>cov:newTerm</code> shall not be added in LWM2M binding.
-            </p>
+            <p>The namespace (prefix and its values) defined in a binding SHALL NOT be redefined or extended in any other binding, e.g., <code>cov:method</code> values shall not be extended in LWM2M and <code>cov:newTerm</code> shall not be added in LWM2M binding.</p>
           </dd>
           <dt>
             <dfn id="req-deps">Req-Deps</dfn>
           </dt>
           <dd>
-            <p>
-              If parts of the entry require the existence of another binding, i.e., has dependencies, the dependency
-              MUST first be submitted as a separate entry. For example, before LWM2M can be submitted, the CoAP Binding
-              must exist.
-            </p>
+            <p>If parts of the entry require the existence of another binding, i.e., has dependencies, the dependency MUST first be submitted as a separate entry. For example, before LWM2M can be submitted, the CoAP Binding must exist.</p>
           </dd>
         </dl>
+        
       </section>
+      
+      
     </section>
-
+    
     <section id="registry">
       <h2>Registry</h2>
 
-      <p>
-        The following table defines the WoT Bindings Registry where each entry is a binding. Entries are ordered
-        alphabetically according to their name.
-      </p>
+      <p>The following table defines the WoT Bindings Registry where each entry is a binding. Entries are ordered alphabetically according to their name.</p>
 
       <p class="note">
-        The first entry is placeholder example. It will be deleted once the first real entry is added. You can find the
-        list of bindings that predate the registry mechanism at
-        <a href="https://github.com/w3c/wot-binding-templates/?tab=readme-ov-file#publications">this Readme file</a>.
+        The first entry is placeholder example. It will be deleted once the first real entry is added. You can find the list of bindings that predate the registry mechanism at <a href="https://github.com/w3c/wot-binding-templates/?tab=readme-ov-file#publications">this Readme file</a>.
       </p>
 
-      <table class="def numbered" style="width: 190%">
+      <table class="def numbered" style="width: 190%;">
         <thead>
           <th>Name</th>
           <th>Version</th>
@@ -892,6 +663,8 @@
           </tr>
         </tbody>
       </table>
+
     </section>
+    
   </body>
 </html>
