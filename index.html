@@ -355,9 +355,6 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               <td><span class="rfc2119-assertion" id="entry-format-supported-td-version">A binding SHOULD correspond to specific TD specification version(s).</span> <br />
                 Note: <em>no uniqueness needed</em>
-                <p class="note">
-                  A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.
-                </p>
               </td>
             </tr>
             <tr id="form-stat">
@@ -586,6 +583,9 @@
             </li>
             <li>Examples</li>
           </ul>
+          <p class="note">
+            A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be associated with one or more known TD specification versions.
+          </p>
         </section>
         
         <section id="req-docs">
