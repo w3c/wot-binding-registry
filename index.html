@@ -152,7 +152,7 @@
           <dfn id="dfn-wot-bindings-registry">WoT Bindings Registry</dfn>
         </dt>
         <dd>
-          A W3C Registry Track document that contains the WoT Bindings Registry Table, its requirements and possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more information on the definition.
+          A W3C Registry Track document that contains the <a>WoT Bindings Registry Table</a>, its requirements and possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more information on the definition.
         </dd>
         <dt>
           <dfn id="dfn-wot-bindings-registry-table">WoT Bindings Registry Table</dfn>
@@ -176,7 +176,7 @@
           <dfn id="dfn-execution-binding-instance">Execution of a Binding Instance</dfn>
         </dt>
         <dd>
-          The request on the wire that is sent after parsing a TD's binding instance.
+          The request on the wire that is sent after parsing a TD's <a>binding instance</a>.
         </dd>
         <dt>
           <dfn id="dfn-wot-x-binding-summary">WoT X Binding Summary</dfn>
@@ -188,13 +188,13 @@
           <dfn id="dfn-wot-x-binding-json-schema">WoT X Binding JSON Schema</dfn>
         </dt>
         <dd>
-          A JSON Schema that allows validating the elements added by the WoT X Binding (registry entry). This is a supporting document for a binding entry.
+          A JSON Schema that allows validating the elements added by the <a>WoT X Binding</a> (registry entry). This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-wot-x-binding-json-ld-context">WoT X Binding JSON-LD Context</dfn>
         </dt>
         <dd>
-          A machine-readable JSON-LD document that defines all the terms to be used in a binding instance, which allows the terms to be dereferenced correctly by a JSON-LD parser. This is a supporting document for a binding entry.
+          A machine-readable JSON-LD document that defines all the terms to be used in a <a>binding instance</a>, which allows the terms to be dereferenced correctly by a JSON-LD parser. This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-x-vocabulary-rdf">X Vocabulary in RDF</dfn>
@@ -206,7 +206,7 @@
           <dfn id="dfn-x-vocabulary-document">X Vocabulary Document</dfn>
         </dt>
         <dd>
-          A human-readable version of the vocabulary defined at X Vocabulary in RDF. This is a supporting document for a binding entry.
+          A human-readable version of the vocabulary defined at <a>X Vocabulary in RDF</a>. This is a supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
@@ -414,7 +414,7 @@
           <p>The mechanism is as follows:</p>
           <ul>
             <li>We work with issues only. The information for the entry format is submitted as a list. This way, non-W3C members can submit a binding. Reviews from the custodian happen on the issue. The submitter is expected to answer until the custodian makes a PR to add the binding to the registry or change its status.</li>
-            <li>A purpose built GitHub project for tracking submissions is used. When a submission comes in form an issue, it is automatically added to column &quot;Binding Submitted&quot;. When the custodian and reviewers start looking at it, it goes to the &quot;Under Review&quot; column. If the review is in favor, the custodian makes the PR to add it to the registry and the issue goes to column &quot;Accepted&quot;. If the review is not in favor, it goes to the column &quot;Rejected&quot;. All these changes are reflected as comments in the original issue.</li>
+            <li>A purpose built GitHub project for tracking submissions is used. When a submission comes in form an issue, it is automatically added to column &quot;Binding Submitted&quot;. When the <a>custodian</a> and <a>reviewers</a> start looking at it, it goes to the &quot;Under Review&quot; column. If the review is in favor, the custodian makes the PR to add it to the registry and the issue goes to column &quot;Accepted&quot;. If the review is not in favor, it goes to the column &quot;Rejected&quot;. All these changes are reflected as comments in the original issue.</li>
             <li><span class="rfc2119-assertion" id="life-subm-mark-conflict">If a new entry conflicts with another entry, the reviewer MUST mark the new submission accordingly.</span> <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection">As two bindings that do the same are not allowed, either the old one MUST be deprecated or the new one MUST be rejected.</span> See also point 13 under &quot;Requirements on the Submitted Document&quot;.</li>
           </ul>
         </section>
@@ -461,7 +461,7 @@
         
         <section id="own-cust">
           <h3>Custodian</h3>
-          <p>If the WoT WG no longer exists, the W3C Team or its delegated entity becomes the custodian. For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry can be maintained for a long period.</p>
+          <p>If the WoT WG no longer exists, the W3C Team or its delegated entity becomes the <a>Custodian</a>. For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry can be maintained for a long period.</p>
         </section>
         
         <section id="own-rev">
@@ -620,7 +620,7 @@
         
         <section id="req-confl">
           <h3>Conflict</h3>
-          <p><span class="rfc2119-assertion" id="submission-requirements-conflict">The binding entry SHOULD NOT conflict with other entries in the registry, such as its other versions or its dependents, by redefining the same concepts, such as redefining the URI Scheme, the vocabulary terms, or the default assignments.</span> <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">If a previously stable binding is being improved upon by the same organization, that previous binding MUST be deprecated once the new one reaches the <strong>stable</strong> status.</span></p>
+          <p><span class="rfc2119-assertion" id="submission-requirements-conflict">The binding entry SHOULD NOT conflict with other entries in the registry, such as its other versions or its <a>dependents</a>, by redefining the same concepts, such as redefining the URI Scheme, the vocabulary terms, or the default assignments.</span> <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">If a previously stable binding is being improved upon by the same organization, that previous binding MUST be deprecated once the new one reaches the <strong>stable</strong> status.</span></p>
         </section>
         
         <section id="req-redef">
@@ -630,7 +630,7 @@
         
         <section id="req-deps">
           <h3>Dependency</h3>
-          <p><span class="rfc2119-assertion" id="submission-requirements-dependency">If parts of the entry require the existence of another binding, i.e., has dependencies, the dependency MUST first be submitted as a separate entry.</span> For example, before LWM2M can be submitted, the CoAP Binding must exist.</p>
+          <p><span class="rfc2119-assertion" id="submission-requirements-dependency">If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a> MUST first be submitted as a separate entry.</span> For example, before LWM2M can be submitted, the CoAP Binding must exist.</p>
         </section>
         
       </section>
@@ -641,7 +641,7 @@
     <section id="registry">
       <h2>Registry</h2>
 
-      <p>The following table defines the WoT Bindings Registry where each entry is a binding. Entries are ordered alphabetically according to their name.</p>
+      <p>The following table defines the <a>WoT Bindings Registry</a> where each entry is a binding. Entries are ordered alphabetically according to their name.</p>
 
       <p class="note">
         The first entry is a placeholder example. It will be deleted once the first real entry is added. You can find the list of bindings that predate the registry mechanism at <a href="https://github.com/w3c/wot-binding-templates/?tab=readme-ov-file#publications">this Readme file</a>.
