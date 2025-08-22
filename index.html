@@ -290,7 +290,7 @@
     <section id="content-registry-definition">
       <h2>Content of Registry Definition</h2>
       
-      <p>A set of rules extending the <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a> can be found below and is structured as follows.</p>
+      <p>A <a href="#dfn-wot-bindings-registry-definition">set of rules</a> extending the <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a> can be found below and is structured as follows.</p>
       
       <ul>
         <li><a href="#entry-format"></a>
@@ -381,7 +381,7 @@
             <tr id="form-summ">
               <td>Summary Document</td>
               <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a></td>
-              <td>Link to the summary document.</td>
+              <td>Link to the <a href="#dfn-wot-x-binding-summary">summary document</a>.</td>
             </tr>
             <tr id="form-ver">
               <td>Version</td>
@@ -537,7 +537,7 @@
         
         <section id="req-summ">
           <h3>Summary Document</h3>
-          <p><span class="rfc2119-assertion" id="submission-requirements-summary-document">The submitter MUST fill in the GitHub form provided by the custodian to generate the summary document, which is hosted by the custodian together with the registry.</span> This form contains the following:</p>
+          <p><span class="rfc2119-assertion" id="submission-requirements-summary-document">The submitter MUST fill in the GitHub form provided by the custodian to generate the <a href="#dfn-wot-x-binding-summary">summary document</a>, which is hosted by the custodian together with the registry.</span> This form contains the following:</p>
           <ul>
             <li><span class="rfc2119-assertion" id="submission-requirements-summary-document-abstract">Abstract - It MUST contain an abstract with the following information</span>:<ul>
             <li>What is the content of the binding about, e.g., what is this protocol?</li>
@@ -575,7 +575,7 @@
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-scenario">A <em>Test Report</em> MUST contain information about the scenario that was tested, e.g. controlling the room temperature by measuring temperature and adjusting the heater.</span></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-implementation-experience">A <em>Test Report</em> MUST explain where discussions on implementation experience should be collected.</span></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-history">A <em>Test Report</em> SHOULD provide the history of all the past testing events (or explain how to retrieve the history of the results gathered during those events).</span></li>
-            <li><span class="rfc2119-assertion" id="submission-requirements-test-report-reference">A <em>Test Report</em>SHOULD contain a reference to the implementations of Consumers or Exposers.</span></li>
+            <li><span class="rfc2119-assertion" id="submission-requirements-test-report-reference">A <em>Test Report</em>SHOULD contain a reference to the <a href="#dfn-wot-x-binding-implementation">implementations of Consumers or Exposers</a>.</span></li>
             </ul>
             </li>
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-current-state">For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST exist.</span> <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation">The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span> (capable of understanding and performing all the operations described in the binding) and one Exposer (capable of handling all the operations and features described in the binding and optionally be able to create a valid TD). Additional implementations can be added even after the transition to the Current.</li>
@@ -593,7 +593,7 @@
             <li>Introduction</li>
             <li>Binding Content:<ul>
             <li>URL Format</li>
-            <li>Form Vocabulary Definition as Table</li>
+            <li>Form <a href="#dfn-x-vocabulary-document">Vocabulary Definition as Table</a></li>
             <li>Default and possible mappings to operations as a Table</li>
             </ul>
             </li>
@@ -608,8 +608,8 @@
           <h3>Documents</h3>
           <p>The requirements for the machine-readable documents are as follows:</p>
           <ul>
-            <li><span class="rfc2119-assertion" id="submission-requirements-doc-json-schema">There MUST be a JSON Schema (version to be defined) that allows validating the elements added by the entry.</span></li>
-            <li><span class="rfc2119-assertion" id="submission-requirements-doc-json-ld-context">There SHOULD be a JSON-LD Context and an ontology for the entry. Note that the lack of JSON-LD Context creates an RDF representation that will probably cause issues in RDF databases.</span></li>
+            <li><span class="rfc2119-assertion" id="submission-requirements-doc-json-schema">There MUST be a <a href="#dfn-wot-x-binding-json-schema">JSON Schema</a> (version to be defined) that allows validating the elements added by the entry.</span></li>
+            <li><span class="rfc2119-assertion" id="submission-requirements-doc-json-ld-context">There SHOULD be a <a href="#dfn-wot-x-binding-json-ld-context">JSON-LD Context</a> and an ontology for the entry. Note that the lack of JSON-LD Context creates an RDF representation that will probably cause issues in RDF databases.</span></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-doc-other">There MAY be other documents which are helpful to implementers, such as code, diagrams, and/or standalone examples.</span></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-doc-available-reviewer">These documents MUST be available to the reviewer.</span></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-doc-include">The reviewer MUST include these documents in their review.</span></li>
