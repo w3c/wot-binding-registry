@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <title>Web of Things (WoT) Bindings Registry</title>
     <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
     <script class="remove">
@@ -98,6 +98,11 @@
       <p>
         As the number of such protocols and media types is vast and tends to change over time, this document defines a flexible mechanism called a Bindings Registry.
         This document relies on the registry track mechanism of the <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and fit to the purposes of WoT bindings.
+      </p>
+
+      <p>
+        This enables a binding to be written by people with a good understanding of the binding, who are not necessarily participants of the WoT Working Group, such as other organizations developing a standard that can be used with WoT.
+        This also allows the WoT Working Group to focus on the core specifications and engage other communities at the same time.
       </p>
 
     </section>
@@ -235,60 +240,8 @@
       </dl>
     </section>
     
-    <section id="intro-section-document">
-      <h2>Intro Section of the Document</h2>
-      <p class="ednote">
-        [DP] I think we should not speak about "document" but rather about "registry". Also in the title.
-      </p>
-      <dl>
-        <dt>
-          <dfn id="int-exp">Int-Exp</dfn>
-        </dt>
-        <dd>
-          <p>A binding SHOULD be written by people with a good understanding of the protocol and media type (or similar), who are not necessarily the TD Editors. This includes people and organizations inside and outside of the WoT WG.</p>
-          <ul>
-            <li>
-              Reasons Behind the Requirement:
-              <ul>
-                <li>Instead of WG learning each new protocol and media type, it is more efficient for people with a good understanding of the protocol or media type to write a binding</li>
-                <li>Engaging other communities</li>
-              </ul>
-            </li>
-          </ul>
-        </dd>
-        <dt>
-          <dfn id="int-sep">Int-Sep</dfn>
-        </dt>
-        <dd>
-          <p>The binding registry MUST be a separate document but associated with a TD version.</p>
-          <ul>
-            <li>
-              Reasons Behind the Requirement: It is easier to update in the long term.
-            </li>
-          </ul>
-        </dd>
-        <dt>
-          <dfn id="int-asso">Int-Asso</dfn>
-        </dt>
-        <dd>
-          <p>Association of a binding with the TD specification (registry entry) SHOULD be confirmed by the WoT Working Group or its custodian. In other words, a person needs some permission and/or confirmation to authoritatively say that a given binding can be used with TD version X. The custodian of this registry is the WoT WG in the beginning.</p>
-          <ul>
-            <li>
-              Reasons Behind the Requirement: WoT WG is the manager of the registry.
-            </li>
-          </ul>
-        </dd>
-        <dt>
-          <dfn id="int-oth">Int-Oth</dfn>
-        </dt>
-        <dd>
-          <p>The binding document (registry entry) CAN be hosted by another entity than the custodian.</p>
-        </dd>
-      </dl>
-    </section>
-    
-    <section id="content-registry-definition">
-      <h2>Content of Registry Definition</h2>
+    <section id="registry-definition">
+      <h2>Registry Definition</h2>
       
       <p>A <a href="#dfn-wot-bindings-registry-definition">set of rules</a> extending the <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a> can be found below and is structured as follows.</p>
       
@@ -329,7 +282,7 @@
             <tr id="form-link">
               <td>Link to the binding document</td>
               <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a></td>
-              <td>Stable link whose content cannot change (e.g., a date, version number, etc.)  <br />
+              <td>Stable link whose content cannot change (e.g., a date, version number, etc.), which can be managed by another entity than the custodian. <br />
                 Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code>
               </td>
             </tr>
@@ -458,10 +411,20 @@
       
       <section id="ownership">
         <h2>Ownership</h2>
+
+        <p>
+          The registry is managed by a <a>Custodian</a> and reviewed by <a href="#dfn-reviewer">Reviewers</a>.
+        </p>
         
         <section id="own-cust">
           <h3>Custodian</h3>
-          <p>If the WoT WG no longer exists, the W3C Team or its delegated entity becomes the <a>Custodian</a>. For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry can be maintained for a long period.</p>
+
+          <p>
+            <span class="rfc2119-assertion" id="ownership-custodian-role">A change in the registry MUST be confirmed by the <a>Custodian</a>. The custodian of this registry is the WoT WG in the
+            beginning.</span>
+            <span class="rfc2119-assertion" id="ownership-custodian-delegation">If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.</span>
+            For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry can be maintained for a long period.
+          </p>
         </section>
         
         <section id="own-rev">
