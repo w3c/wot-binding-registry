@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
-    <title>Web of Things (WoT) Bindings Registry</title>
+    <title>Web of Things (WoT) Binding Registry</title>
     <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
     <script class="remove">
       var respecConfig = {
-        shortName: "wot-bindings-registry",
+        shortName: "wot-binding-registry",
         specStatus: "ED",
         copyrightStart: 2025,
         noLegacyStyle: true,
@@ -16,9 +16,9 @@
         group: "wg/wot",
         charterDisclosureURI: "https://www.w3.org/2004/01/pp-impl/95969/status",
         wgPublicList: "public-wot-wg",
-        edDraftURI: "https://w3c.github.io/wot-bindings-registry/",
-        github: "https://github.com/w3c/wot-bindings-registry",
-        issueBase: "https://www.github.com/w3c/wot-bindings-registry/issues",
+        edDraftURI: "https://w3c.github.io/wot-binding-registry/",
+        github: "https://github.com/w3c/wot-binding-registry",
+        issueBase: "https://www.github.com/w3c/wot-binding-registry/issues",
         editors: [
           {
             name: "Ege Korkan",
@@ -34,7 +34,7 @@
             data: [
               {
                 value: "In the GitHub repository",
-                href: "https://github.com/w3c/wot-bindings-registry/graphs/contributors"
+                href: "https://github.com/w3c/wot-binding-registry/graphs/contributors"
               }
             ]
           },
@@ -43,11 +43,11 @@
             data: [
               {
                 value: "We are on GitHub",
-                href: "https://github.com/w3c/wot-bindings-registry/"
+                href: "https://github.com/w3c/wot-binding-registry/"
               },
               {
                 value: "File a bug",
-                href: "https://github.com/w3c/wot-bindings-registry/issues"
+                href: "https://github.com/w3c/wot-binding-registry/issues"
               }
             ]
           }
@@ -97,7 +97,7 @@
       </p>
 
       <p>
-        As the number of such protocols and media types is vast and tends to change over time, this document defines a flexible mechanism called a Bindings Registry.
+        As the number of such protocols and media types is vast and tends to change over time, this document defines a flexible mechanism called a Binding Registry.
         This document relies on the registry track mechanism of the <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and fit to the purposes of WoT bindings.
       </p>
 
@@ -150,19 +150,19 @@
           A form element in a TD or TM that contains the concrete mapping of the operation to a binding. Thus it is a machine-readable description of how to activate an affordance.
         </dd>
         <dt>
-          <dfn id="dfn-wot-bindings-registry">WoT Bindings Registry</dfn>
+          <dfn id="dfn-wot-binding-registry">WoT Binding Registry</dfn>
         </dt>
         <dd>
-          A W3C Registry Track document that contains the <a>WoT Bindings Registry Table</a>, its requirements and possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more information on the definition.
+          A W3C Registry Track document that contains the <a>WoT Binding Registry Table</a>, its requirements and possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more information on the definition.
         </dd>
         <dt>
-          <dfn id="dfn-wot-bindings-registry-table">WoT Bindings Registry Table</dfn>
+          <dfn id="dfn-wot-binding-registry-table">WoT Binding Registry Table</dfn>
         </dt>
         <dd>
           A list of bindings that are usable in the context of WoT. See <a href="https://www.w3.org/policies/process/#registry-table">registry table</a> for more information.
         </dd>
         <dt>
-          <dfn id="dfn-wot-bindings-registry-definition">WoT Bindings Registry Definition</dfn>
+          <dfn id="dfn-wot-binding-registry-definition">WoT Binding Registry Definition</dfn>
         </dt>
         <dd>
           A set of requirements that explain how the registry table is structured and maintained. See <a href="https://www.w3.org/policies/process/#registry-definition">registry definition</a> for more information.
@@ -299,7 +299,7 @@
         This pilot exists to test the process and the rules defined in this section.
       </p>
       
-      <p>A <a href="#dfn-wot-bindings-registry-definition">set of rules</a> extending the <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a> can be found below and is structured as follows.</p>
+      <p>A <a href="#dfn-wot-binding-registry-definition">set of rules</a> extending the <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a> can be found below and is structured as follows.</p>
       
       <ul>
         <li><a href="#entry-format"></a>
@@ -355,7 +355,7 @@
                 
                 <!--
                   TODO: These assertions should be moved to the registry definition.
-                  see https://github.com/w3c/wot-bindings-registry/pull/17#discussion_r2267069020
+                  see https://github.com/w3c/wot-binding-registry/pull/17#discussion_r2267069020
                 --> 
                 <!-- <ul>
                   <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
@@ -588,7 +588,7 @@
             </ul>
             </li>
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-current-state">For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST exist.</span> <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation">The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span> (capable of understanding and performing all the operations described in the binding) and one Exposer (capable of handling all the operations and features described in the binding and optionally be able to create a valid TD). Additional implementations can be added even after the transition to the Current.</li>
-            <li>The exact contents of the Test Report is not decided yet. See <a href="https://github.com/w3c/wot-bindings-registry/issues/3">https://github.com/w3c/wot-bindings-registry/issues/3</a></li>
+            <li>The exact contents of the Test Report is not decided yet. See <a href="https://github.com/w3c/wot-binding-registry/issues/3">https://github.com/w3c/wot-binding-registry/issues/3</a></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-transition">Submitters MAY call for transition but the custodian can also automatically trigger the process once it is verified that the condition above is reached.</span></li>
             <li><span class="rfc2119-assertion" id="submission-requirements-test-report-published"><em>Test Reports</em> and related resources SHOULD be published in a git repository.</span> <span class="rfc2119-assertion" id="submission-requirements-test-report-public">The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.</span></li>
             <li>Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a Plugfest or another structured testing session where different implementations can be evaluated collectively.</li>
@@ -650,7 +650,7 @@
     <section id="registry">
       <h2>Registry</h2>
 
-      <p>The following table defines the <a>WoT Bindings Registry</a> where each entry is a binding. Entries are ordered alphabetically according to their name.</p>
+      <p>The following table defines the <a>WoT Binding Registry</a> where each entry is a binding. Entries are ordered alphabetically according to their name.</p>
 
       <p class="note">
         The first entry is a placeholder example. It will be deleted once the first real entry is added. You can find the list of bindings that predate the registry mechanism at <a href="https://github.com/w3c/wot-binding-templates/?tab=readme-ov-file#publications">this Readme file</a>.

@@ -1,5 +1,5 @@
 {
-  "name": "wot-bindings-registry",
+  "name": "wot-binding-registry",
   "version": "0.0.0",
   "description": "Registry of Web of Things Bindings",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/w3c/wot-bindings-registry.git"
+    "url": "https://github.com/w3c/wot-binding-registry.git"
   },
   "keywords": [
     "wot",
@@ -19,9 +19,9 @@
   "author": "w3c",
   "license": "W3C-20150513",
   "bugs": {
-    "url": "https://github.com/w3c/wot-bindings-registry/issues"
+    "url": "https://github.com/w3c/wot-binding-registry/issues"
   },
-  "homepage": "http://w3c.github.io/wot-bindings-registry",
+  "homepage": "http://w3c.github.io/wot-binding-registry",
   "dependencies": {
     "npm": "^6.14.11",
     "prettier": "^3.2.5"
