@@ -14,17 +14,17 @@
 </p>
 
 <p align="center">
-  <a href="https://w3c.github.io/wot-bindings-registry/">
+  <a href="https://w3c.github.io/wot-binding-registry/">
     <img alt="Latest Editor's Draft" src="https://img.shields.io/badge/Editor's_Draft-Latest-fe914a"></a>
 </p>
 
-# Web of Things (WoT) Bindings Registry
+# Web of Things (WoT) Binding Registry
 
 General information about the Web of Things can be found at <https://www.w3.org/WoT/>.
 
 ---
 
-The Web of Things (WoT) Bindings Registry defines a registry of WoT bindings that make it possible to have a record of
+The Web of Things (WoT) Binding Registry defines a registry of WoT bindings that make it possible to have a record of
 the different bindings. Additionally, it sets the rules that govern this registry to guarantee a quality standard, long
 lifecycle and ease of use for the developers.
 
@@ -37,7 +37,7 @@ lifecycle and ease of use for the developers.
 
 ## Publications
 
-- [Latest Editor's Draft](https://w3c.github.io/wot-bindings-registry/) (syncs to this repository's main branch)
+- [Latest Editor's Draft](https://w3c.github.io/wot-binding-registry/) (syncs to this repository's main branch)
 
 ## Instructions for Editors and Contributors
 
