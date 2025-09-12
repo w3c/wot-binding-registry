@@ -136,13 +136,13 @@
       </p>
 
       <p>
-        In addition, this specification introduces further definitions below. These terms sometimes use the word
-        <em>X</em> as a placeholder for the concrete binding that is referred to.
+        In addition, this specification introduces further definitions below. These terms sometimes don't use the term
+        <em>WoT</em>. Please use the "WoT" prefix outside of the context of Web of Things.
       </p>
 
       <dl>
         <dt>
-          <dfn id="dfn-wot-x-binding">WoT X Binding</dfn>
+          <dfn id="dfn-binding">Binding</dfn>
         </dt>
         <dd>
           A human-readable document that gives guidance on how to describe a specific IoT protocol, data format or IoT
@@ -180,29 +180,29 @@
           information.
         </dd>
         <dt>
-          <dfn id="dfn-wot-x-binding-implementation">WoT X Binding Implementation</dfn>
+          <dfn id="dfn-binding-implementation">Binding Implementation</dfn>
         </dt>
-        <dd>One of the codebases that implements the X binding to build the correct network messages</dd>
+        <dd>One of the codebases that implements the binding to build the correct network messages</dd>
         <dt>
           <dfn id="dfn-execution-binding-instance">Execution of a Binding Instance</dfn>
         </dt>
         <dd>The request on the wire that is sent after parsing a TD's <a>binding instance</a>.</dd>
         <dt>
-          <dfn id="dfn-wot-x-binding-summary">WoT X Binding Summary</dfn>
+          <dfn id="dfn-binding-summary">Binding Summary</dfn>
         </dt>
         <dd>
           A custodian-owned document that summarizes the binding with an abstract, examples, access/usage rights and
           possibly more. This is a supporting document for a binding entry.
         </dd>
         <dt>
-          <dfn id="dfn-wot-x-binding-json-schema">WoT X Binding JSON Schema</dfn>
+          <dfn id="dfn-json-schema-for-a-binding">JSON Schema for a Binding</dfn>
         </dt>
         <dd>
-          A JSON Schema that allows validating the elements added by the <a>WoT X Binding</a> (registry entry). This is
-          a supporting document for a binding entry.
+          A JSON Schema that allows validating the elements added by the <a>Binding</a> (registry entry). This is a
+          supporting document for a binding entry.
         </dd>
         <dt>
-          <dfn id="dfn-wot-x-binding-json-ld-context">WoT X Binding JSON-LD Context</dfn>
+          <dfn id="dfn-json-ld-context-for-a-binding">JSON-LD Context for a Binding</dfn>
         </dt>
         <dd>
           A machine-readable JSON-LD document that defines all the terms to be used in a <a>binding instance</a>, which
@@ -210,7 +210,7 @@
           entry.
         </dd>
         <dt>
-          <dfn id="dfn-x-vocabulary-rdf">X Vocabulary in RDF</dfn>
+          <dfn id="dfn-vocabulary-in-rdf-for-a-binding">Vocabulary in RDF for a Binding</dfn>
         </dt>
         <dd>
           A machine-readable RDF document that formally defines all the terms of the binding, which allow semantic
@@ -218,11 +218,11 @@
           document for a binding entry.
         </dd>
         <dt>
-          <dfn id="dfn-x-vocabulary-document">X Vocabulary Document</dfn>
+          <dfn id="dfn-vocabulary-document-for-a-binding">Vocabulary Document for a Binding</dfn>
         </dt>
         <dd>
-          A human-readable version of the vocabulary defined at <a>X Vocabulary in RDF</a>. This is a supporting
-          document for a binding entry.
+          A human-readable version of the vocabulary defined at <a>Vocabulary in RDF for a Binding</a>. This is a
+          supporting document for a binding entry.
         </dd>
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
@@ -389,7 +389,7 @@
               <td>
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a>
               </td>
-              <td>Link to the <a href="#dfn-wot-x-binding-summary">summary document</a>.</td>
+              <td>Link to the <a href="#dfn-binding-summary">summary document</a> of a Binding.</td>
             </tr>
             <tr id="form-ver">
               <td>Version</td>
@@ -677,9 +677,9 @@
           <h3>Summary Document</h3>
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-summary-document"
-              >The submitter MUST fill in the GitHub form provided by the custodian to generate the
-              <a href="#dfn-wot-x-binding-summary">summary document</a>, which is hosted by the custodian together with
-              the registry.</span
+              >The submitter MUST fill in the GitHub form provided by the custodian to generate a
+              <a href="#dfn-binding-summary">summary document</a>, which is hosted by the custodian together with the
+              registry.</span
             >
             This form contains the following:
           </p>
@@ -805,7 +805,7 @@
                 <li>
                   <span class="rfc2119-assertion" id="submission-requirements-test-report-reference"
                     >A <em>Test Report</em>SHOULD contain a reference to the
-                    <a href="#dfn-wot-x-binding-implementation">implementations of Consumers or Exposers</a>.</span
+                    <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span
                   >
                 </li>
               </ul>
@@ -873,7 +873,7 @@
               Binding Content:
               <ul>
                 <li>URL Format</li>
-                <li>Form <a href="#dfn-x-vocabulary-document">Vocabulary Definition as Table</a></li>
+                <li>Form <a href="#dfn-vocabulary-document-for-a-binding">Vocabulary Definition as Table</a></li>
                 <li>Default and possible mappings to operations as a Table</li>
               </ul>
             </li>
@@ -892,13 +892,13 @@
           <ul>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-json-schema"
-                >There MUST be a <a href="#dfn-wot-x-binding-json-schema">JSON Schema</a> (version to be defined) that
+                >There MUST be a <a href="#dfn-json-schema-for-a-binding">JSON Schema</a> (version to be defined) that
                 allows validating the elements added by the entry.</span
               >
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-json-ld-context"
-                >There SHOULD be a <a href="#dfn-wot-x-binding-json-ld-context">JSON-LD Context</a> and an ontology for
+                >There SHOULD be a <a href="#dfn-json-ld-context-for-a-binding">JSON-LD Context</a> and an ontology for
                 the entry. Note that the lack of JSON-LD Context creates an RDF representation that will probably cause
                 issues in RDF databases.</span
               >
