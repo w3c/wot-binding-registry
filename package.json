@@ -24,6 +24,6 @@
   "homepage": "http://w3c.github.io/wot-binding-registry",
   "dependencies": {
     "npm": "^6.14.11",
-    "prettier": "^3.2.5"
+    "prettier": "3.0.0"
   }
 }
