@@ -1,0 +1,32 @@
+name: New Binding Submission
+description: |
+  Use this template to submit a new binding to the registry, going to the initial state
+labels: ["new-binding"]
+title: "Provide the name of the Binding, e.g. "Web of Things (WoT) HTTP Binding"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!Note]
+        Thank you for submitting a new binding. The fields in this template fill the entry 
+        format requirements set at https://w3c.github.io/wot-binding-registry/#entry-format.
+        The binding document itself should have the content required at 
+        https://w3c.github.io/wot-binding-registry/#submission-requirements
+  - type: input
+    id: name
+    attributes:
+      label: Name of the Binding
+      description: |
+        Examples: Web of Things (WoT) HTTP Binding, Web of Things (WoT) CoAP Binding
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to the binding document
+      description: |
+        Stable link whose content cannot change (e.g., a date, version number, etc.), 
+        which can be managed by another entity than the custodian.
+        Examples: https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html
+    validations:
+      required: true
