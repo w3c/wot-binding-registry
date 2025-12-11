@@ -2,7 +2,7 @@ name: New Binding Submission
 description: |
   Use this template to submit a new binding to the registry, going to the initial state
 labels: ["new-binding"]
-title: "Provide the name of the Binding, e.g. "Web of Things (WoT) HTTP Binding"
+title: Provide the name of the Binding, e.g. "Web of Things (WoT) HTTP Binding
 body:
   - type: markdown
     attributes:
@@ -47,3 +47,23 @@ body:
         Examples: "subprotocol":"sse", "href":"http://example.com", "contentType":"application/json"
     validations:
       required: true
+  - type: checkboxes
+    id: td-version
+    attributes:
+      label: Supported TD version
+      description: A binding SHOULD correspond to specific TD specification version(s).
+      options:
+      - label: V1.0
+      - label: V1.1
+      - label: V2.0
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Binding Version
+      description: |
+        A unique string for that entry's history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of YYYY-MM-DD.
+    validations:
+      required: true
+
