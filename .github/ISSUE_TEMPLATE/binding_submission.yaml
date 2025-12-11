@@ -53,9 +53,9 @@ body:
       label: Supported TD version
       description: A binding SHOULD correspond to specific TD specification version(s).
       options:
-      - label: V1.0
-      - label: V1.1
-      - label: V2.0
+        - label: V1.0
+        - label: V1.1
+        - label: V2.0
     validations:
       required: true
   - type: input
@@ -66,4 +66,3 @@ body:
         A unique string for that entry's history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of YYYY-MM-DD.
     validations:
       required: true
-
