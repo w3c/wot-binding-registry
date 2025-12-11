@@ -27,6 +27,23 @@ body:
       description: |
         Stable link whose content cannot change (e.g., a date, version number, etc.), 
         which can be managed by another entity than the custodian.
-        Examples: https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html
+        Examples: `https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html`
+    validations:
+      required: true
+  - type: input
+    id: prefix
+    attributes:
+      label: Binding Prefix
+      description: |
+        Examples: `htv`, `modv`, `cov`
+    validations:
+      required: true
+  - type: textarea
+    id: identification
+    attributes:
+      label: Binding Identification
+      description: |
+        URI Scheme or other TD terms reserved for this binding, each provided as a new line.
+        Examples: "subprotocol":"sse", "href":"http://example.com", "contentType":"application/json"
     validations:
       required: true
