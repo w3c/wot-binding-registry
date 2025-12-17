@@ -66,3 +66,21 @@ body:
         A unique string for that entry's history that denotes the version of the entry that is linked. The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of YYYY-MM-DD.
     validations:
       required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary of the Binding
+      description: |
+        Provide summary about the binding. 
+        The content must comply with https://w3c.github.io/wot-binding-registry/#req-summ
+        The placeholder is provided for convenience
+      placeholder: |
+        Abstract
+        Examples
+        Access and Usage Restrictions
+        Dependent Bindings
+        Available machine-readable documents (Schema, Ontology, JSON-LD Context)
+        (if available) Link to the previous summary document
+        (if relevant) Explanation about the versioning and ordering mechanism
+    validations:
+      required: true
