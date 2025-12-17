@@ -12,7 +12,7 @@ body:
         format requirements set at https://w3c.github.io/wot-binding-registry/#entry-format.
         The binding document itself should have the content required at 
         https://w3c.github.io/wot-binding-registry/#submission-requirements
-        
+        > [!Note]
         Please make sure to comply with our Code of Conduct (https://www.w3.org/policies/code-of-conduct/).
         It defines expected and unacceptable behaviors and promotes high standards of professional practice.
         The custodian is encouraged to apply necessary measures when necessary.
