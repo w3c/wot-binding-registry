@@ -25,7 +25,7 @@ body:
     validations:
       required: true
   - type: input
-    id: link
+    id: link-old
     attributes:
       label: Link to the binding document that is superseded
       description: |
@@ -33,7 +33,7 @@ body:
     validations:
       required: true
   - type: input
-    id: link
+    id: link-new
     attributes:
       label: Link to the new binding document that supersedes the previous one
       description: |
