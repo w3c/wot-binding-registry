@@ -1,0 +1,53 @@
+name: Binding Transition to Obsolete
+description: |
+  Use this template to submit a binding transition to obsolete state, i.e., not recommend the usage of this binding
+labels: ["binding-transition-obsolete"]
+title: Provide the name and the version of the Binding, e.g. "Web of Things (WoT) HTTP Binding v2024-07-26"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!Note]
+        Thank you for submitting the binding transition to obsolete state. Please provide the information in this template for the custodian to review the transition. If a newer version of the binding is available, please submit a transition to superseded state instead. Obsolete state indicates that the binding is no longer recommended for use.
+  - type: markdown
+    attributes:
+      value: |
+        > [!Note]
+        Please make sure to comply with our Code of Conduct (https://www.w3.org/policies/code-of-conduct/).
+        It defines expected and unacceptable behaviors and promotes high standards of professional practice.
+        The custodian is encouraged to apply necessary measures when necessary.
+  - type: input
+    id: name
+    attributes:
+      label: Name and Version of the Binding
+      description: |
+        Examples: Web of Things (WoT) HTTP Binding v2024-07-26, Web of Things (WoT) CoAP Binding v2024-07-26
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to the binding document
+      description: |
+        The exact link from the registry table which you want to transition to obsolete state.
+    validations:
+      required: true
+  - type: dropdown
+    id: submitter-relationship
+    attributes:
+      label: Relationship to the Submitter
+      description: |
+        Are you related to the original submitter of the binding you want to transition to obsolete state?
+      options:
+        - label: Yes, I am the original submitter or an authorized representative
+        - label: No, I am not related to the original submitter
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason to transition to Obsolete
+      description: |
+        Explanation with objective reasons to transition the binding to obsolete state.
+    validations:
+      required: true
