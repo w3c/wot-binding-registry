@@ -1,0 +1,94 @@
+name: New Binding Submission
+description: |
+  Use this template to submit a new binding to the registry, going to the initial state
+labels: ["new-binding"]
+title: Provide the name of the Binding, e.g. "Web of Things (WoT) HTTP Binding
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!Note]
+        Thank you for submitting a new binding. The fields in this template fill the entry 
+        format requirements set at https://w3c.github.io/wot-binding-registry/#entry-format.
+        The binding document itself should have the content required at 
+        https://w3c.github.io/wot-binding-registry/#submission-requirements
+  - type: markdown
+    attributes:
+      value: |
+        > [!Note]
+        Please make sure to comply with our Code of Conduct (https://www.w3.org/policies/code-of-conduct/).
+        It defines expected and unacceptable behaviors and promotes high standards of professional practice.
+        The custodian is encouraged to apply necessary measures when necessary.
+  - type: input
+    id: name
+    attributes:
+      label: Name of the Binding
+      description: |
+        Examples: Web of Things (WoT) HTTP Binding, Web of Things (WoT) CoAP Binding
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to the binding document
+      description: |
+        Stable link whose content cannot change (e.g., a date, version number, etc.), 
+        which can be managed by another entity than the custodian.
+        Examples: `https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html`
+    validations:
+      required: true
+  - type: input
+    id: prefix
+    attributes:
+      label: Binding Prefix
+      description: |
+        Examples: `htv`, `modv`, `cov`
+    validations:
+      required: true
+  - type: textarea
+    id: identification
+    attributes:
+      label: Binding Identification
+      description: |
+        URI Scheme or other TD terms reserved for this binding, each provided as a new line.
+        Examples: "subprotocol":"sse", "href":"http://example.com", "contentType":"application/json"
+    validations:
+      required: true
+  - type: checkboxes
+    id: td-version
+    attributes:
+      label: Supported TD version
+      description: A binding SHOULD correspond to specific TD specification version(s).
+      options:
+        - label: V1.0
+        - label: V1.1
+        - label: V2.0
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Binding Version
+      description: |
+        A unique string for that entry's history that denotes the version of the entry that is linked. 
+        The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of YYYY-MM-DD.
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary of the Binding
+      description: |
+        Provide summary about the binding. 
+        The content must comply with https://w3c.github.io/wot-binding-registry/#req-summ
+        The placeholder is provided for convenience
+      placeholder: |
+        Abstract
+        Examples
+        Access and Usage Restrictions
+        Dependent Bindings
+        Available machine-readable documents (Schema, Ontology, JSON-LD Context)
+        (if available) Link to the previous summary document
+        (if relevant) Explanation about the versioning and ordering mechanism
+    validations:
+      required: true
