@@ -321,6 +321,17 @@
                 Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code>
               </td>
             </tr>
+            <tr id="form-target-spec">
+              <td>Specification that the Binding Targets</td>
+              <td>
+                <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a> followed
+                by an <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a>
+              </td>
+              <td>
+                The name and link of the specification that the binding is designed to target. Example: `MQTT 3.1.1
+                (https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)`
+              </td>
+            </tr>
             <tr id="form-pref">
               <td>Binding ontology prefix</td>
               <td>
@@ -397,11 +408,15 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               </td>
               <td>
-                A unique string for that entry&#39;s history that denotes the version of the entry that is linked.
+                A string that identifies a specific version of this binding.
+                <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
+                  Different bindings may share the same version string, but each version of a binding MUST be unique
+                  within that binding's history.
+                </span>
                 <span class="rfc2119-assertion" id="entry-format-version-form"
                   >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
-                  <code>YYYY-MM-DD</code>.</span
-                >
+                  <code>YYYY-MM-DD</code>.
+                </span>
               </td>
             </tr>
           </tbody>
@@ -416,6 +431,13 @@
 
       <section id="lifecycle">
         <h2>Lifecycle</h2>
+
+        <p>
+          Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>. The state in the
+          lifecycle can be seen in the registry itself, as well as the
+          <a href="https://github.com/orgs/w3c/projects/222">GitHub project</a> that is used to track submissions and
+          transition requests.
+        </p>
 
         <!--<ul>
           <li><a href="#life-subm"></a></li>
