@@ -2,7 +2,7 @@ name: Binding Transition to Obsolete
 description: |
   Use this template to submit a binding transition to obsolete state, i.e., not recommend the usage of this binding
 labels: ["binding-transition-obsolete"]
-title: Provide the name and the version of the Binding, e.g. "Web of Things (WoT) HTTP Binding v2024-07-26"
+title: "Binding Transition to Obsolete"
 body:
   - type: markdown
     attributes:

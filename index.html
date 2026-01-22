@@ -321,6 +321,17 @@
                 Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code>
               </td>
             </tr>
+            <tr id="form-target-spec">
+              <td>Specification that the Binding Targets</td>
+              <td>
+                <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a> followed
+                by an <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a>
+              </td>
+              <td>
+                The name and link of the specification that the binding is designed to target. Example: `MQTT 3.1.1
+                (https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)`
+              </td>
+            </tr>
             <tr id="form-pref">
               <td>Binding ontology prefix</td>
               <td>
@@ -397,11 +408,15 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               </td>
               <td>
-                A unique string for that entry&#39;s history that denotes the version of the entry that is linked.
+                A string that identifies a specific version of this binding.
+                <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
+                  Different bindings may share the same version string, but each version of a binding MUST be unique
+                  within that binding's history.
+                </span>
                 <span class="rfc2119-assertion" id="entry-format-version-form"
                   >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
-                  <code>YYYY-MM-DD</code>.</span
-                >
+                  <code>YYYY-MM-DD</code>.
+                </span>
               </td>
             </tr>
           </tbody>
@@ -416,6 +431,13 @@
 
       <section id="lifecycle">
         <h2>Lifecycle</h2>
+
+        <p>
+          Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>. The state in the
+          lifecycle can be seen in the registry itself, as well as the
+          <a href="https://github.com/orgs/w3c/projects/222">GitHub project</a> that is used to track submissions and
+          transition requests.
+        </p>
 
         <!--<ul>
           <li><a href="#life-subm"></a></li>
@@ -745,109 +767,145 @@
           </ul>
         </section>
 
-        <section id="req-trancurr">
-          <h3>Transition</h3>
-          <p>Transition from <code>Initial</code> to <code>Current</code></p>
-          <ul>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
-                >Starting from the initial submission, each binding MUST demonstrate a certain level of concrete
-                development maturity.</span
-              >
-              This process involves real-world testing, which can take place in Plugfests, independent testing events,
-              or even informal collaboration between developers. These testing events do not have to be organized by W3C
-              and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding correctly
-              maps protocol operations and is well understood by at least two parties.
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-transition-validated"
-                >At each testing event,
-                <a href="#dfn-execution-binding-instance">every operation defined in the binding MUST be validated</a>
-                automatically (e.g., scripts, test suites, etc.).</span
-              >
-              <span class="rfc2119-assertion" id="submission-requirements-transition-dedicated-document"
-                >The results SHOULD be published in a dedicated document (README, or other human-readable documents)
-                called <em>Test Report</em>.</span
-              >
-            </li>
-            <li>
-              <em>Test Report</em>
-              <ul>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-information"
-                    >A <em>Test Report</em> MUST contain information on the testing environment.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-logical-process"
-                    >A <em>Test Report</em> MUST provide an example of the logical process (not necessarily code) about
-                    how a TD can be processed to establish a communication between consumer and exposer.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-scenario"
-                    >A <em>Test Report</em> MUST contain information about the scenario that was tested, e.g.
-                    controlling the room temperature by measuring temperature and adjusting the heater.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation-experience"
-                    >A <em>Test Report</em> MUST explain where discussions on implementation experience should be
-                    collected.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-history"
-                    >A <em>Test Report</em> SHOULD provide the history of all the past testing events (or explain how to
-                    retrieve the history of the results gathered during those events).</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-reference"
-                    >A <em>Test Report</em> SHOULD contain a reference to the
-                    <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-current-state"
-                >For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST
-                exist.</span
-              >
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation"
-                >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span
-              >
-              (capable of understanding and performing all the operations described in the binding) and one Exposer
-              (capable of handling all the operations and features described in the binding and optionally be able to
-              create a valid TD). Additional implementations can be added even after the transition to the Current.
-            </li>
-            <li>
-              The exact contents of the Test Report is not decided yet. See
-              <a href="https://github.com/w3c/wot-binding-registry/issues/3"
-                >https://github.com/w3c/wot-binding-registry/issues/3</a
-              >
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-transition"
-                >Submitters MAY call for transition but the custodian can also automatically trigger the process once it
-                is verified that the condition above is reached.</span
-              >
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
-                ><em>Test Reports</em> and related resources SHOULD be published in a git repository.</span
-              >
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-public"
-                >The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.</span
-              >
-            </li>
-            <li>
-              Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a
-              Plugfest or another structured testing session where different implementations can be evaluated
-              collectively.
-            </li>
-          </ul>
+        <section>
+          <h3>Transitions</h3>
+
+          <p>
+            After an initial submission goes into the registry, it is in the <code>Initial</code> state. To transition
+            to other states, the following sections explain the mechanisms.
+          </p>
+          <p>
+            <span class="rfc2119-assertion" id="transition-requirements-trigger">
+              As a general rule, a transition MAY be triggered by the submitter, the custodian or anyone who creates an
+              issue using the correct template.
+            </span>
+            <span class="rfc2119-assertion" id="transition-requirements-notify">
+              However, the custodian MUST notify the initial submitter and the organization related to the entry of any
+              transition request using the contact information provided in the submission issue.
+            </span>
+            <span class="rfc2119-assertion" id="transition-requirements-approve">
+              In the case of no replies within 30 days from the initial submitter or the organization related to the
+              entry, the custodian MUST process the transition, consulting reviewers when necessary for the transition
+              in question.
+            </span>
+          </p>
+          <section id="req-trancurr">
+            <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
+            <ul>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
+                  >Starting from the initial submission, each binding MUST demonstrate a certain level of concrete
+                  development maturity.</span
+                >
+                This process involves real-world testing, which can take place in Plugfests, independent testing events,
+                or even informal collaboration between developers. These testing events do not have to be organized by
+                W3C and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding
+                correctly maps protocol operations and is well understood by at least two parties.
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-validated"
+                  >At each testing event,
+                  <a href="#dfn-execution-binding-instance">every operation defined in the binding MUST be validated</a>
+                  automatically (e.g., scripts, test suites, etc.).</span
+                >
+                <span class="rfc2119-assertion" id="submission-requirements-transition-dedicated-document"
+                  >The results SHOULD be published in a dedicated document (README, or other human-readable documents)
+                  called <em>Test Report</em>.</span
+                >
+              </li>
+              <li>
+                <em>Test Report</em>
+                <ul>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-information"
+                      >A <em>Test Report</em> MUST contain information on the testing environment.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-logical-process"
+                      >A <em>Test Report</em> MUST provide an example of the logical process (not necessarily code)
+                      about how a TD can be processed to establish a communication between consumer and exposer.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-scenario"
+                      >A <em>Test Report</em> MUST contain information about the scenario that was tested, e.g.
+                      controlling the room temperature by measuring temperature and adjusting the heater.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation-experience"
+                      >A <em>Test Report</em> MUST explain where discussions on implementation experience should be
+                      collected.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-history"
+                      >A <em>Test Report</em> SHOULD provide the history of all the past testing events (or explain how
+                      to retrieve the history of the results gathered during those events).</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-reference"
+                      >A <em>Test Report</em> SHOULD contain a reference to the
+                      <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-current-state"
+                  >For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST
+                  exist.</span
+                >
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation"
+                  >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span
+                >
+                (capable of understanding and performing all the operations described in the binding) and one Exposer
+                (capable of handling all the operations and features described in the binding and optionally be able to
+                create a valid TD). Additional implementations can be added even after the transition to the Current.
+              </li>
+              <li>
+                The exact contents of the Test Report is not decided yet. See
+                <a href="https://github.com/w3c/wot-binding-registry/issues/3"
+                  >https://github.com/w3c/wot-binding-registry/issues/3</a
+                >
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
+                  ><em>Test Reports</em> and related resources SHOULD be published in a git repository.</span
+                >
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-public"
+                  >The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.</span
+                >
+              </li>
+              <li>
+                Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a
+                Plugfest or another structured testing session where different implementations can be evaluated
+                collectively.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Current</code> to <code>Superseded</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Current</code> to <code>Obsolete</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Superseded</code> to <code>Obsolete</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Obsolete</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Superseded</code></h4>
+          </section>
         </section>
 
         <section id="req-content">
