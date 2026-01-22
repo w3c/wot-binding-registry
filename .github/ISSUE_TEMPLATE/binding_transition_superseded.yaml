@@ -2,7 +2,7 @@ name: Binding Transition to Superseded
 description: |
   Use this template to submit a binding transition to superseded state, i.e., a new binding whose state is current is replacing this one
 labels: ["binding-transition-superseded"]
-title: Provide the name and the version of the Binding, e.g. "Web of Things (WoT) HTTP Binding v2024-07-26"
+title: "Binding Transition to Superseded"
 body:
   - type: markdown
     attributes:
