@@ -767,9 +767,25 @@
           </ul>
         </section>
 
-        <section id="req-trancurr">
-          <h3>Transition</h3>
-          <p>Transition from <code>Initial</code> to <code>Current</code></p>
+        <section>
+          <h3>Transitions</h3>
+
+          <p>
+          After an initial submission goes into the registry, it is in the <code>Initial</code> state. To transition to other states, the following sections explain the mechanisms.
+          </p>
+          <p>
+            <span class="rfc2119-assertion" id="transition-requirements-trigger">
+              As a general rule, a transition MAY be triggered by the submitter, the custodian or anyone who creates an issue using the correct template.
+            </span>
+            <span class="rfc2119-assertion" id="transition-requirements-notify">
+              However, the custodian MUST notify the initial submitter and the organization related to the entry of any transition request using the contact information provided in the submission issue.
+            </span>
+            <span class="rfc2119-assertion" id="transition-requirements-approve">
+              In the case of no replies within 30 days from the initial submitter or the organization related to the entry, the custodian MUST process the transition, consulting reviewers when necessary for the transition in question.
+            </span>
+          </p>
+          <section id="req-trancurr">
+          <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
           <ul>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
@@ -851,12 +867,6 @@
               >
             </li>
             <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-transition"
-                >Submitters MAY call for transition but the custodian can also automatically trigger the process once it
-                is verified that the condition above is reached.</span
-              >
-            </li>
-            <li>
               <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
                 ><em>Test Reports</em> and related resources SHOULD be published in a git repository.</span
               >
@@ -870,6 +880,28 @@
               collectively.
             </li>
           </ul>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Current</code> to <code>Superseded</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Current</code> to <code>Obsolete</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Superseded</code> to <code>Obsolete</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Obsolete</code></h4>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Superseded</code></h4>
+          </section>
+
         </section>
 
         <section id="req-content">
@@ -991,6 +1023,7 @@
             For example, before LWM2M can be submitted, the CoAP Binding must exist.
           </p>
         </section>
+      
       </section>
     </section>
 
