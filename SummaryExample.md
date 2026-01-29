@@ -110,7 +110,8 @@ examples showcasing different vocabulary terms and the associated behaviors are 
 
 #### Access and Usage Restrictions
 
-Reading: Open and free to read Implementation: [Royalty-free patent policy](https://www.w3.org/policies/patent-policy/)
+Reading, implementation and more: [Royalty-free patent policy](https://www.w3.org/policies/patent-policy/)
+License: [Document License](https://www.w3.org/copyright/document-license-2023/)
 
 #### Dependent Bindings
 

@@ -40,7 +40,7 @@ body:
   - type: input
     id: binding-target
     attributes:
-      label: Specification that the Binding Targets
+      label: Specification that the Binding targets
       description: |
         The name and link of the specification that the binding is designed to target.
         Example: `MQTT 3.1.1 (https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)`
@@ -108,7 +108,7 @@ body:
       description: |
         Provide summary about the binding. 
         The content must comply with https://w3c.github.io/wot-binding-registry/#req-summ
-        You can fill in the fields in the text field below using the template provided at https://github.com/w3c/wot-binding-registry/blob/main/SummaryExample.md
+        You can fill in the fields in the text field below and get guidance from the example provided at https://github.com/w3c/wot-binding-registry/blob/main/SummaryExample.md
       value: |
         #### Abstract
 
