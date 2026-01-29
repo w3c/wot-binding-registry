@@ -408,15 +408,8 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               </td>
               <td>
-                A string that identifies a specific version of this binding.
-                <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
-                  Different bindings may share the same version string, but each version of a binding MUST be unique
-                  within that binding's history.
-                </span>
-                <span class="rfc2119-assertion" id="entry-format-version-form"
-                  >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
-                  <code>YYYY-MM-DD</code>.
-                </span>
+                A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>.
+                 See <a href="#life-ver">Versioning</a> for more information.
               </td>
             </tr>
           </tbody>
@@ -515,16 +508,28 @@
 
         <section id="life-ver">
           <h3>Versioning</h3>
+          
           <p>
-            Versioning of registry entries (see
-            <a href="https://github.com/w3c/wot/tree/main/registry-analysis#versioning"
-              >https://github.com/w3c/wot/tree/main/registry-analysis#versioning</a
-            >)
-          </p>
-          <p class="note">
-            We do not allow updates to a registry document&#39;s content. A new version of a binding is a resubmission
-            and optional deprecation of the old one. However, new features need new implementations, so it is not a
-            completely new registration
+            <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
+              Different bindings may share the same version string, but each version of a binding MUST be unique
+              within that binding's history.
+            </span>
+            <span class="rfc2119-assertion" id="entry-format-version-form">The version string SHOULD contain a UTC-based date in ISO
+              8601 format in the form of
+              <code>YYYY-MM-DD</code>.
+            </span>
+          
+            <span class="rfc2119-assertion" id="life-versioning-unique-version">
+              The content of a registry entry MAY not be updated for a given version. 
+            </span>
+
+            <span class="rfc2119-assertion" id="life-versioning-unique-version">
+              If anyone wants to submit a newer version of an entry, it MUST be a new submission.
+            </span>
+            As indicated in <a href="#transition-from-current-to-superseded">transition to superseded</a> and <a href="#transition-from-current-to-obsolete">transition to obsolete</a>, the newer versions results in state changes.
+            <span class="rfc2119-assertion" id="life-versioning-review-for-new-version">
+              Review of a new version of an existing binding SHOULD take the previous reviews into account.
+            </span>
           </p>
         </section>
 
