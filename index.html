@@ -408,8 +408,8 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               </td>
               <td>
-                A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>.
-                 See <a href="#life-ver">Versioning</a> for more information.
+                A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>. See
+                <a href="#life-ver">Versioning</a> for more information.
               </td>
             </tr>
           </tbody>
@@ -476,7 +476,8 @@
             </li>
             <li>
               <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
-              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is recommended to use the term <code>current</code>.
+              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
+              recommended to use the term <code>current</code>.
             </li>
             <li>
               <code>Superseded</code>: A previously &quot;current&quot; entry that is now superseded with a newer one
@@ -484,18 +485,14 @@
             <li><code>Obsolete</code>: Custodian does not recommend the usage of this binding</li>
           </ul>
           <p>
-            The diagram below represents the lifecycle sates and the possible transitions between them.
-            Please refer to <a href="#transitions">transitions</a> for the requirements and process for each transitions.
+            The diagram below represents the lifecycle sates and the possible transitions between them. Please refer to
+            <a href="#transitions">transitions</a> for the requirements and process for each transitions.
           </p>
-          <figure style="text-align: center;">
-            <img
-              src="./images/lifecycle.svg"
-              alt="Registry Entry Lifecycle Diagram"
-              
-            />
+          <figure style="text-align: center">
+            <img src="./images/lifecycle.svg" alt="Registry Entry Lifecycle Diagram" />
             <figcaption>Registry Entry Lifecycle States</figcaption>
           </figure>
-          
+
           <p class="ednote">
             This is inspired by the
             <a href="https://w3c.github.io/ttwg/boilerplate/registry/#registry-entry-status">TTWG Boilerplate</a>.
@@ -508,25 +505,27 @@
 
         <section id="life-ver">
           <h3>Versioning</h3>
-          
+
           <p>
             <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
-              Different bindings may share the same version string, but each version of a binding MUST be unique
-              within that binding's history.
+              Different bindings may share the same version string, but each version of a binding MUST be unique within
+              that binding's history.
             </span>
-            <span class="rfc2119-assertion" id="entry-format-version-form">The version string SHOULD contain a UTC-based date in ISO
-              8601 format in the form of
+            <span class="rfc2119-assertion" id="entry-format-version-form"
+              >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
               <code>YYYY-MM-DD</code>.
             </span>
-          
+
             <span class="rfc2119-assertion" id="life-versioning-unique-version">
-              The content of a registry entry MAY not be updated for a given version. 
+              The content of a registry entry MAY not be updated for a given version.
             </span>
 
             <span class="rfc2119-assertion" id="life-versioning-unique-version">
               If anyone wants to submit a newer version of an entry, it MUST be a new submission.
             </span>
-            As indicated in <a href="#transition-from-current-to-superseded">transition to superseded</a> and <a href="#transition-from-current-to-obsolete">transition to obsolete</a>, the newer versions results in state changes.
+            As indicated in <a href="#transition-from-current-to-superseded">transition to superseded</a> and
+            <a href="#transition-from-current-to-obsolete">transition to obsolete</a>, the newer versions results in
+            state changes.
             <span class="rfc2119-assertion" id="life-versioning-review-for-new-version">
               Review of a new version of an existing binding SHOULD take the previous reviews into account.
             </span>
@@ -762,7 +761,8 @@
 
           <p>
             After an initial submission goes into the registry, it is in the <code>Initial</code> state. To transition
-            to other states - defined in <a href="#life-stat">lifecycle status</a> - the following sections explain the requirements and rules that need to be followed by the submitter and custodian.
+            to other states - defined in <a href="#life-stat">lifecycle status</a> - the following sections explain the
+            requirements and rules that need to be followed by the submitter and custodian.
           </p>
           <p>
             <span class="rfc2119-assertion" id="transition-requirements-trigger">
@@ -782,8 +782,9 @@
           <section id="req-traninit">
             <h3>Transition to Initial</h3>
             <p>
-              <span class="rfc2119-assertion" id="submission-requirements-req-content">Initial entry MUST be a correct document
-                which complies with <a href="#req-content"></a>.</span>
+              <span class="rfc2119-assertion" id="submission-requirements-req-content"
+                >Initial entry MUST be a correct document which complies with <a href="#req-content"></a>.</span
+              >
               The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
               non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
             </p>
@@ -892,8 +893,8 @@
               Superseding a binding allows the custodian to recommend a newer version of a binding while still keeping
               the older version available for reference.
               <span class="rfc2119-assertion" id="submission-requirements-transition-superseded"
-                >When a new version of a binding is accepted as <code>Current</code>, the previous <code>Current</code>
-                version MUST be transitioned to <code>Superseded</code>.</span
+                >When a new version of a binding is accepted as <code>Current</code>, the previous
+                <code>Current</code> version MUST be transitioned to <code>Superseded</code>.</span
               >
             </p>
           </section>
@@ -903,8 +904,8 @@
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-current-obsolete">
-                An entry MAY be transitioned to <code>Obsolete</code> from <code>Current</code> if the that binding is not
-                recommended for use.
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Current</code> if the that binding is
+                not recommended for use.
               </span>
             </p>
           </section>
@@ -914,15 +915,15 @@
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
-                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is not
-                recommended for use or testing anymore.
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is
+                not recommended for use or testing anymore.
               </span>
             </p>
           </section>
 
           <section>
             <h4>Transition from <code>Initial</code> to <code>Superseded</code></h4>
-          
+
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-superseded">
                 An entry MAY be transitioned to <code>Superseded</code> from <code>Initial</code> if another entry will
@@ -936,12 +937,11 @@
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
-                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is not recommended for use or testing anymore.
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is
+                not recommended for use or testing anymore.
               </span>
             </p>
           </section>
-
-
         </section>
 
         <section id="req-content">
