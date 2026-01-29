@@ -439,15 +439,6 @@
           transition requests.
         </p>
 
-        <!--<ul>
-          <li><a href="#life-subm"></a></li>
-          <li><a href="#life-stat"></a></li>
-          <li><a href="#life-tran"></a></li>
-          <li><a href="#life-ver"></a>
-          <li><a href="#life-deldep"></a>
-          </li>
-        </ul>-->
-
         <section id="life-subm">
           <h3>Technical submission mechanism</h3>
           <p>The mechanism is as follows:</p>
@@ -482,7 +473,7 @@
         <section id="life-stat">
           <h3>Status</h3>
           <p>
-            We distinguish between the following statuses: <code>Initial</code> -&gt; <code>Current</code> -&gt;
+            An entry can have the following status values: <code>Initial</code> -&gt; <code>Current</code> -&gt;
             <code>Superseded</code> or <code>Obsolete</code>
           </p>
           <ul>
@@ -492,13 +483,26 @@
             </li>
             <li>
               <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
-              experience
+              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is recommended to use the term <code>current</code>.
             </li>
             <li>
               <code>Superseded</code>: A previously &quot;current&quot; entry that is now superseded with a newer one
             </li>
             <li><code>Obsolete</code>: Custodian does not recommend the usage of this binding</li>
           </ul>
+          <p>
+            The diagram below represents the lifecycle sates and the possible transitions between them.
+            Please refer to <a href="#transitions">transitions</a> for the requirements and process for each transitions.
+          </p>
+          <figure style="text-align: center;">
+            <img
+              src="./images/lifecycle.svg"
+              alt="Registry Entry Lifecycle Diagram"
+              
+            />
+            <figcaption>Registry Entry Lifecycle States</figcaption>
+          </figure>
+          
           <p class="ednote">
             This is inspired by the
             <a href="https://w3c.github.io/ttwg/boilerplate/registry/#registry-entry-status">TTWG Boilerplate</a>.
@@ -506,14 +510,6 @@
             Alternatives can be reconsidered if needed. Initial: provisional, draft, in development. Current: Final,
             Stable. Outdated: Old, Deprecated (not preferred since it is still usable), Previous, Obsolete. Also see
             <a href="https://www.w3.org/policies/process/#RecsObs">https://www.w3.org/policies/process/#RecsObs</a>
-          </p>
-        </section>
-
-        <section id="life-tran">
-          <h3>Transitioning</h3>
-          <p>
-            What are the requirements for transitioning from one value to another? See section
-            <a href="#submission-requirements"></a> as well.
           </p>
         </section>
 
@@ -627,17 +623,6 @@
           <p class="ednote">
             TODO: We will need additional mechanisms (including vocabulary terms) to ensure that it is possible to use
             other media types.
-          </p>
-        </section>
-
-        <section id="req-traninit">
-          <h3>Initial entry</h3>
-          <p>
-            <span class="rfc2119-assertion" id="submission-requirements-req-content"
-              >Initial entry MUST be a correct document which complies with <a href="#req-content"></a>.</span
-            >
-            The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
-            non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
           </p>
         </section>
 
@@ -772,7 +757,7 @@
 
           <p>
             After an initial submission goes into the registry, it is in the <code>Initial</code> state. To transition
-            to other states, the following sections explain the mechanisms.
+            to other states - defined in <a href="#life-stat">lifecycle status</a> - the following sections explain the requirements and rules that need to be followed by the submitter and custodian.
           </p>
           <p>
             <span class="rfc2119-assertion" id="transition-requirements-trigger">
@@ -789,6 +774,15 @@
               in question.
             </span>
           </p>
+          <section id="req-traninit">
+            <h3>Transition to Initial</h3>
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-req-content">Initial entry MUST be a correct document
+                which complies with <a href="#req-content"></a>.</span>
+              The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
+              non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
+            </p>
+          </section>
           <section id="req-trancurr">
             <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
             <ul>
@@ -889,23 +883,60 @@
 
           <section>
             <h4>Transition from <code>Current</code> to <code>Superseded</code></h4>
+            <p>
+              Superseding a binding allows the custodian to recommend a newer version of a binding while still keeping
+              the older version available for reference.
+              <span class="rfc2119-assertion" id="submission-requirements-transition-superseded"
+                >When a new version of a binding is accepted as <code>Current</code>, the previous <code>Current</code>
+                version MUST be transitioned to <code>Superseded</code>.</span
+              >
+            </p>
           </section>
 
           <section>
             <h4>Transition from <code>Current</code> to <code>Obsolete</code></h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-current-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Current</code> if the that binding is not
+                recommended for use.
+              </span>
+            </p>
           </section>
 
           <section>
             <h4>Transition from <code>Superseded</code> to <code>Obsolete</code></h4>
-          </section>
 
-          <section>
-            <h4>Transition from <code>Initial</code> to <code>Obsolete</code></h4>
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is not
+                recommended for use or testing anymore.
+              </span>
+            </p>
           </section>
 
           <section>
             <h4>Transition from <code>Initial</code> to <code>Superseded</code></h4>
+          
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-initial-superseded">
+                An entry MAY be transitioned to <code>Superseded</code> from <code>Initial</code> if another entry will
+                continue development and maintenance.
+              </span>
+            </p>
           </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Obsolete</code></h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is not recommended for use or testing anymore.
+              </span>
+            </p>
+          </section>
+
+
         </section>
 
         <section id="req-content">
