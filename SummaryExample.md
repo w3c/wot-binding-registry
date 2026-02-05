@@ -115,9 +115,9 @@ Reading, implementation and more: [Royalty-free patent policy](https://www.w3.or
 
 #### Dependent Bindings
 
-- Octet Stream Binding
+- Octet Stream Binding: link
 
-#### Available machine-readable documents (Schema, Ontology, JSON-LD Context)
+#### Available machine-readable supporting documents (Schema, Ontology, JSON-LD Context)
 
 - Schema: <https://github.com/w3c/wot-binding-templates/blob/main/bindings/protocols/modbus/modbus.schema.json>
 - Ontology: <https://github.com/w3c/wot-binding-templates/blob/main/bindings/protocols/modbus/ontology.ttl>
