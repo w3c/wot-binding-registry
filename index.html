@@ -545,7 +545,7 @@
         <h2>Ownership</h2>
 
         <p>
-          The registry is managed by a <a>Custodian</a> and entries are reviewed by
+          The registry is managed by a <a>Custodian</a> and submissions and transitions are reviewed by
           <a href="#dfn-reviewer">Reviewers</a>.
         </p>
 
@@ -562,20 +562,6 @@
             >
             For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
             can be maintained for a long period.
-          </p>
-        </section>
-
-        <section id="own-rev">
-          <h3>Reviewer</h3>
-          <p>
-            <span class="rfc2119-assertion" id="ownership-review-independently"
-              >If there is an expert of the binding entry&#39;s specification and a WoT expert within the custodian
-              entity, they CAN do the review independently.</span
-            >
-            <span class="rfc2119-assertion" id="ownership-review-expert"
-              >If not, the custodian MUST choose an expert for that specification and a WoT expert who can be the same
-              person.</span
-            >
           </p>
         </section>
       </section>
@@ -634,7 +620,7 @@
           <h3>Changelog</h3>
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-changelog"
-              >Each versioned entry MUST contain a changelog in the entry itself.</span
+              >Each entry after the first version of the binding MUST contain a changelog in the entry itself.</span
             >
           </p>
         </section>
@@ -760,9 +746,10 @@
           <h3>Transitions</h3>
 
           <p>
-            After an initial submission goes into the registry, it is in the <code>Initial</code> state. To transition
-            to other states - defined in <a href="#life-stat">lifecycle status</a> - the following sections explain the
-            requirements and rules that need to be followed by the submitter and custodian.
+            Every transition including the initial submission is triggered by an issue, which can be made by the
+            submitter, the custodian or anyone who creates an issue using the correct template. For each transition -
+            defined in <a href="#life-stat">lifecycle status</a> - the following sections explain the requirements and
+            rules that need to be followed by the submitter, custodian and reviewers.
           </p>
           <p>
             <span class="rfc2119-assertion" id="transition-requirements-trigger">
@@ -778,20 +765,64 @@
               entry, the custodian MUST process the transition, consulting reviewers when necessary for the transition
               in question.
             </span>
+            <span class="rfc2119-assertion" id="transition-reviewer-submitter-different">
+              The custodian MUST assign reviewers for the submission and transitions who are different from the initial
+              submitter and the organization related to the entry.
+            </span>
+            <span class="rfc2119-assertion" id="transition-post-review-time-minimum">
+              The custodian MUST wait 15 days after the end of the review process before making a decision on the
+              transition to allow for any further comments or discussions to take place.
+            </span>
+            <span class="rfc2119-assertion" id="transition-post-review-time-maximum">
+              The custodian MUST make a decision on the transition within 30 days after the end of the review process.
+            </span>
+            <span class="rfc2119-assertion" id="transition-check-old-entries">
+              If there are other entries in the registry with <code>Initial</code> or <code>Current</code> status
+              targeting the same specification, the reviewers MUST take them into account.</span
+            >
+            For example, a newer version of the same binding would result in a transition to <code>Superseded</code> for
+            the older version, which should be used in the review.
+          </p>
+          <p>
+            <span class="rfc2119-assertion" id="transition-issue-template-conformance"
+              >The submitter MUST use the correct transition issue template for each transition request and conform to
+              the requirements defined in the template.</span
+            >
           </p>
           <section id="req-traninit">
             <h3>Transition to Initial</h3>
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-req-content"
-                >Initial entry MUST be a correct document which complies with <a href="#req-content"></a>.</span
+                >Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
+                <a href="#req-docs"></a>.</span
               >
               The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
               non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
+            </p>
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-reviewer">
+                The custodian MUST assign at least one reviewer who is a WoT expert for an initial submission.
+              </span>
             </p>
           </section>
           <section id="req-trancurr">
             <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
             <ul>
+              <li>
+                <span class="rfc2119-assertion" id="transition-current-reviews">
+                  The transition MUST be reviewed from the protocol specification and WoT point of views and result in
+                  two separate review documents.</span
+                >
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="transition-current-reviewers">
+                  The custodian SHOULD assign at least two reviewers, one of whom is an expert in the binding&#39;s
+                  target specification and another who is a WoT expert.</span
+                >
+                Thus, it is possible that the same person can be both reviewers if they are experts in both the
+                binding&#39;s target specification and WoT. Nevertheless, two separate reviews need to be done as
+                explained in the point above.
+              </li>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
                   >Starting from the initial submission, each binding MUST demonstrate a certain level of concrete
@@ -809,7 +840,7 @@
                   automatically (e.g., scripts, test suites, etc.).</span
                 >
                 <span class="rfc2119-assertion" id="submission-requirements-transition-dedicated-document"
-                  >The results SHOULD be published in a dedicated document (README, or other human-readable documents)
+                  >The results MUST be published in a dedicated document (README, or other human-readable documents)
                   called <em>Test Report</em>.</span
                 >
               </li>
@@ -854,10 +885,6 @@
                 </ul>
               </li>
               <li>
-                <span class="rfc2119-assertion" id="submission-requirements-test-report-current-state"
-                  >For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST
-                  exist.</span
-                >
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation"
                   >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span
                 >
@@ -873,10 +900,11 @@
               </li>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
-                  ><em>Test Reports</em> and related resources SHOULD be published in a git repository.</span
+                  ><em>Test Reports</em> and related resources SHOULD be published in a public git repository.</span
                 >
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-public"
-                  >The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.</span
+                  >The repository containing the test reports and related resources MUST be accessible to the reviewers
+                  and the custodian.</span
                 >
               </li>
               <li>
@@ -896,6 +924,8 @@
                 >When a new version of a binding is accepted as <code>Current</code>, the previous
                 <code>Current</code> version MUST be transitioned to <code>Superseded</code>.</span
               >
+              No additional reviews are necessary as the reviewers of the new version would have already reviewed the
+              previous version as part of their review process.
             </p>
           </section>
 
