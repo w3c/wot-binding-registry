@@ -2,7 +2,7 @@ name: New Binding Submission
 description: |
   Use this template to submit a new binding to the registry, going to the initial state
 labels: ["new-binding"]
-title: Provide the name of the Binding, e.g. "Web of Things (WoT) HTTP Binding
+title: "New Binding Submission"
 body:
   - type: markdown
     attributes:
@@ -38,6 +38,15 @@ body:
     validations:
       required: true
   - type: input
+    id: binding-target
+    attributes:
+      label: Specification that the Binding targets
+      description: |
+        The name and link of the specification that the binding is designed to target.
+        Example: `MQTT 3.1.1 (https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)`
+    validations:
+      required: true
+  - type: input
     id: prefix
     attributes:
       label: Binding Prefix
@@ -70,8 +79,26 @@ body:
     attributes:
       label: Binding Version
       description: |
-        A unique string for that entry's history that denotes the version of the entry that is linked. 
+        A string that identifies a specific version of this binding. Different bindings may share the same version string, but each version of a binding MUST be unique within that binding's history.
         The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of YYYY-MM-DD.
+    validations:
+      required: true
+  - type: input
+    id: submitter
+    attributes:
+      label: Submitter Name and Contact
+      description: |
+        The name, and contact information of the submitting person of this binding. If you do not wish to make your email public, please send it as an email to TODO. See the next field about the organization behind. This will not be visible in the registry.
+        Examples: `Jane Doe, Example Corp, jane.doe@example.com`
+    validations:
+      required: true
+  - type: textarea
+    id: binding-organization
+    attributes:
+      label: Organization Name and Contact
+      description: |
+        The organization name and contact information of the organization representing the binding specification. This information is used to contact for any transitions of the entry. If this does not apply to the binding, please provide explanation. This will not be visible in the registry.
+        Examples: `ACME Standardization, contact@acme-standards.com`
     validations:
       required: true
   - type: textarea
@@ -81,14 +108,23 @@ body:
       description: |
         Provide summary about the binding. 
         The content must comply with https://w3c.github.io/wot-binding-registry/#req-summ
-        The placeholder is provided for convenience
-      placeholder: |
-        Abstract
-        Examples
-        Access and Usage Restrictions
-        Dependent Bindings
-        Available machine-readable documents (Schema, Ontology, JSON-LD Context)
-        (if available) Link to the previous summary document
-        (if relevant) Explanation about the versioning and ordering mechanism
+        You can fill in the fields in the text field below and get guidance from the example provided at https://github.com/w3c/wot-binding-registry/blob/main/SummaryExample.md
+      value: |
+        #### Abstract
+
+        #### Examples
+
+        #### Access and Usage Restrictions
+
+        #### Dependent Bindings
+
+        #### Available machine-readable supporting documents (Schema, Ontology, JSON-LD Context)
+
+        #### Link to the previous summary document
+        (if available)
+
+        #### Explanation about the versioning and ordering mechanism
+        (if relevant)
+
     validations:
       required: true

@@ -321,6 +321,17 @@
                 Examples: <code>https://www.w3.org/TR/wot/binding-templates/http-20240726/index.html</code>
               </td>
             </tr>
+            <tr id="form-target-spec">
+              <td>Specification that the Binding Targets</td>
+              <td>
+                <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a> followed
+                by an <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#anyURI"><code>anyURI</code></a>
+              </td>
+              <td>
+                The name and link of the specification that the binding is designed to target. Example: `MQTT 3.1.1
+                (https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)`
+              </td>
+            </tr>
             <tr id="form-pref">
               <td>Binding ontology prefix</td>
               <td>
@@ -397,11 +408,8 @@
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               </td>
               <td>
-                A unique string for that entry&#39;s history that denotes the version of the entry that is linked.
-                <span class="rfc2119-assertion" id="entry-format-version-form"
-                  >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
-                  <code>YYYY-MM-DD</code>.</span
-                >
+                A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>. See
+                <a href="#life-ver">Versioning</a> for more information.
               </td>
             </tr>
           </tbody>
@@ -417,14 +425,12 @@
       <section id="lifecycle">
         <h2>Lifecycle</h2>
 
-        <!--<ul>
-          <li><a href="#life-subm"></a></li>
-          <li><a href="#life-stat"></a></li>
-          <li><a href="#life-tran"></a></li>
-          <li><a href="#life-ver"></a>
-          <li><a href="#life-deldep"></a>
-          </li>
-        </ul>-->
+        <p>
+          Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>. The state in the
+          lifecycle can be seen in the registry itself, as well as the
+          <a href="https://github.com/orgs/w3c/projects/222">GitHub project</a> that is used to track submissions and
+          transition requests.
+        </p>
 
         <section id="life-subm">
           <h3>Technical submission mechanism</h3>
@@ -460,7 +466,7 @@
         <section id="life-stat">
           <h3>Status</h3>
           <p>
-            We distinguish between the following statuses: <code>Initial</code> -&gt; <code>Current</code> -&gt;
+            An entry can have the following status values: <code>Initial</code> -&gt; <code>Current</code> -&gt;
             <code>Superseded</code> or <code>Obsolete</code>
           </p>
           <ul>
@@ -470,13 +476,23 @@
             </li>
             <li>
               <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
-              experience
+              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
+              recommended to use the term <code>current</code>.
             </li>
             <li>
               <code>Superseded</code>: A previously &quot;current&quot; entry that is now superseded with a newer one
             </li>
             <li><code>Obsolete</code>: Custodian does not recommend the usage of this binding</li>
           </ul>
+          <p>
+            The diagram below represents the lifecycle sates and the possible transitions between them. Please refer to
+            <a href="#transitions">transitions</a> for the requirements and process for each transitions.
+          </p>
+          <figure style="text-align: center">
+            <img src="./images/lifecycle.svg" alt="Registry Entry Lifecycle Diagram" />
+            <figcaption>Registry Entry Lifecycle States</figcaption>
+          </figure>
+
           <p class="ednote">
             This is inspired by the
             <a href="https://w3c.github.io/ttwg/boilerplate/registry/#registry-entry-status">TTWG Boilerplate</a>.
@@ -487,26 +503,32 @@
           </p>
         </section>
 
-        <section id="life-tran">
-          <h3>Transitioning</h3>
-          <p>
-            What are the requirements for transitioning from one value to another? See section
-            <a href="#submission-requirements"></a> as well.
-          </p>
-        </section>
-
         <section id="life-ver">
           <h3>Versioning</h3>
+
           <p>
-            Versioning of registry entries (see
-            <a href="https://github.com/w3c/wot/tree/main/registry-analysis#versioning"
-              >https://github.com/w3c/wot/tree/main/registry-analysis#versioning</a
-            >)
-          </p>
-          <p class="note">
-            We do not allow updates to a registry document&#39;s content. A new version of a binding is a resubmission
-            and optional deprecation of the old one. However, new features need new implementations, so it is not a
-            completely new registration
+            <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
+              Different bindings may share the same version string, but each version of a binding MUST be unique within
+              that binding's history.
+            </span>
+            <span class="rfc2119-assertion" id="entry-format-version-form"
+              >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
+              <code>YYYY-MM-DD</code>.
+            </span>
+
+            <span class="rfc2119-assertion" id="life-versioning-unique-version">
+              The content of a registry entry MAY not be updated for a given version.
+            </span>
+
+            <span class="rfc2119-assertion" id="life-versioning-unique-version">
+              If anyone wants to submit a newer version of an entry, it MUST be a new submission.
+            </span>
+            As indicated in <a href="#transition-from-current-to-superseded">transition to superseded</a> and
+            <a href="#transition-from-current-to-obsolete">transition to obsolete</a>, the newer versions results in
+            state changes.
+            <span class="rfc2119-assertion" id="life-versioning-review-for-new-version">
+              Review of a new version of an existing binding SHOULD take the previous reviews into account.
+            </span>
           </p>
         </section>
 
@@ -523,7 +545,7 @@
         <h2>Ownership</h2>
 
         <p>
-          The registry is managed by a <a>Custodian</a> and entries are reviewed by
+          The registry is managed by a <a>Custodian</a> and submissions and transitions are reviewed by
           <a href="#dfn-reviewer">Reviewers</a>.
         </p>
 
@@ -542,20 +564,6 @@
             can be maintained for a long period.
           </p>
         </section>
-
-        <section id="own-rev">
-          <h3>Reviewer</h3>
-          <p>
-            <span class="rfc2119-assertion" id="ownership-review-independently"
-              >If there is an expert of the binding entry&#39;s specification and a WoT expert within the custodian
-              entity, they CAN do the review independently.</span
-            >
-            <span class="rfc2119-assertion" id="ownership-review-expert"
-              >If not, the custodian MUST choose an expert for that specification and a WoT expert who can be the same
-              person.</span
-            >
-          </p>
-        </section>
       </section>
 
       <section id="submission-requirements">
@@ -567,7 +575,6 @@
           <li><a href="#req-opmap"></a></li>
           <li><a href="#req-contmap"></a></li>
           <li><a href="#req-traninit"></a></li>
-          <li><a href="#req-changelog"></a></li>
           <li><a href="#req-docsec"></a></li>
           <li><a href="#req-copy"></a></li>
           <li><a href="#req-openread"></a></li>
@@ -605,26 +612,6 @@
           <p class="ednote">
             TODO: We will need additional mechanisms (including vocabulary terms) to ensure that it is possible to use
             other media types.
-          </p>
-        </section>
-
-        <section id="req-traninit">
-          <h3>Initial entry</h3>
-          <p>
-            <span class="rfc2119-assertion" id="submission-requirements-req-content"
-              >Initial entry MUST be a correct document which complies with <a href="#req-content"></a>.</span
-            >
-            The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
-            non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
-          </p>
-        </section>
-
-        <section id="req-changelog">
-          <h3>Changelog</h3>
-          <p>
-            <span class="rfc2119-assertion" id="submission-requirements-changelog"
-              >Each versioned entry MUST contain a changelog in the entry itself.</span
-            >
           </p>
         </section>
 
@@ -745,109 +732,303 @@
           </ul>
         </section>
 
-        <section id="req-trancurr">
-          <h3>Transition</h3>
-          <p>Transition from <code>Initial</code> to <code>Current</code></p>
-          <ul>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
-                >Starting from the initial submission, each binding MUST demonstrate a certain level of concrete
-                development maturity.</span
+        <section>
+          <h3>Transitions</h3>
+
+          <p>
+            Every transition including the initial submission is triggered by an issue, which can be made by the
+            submitter, the custodian or anyone who creates an issue using the correct template. For each transition -
+            defined in <a href="#life-stat">lifecycle status</a> - the following sections explain the requirements and
+            rules that need to be followed by the submitter, custodian and reviewers.
+          </p>
+          <p>
+            <span class="rfc2119-assertion" id="transition-requirements-trigger">
+              As a general rule, a transition MAY be triggered by the submitter, the custodian or anyone who creates an
+              issue using the correct template.
+            </span>
+            <span class="rfc2119-assertion" id="transition-requirements-notify">
+              However, the custodian MUST notify the initial submitter and the organization related to the entry of any
+              transition request using the contact information provided in the submission issue.
+            </span>
+            <span class="rfc2119-assertion" id="transition-requirements-approve">
+              In the case of no replies within 30 days from the initial submitter or the organization related to the
+              entry, the custodian MUST process the transition, consulting reviewers when necessary for the transition
+              in question.
+            </span>
+            <span class="rfc2119-assertion" id="transition-reviewer-submitter-different">
+              The custodian MUST assign reviewers for the submission and transitions who are different from the initial
+              submitter and the organization related to the entry.
+            </span>
+            <span class="rfc2119-assertion" id="transition-post-review-time-minimum">
+              The custodian MUST wait 15 days after the end of the review process before making a decision on the
+              transition to allow for any further comments or discussions to take place.
+            </span>
+            <span class="rfc2119-assertion" id="transition-post-review-time-maximum">
+              The custodian MUST make a decision on the transition within 30 days after the end of the review process.
+            </span>
+            <span class="rfc2119-assertion" id="transition-check-old-entries">
+              If there are other entries in the registry with <code>Initial</code> or <code>Current</code> status
+              targeting the same specification, the reviewers MUST take them into account.</span
+            >
+            For example, a newer version of the same binding would result in a transition to <code>Superseded</code> for
+            the older version, which should be used in the review.
+            <span class="rfc2119-assertion" id="transition-reviewer-finding-guarantees">
+              While the custodian is tasked with assigning reviewers, the custodian MAY NOT be able to assign
+              reviewers</span
+            >
+            <span class="rfc2119-assertion" id="transition-reviewinger-reassign">
+              As there are no guarantees that reviewers complete their reviews, the custodian MAY reassign reviewers if
+              necessary.</span
+            >
+          </p>
+
+          <p>
+            <span class="rfc2119-assertion" id="transition-issue-template-conformance"
+              >The submitter MUST use the correct transition issue template for each transition request and conform to
+              the requirements defined in the template.</span
+            >
+          </p>
+          <section id="req-traninit">
+            <h3>Transition to Initial</h3>
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-submission-template"
+                >The initial submission MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
               >
-              This process involves real-world testing, which can take place in Plugfests, independent testing events,
-              or even informal collaboration between developers. These testing events do not have to be organized by W3C
-              and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding correctly
-              maps protocol operations and is well understood by at least two parties.
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-transition-validated"
-                >At each testing event,
-                <a href="#dfn-execution-binding-instance">every operation defined in the binding MUST be validated</a>
-                automatically (e.g., scripts, test suites, etc.).</span
+              <span class="rfc2119-assertion" id="submission-requirements-req-content"
+                >Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
+                <a href="#req-docs"></a>.</span
               >
-              <span class="rfc2119-assertion" id="submission-requirements-transition-dedicated-document"
-                >The results SHOULD be published in a dedicated document (README, or other human-readable documents)
-                called <em>Test Report</em>.</span
-              >
-            </li>
-            <li>
-              <em>Test Report</em>
-              <ul>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-information"
-                    >A <em>Test Report</em> MUST contain information on the testing environment.</span
+              The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
+              non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
+            </p>
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-reviewer">
+                The custodian MUST assign at least one reviewer who is a WoT expert for an initial submission.
+              </span>
+            </p>
+          </section>
+          <section id="req-trancurr">
+            <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
+            <ul>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-initial-current-transition-template"
+                  >The transition to the current state MUST be made using
+                  <a
+                    href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml"
+                    >the corresponding issue template</a
                   >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-logical-process"
-                    >A <em>Test Report</em> MUST provide an example of the logical process (not necessarily code) about
-                    how a TD can be processed to establish a communication between consumer and exposer.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-scenario"
-                    >A <em>Test Report</em> MUST contain information about the scenario that was tested, e.g.
-                    controlling the room temperature by measuring temperature and adjusting the heater.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation-experience"
-                    >A <em>Test Report</em> MUST explain where discussions on implementation experience should be
-                    collected.</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-history"
-                    >A <em>Test Report</em> SHOULD provide the history of all the past testing events (or explain how to
-                    retrieve the history of the results gathered during those events).</span
-                  >
-                </li>
-                <li>
-                  <span class="rfc2119-assertion" id="submission-requirements-test-report-reference"
-                    >A <em>Test Report</em> SHOULD contain a reference to the
-                    <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-current-state"
-                >For the binding to transition to the &quot;Current&quot; state, a <em>Test Report</em> MUST
-                exist.</span
+                  and conform to the requirements defined in the template.</span
+                >
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="transition-current-reviews">
+                  The transition MUST be reviewed from the protocol specification and WoT point of views and result in
+                  two separate review documents.</span
+                >
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="transition-current-reviewers">
+                  The custodian SHOULD assign at least two reviewers, one of whom is an expert in the binding&#39;s
+                  target specification and another who is a WoT expert.</span
+                >
+                Thus, it is possible that the same person can be both reviewers if they are experts in both the
+                binding&#39;s target specification and WoT. Nevertheless, two separate reviews need to be done as
+                explained in the point above.
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
+                  >Starting from the initial submission, each binding MUST demonstrate a certain level of concrete
+                  development maturity.</span
+                >
+                This process involves real-world testing, which can take place in Plugfests, independent testing events,
+                or even informal collaboration between developers. These testing events do not have to be organized by
+                W3C and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding
+                correctly maps protocol operations and is well understood by at least two parties.
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-validated"
+                  >At each testing event,
+                  <a href="#dfn-execution-binding-instance">every operation defined in the binding MUST be validated</a>
+                  automatically (e.g., scripts, test suites, etc.).</span
+                >
+                <span class="rfc2119-assertion" id="submission-requirements-transition-dedicated-document"
+                  >The results MUST be published in a dedicated document (README, or other human-readable documents)
+                  called <em>Test Report</em>.</span
+                >
+              </li>
+              <li>
+                <em>Test Report</em>
+                <ul>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-information"
+                      >A <em>Test Report</em> MUST contain information on the testing environment.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-logical-process"
+                      >A <em>Test Report</em> MUST provide an example of the logical process (not necessarily code)
+                      about how a TD can be processed to establish a communication between consumer and exposer.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-scenario"
+                      >A <em>Test Report</em> MUST contain information about the scenario that was tested, e.g.
+                      controlling the room temperature by measuring temperature and adjusting the heater.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation-experience"
+                      >A <em>Test Report</em> MUST explain where discussions on implementation experience should be
+                      collected.</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-history"
+                      >A <em>Test Report</em> SHOULD provide the history of all the past testing events (or explain how
+                      to retrieve the history of the results gathered during those events).</span
+                    >
+                  </li>
+                  <li>
+                    <span class="rfc2119-assertion" id="submission-requirements-test-report-reference"
+                      >A <em>Test Report</em> SHOULD contain a reference to the
+                      <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation"
+                  >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span
+                >
+                (capable of understanding and performing all the operations described in the binding) and one Exposer
+                (capable of handling all the operations and features described in the binding and optionally be able to
+                create a valid TD). Additional implementations can be added even after the transition to the Current.
+              </li>
+              <li>
+                The exact contents of the Test Report is not decided yet. See
+                <a href="https://github.com/w3c/wot-binding-registry/issues/3"
+                  >https://github.com/w3c/wot-binding-registry/issues/3</a
+                >
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
+                  ><em>Test Reports</em> and related resources SHOULD be published in a public git repository.</span
+                >
+                <span class="rfc2119-assertion" id="submission-requirements-test-report-public"
+                  >The repository containing the test reports and related resources MUST be accessible to the reviewers
+                  and the custodian.</span
+                >
+              </li>
+              <li>
+                Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a
+                Plugfest or another structured testing session where different implementations can be evaluated
+                collectively.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Current</code> to <code>Superseded</code></h4>
+            <p>
+              Superseding a binding allows the custodian to recommend a newer version of a binding while still keeping
+              the older version available for reference.
+              <span class="rfc2119-assertion" id="submission-requirements-transition-superseded"
+                >When a new version of a binding is accepted as <code>Current</code>, the previous
+                <code>Current</code> version MUST be transitioned to <code>Superseded</code>.</span
               >
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation"
-                >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span
+              No additional reviews are necessary as the reviewers of the new version would have already reviewed the
+              previous version as part of their review process.
+              <span class="rfc2119-assertion" id="submission-requirements-current-superseded-transition-template"
+                >While this transition happens automatically with a new binding transitioning to current,
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_superseded.yaml"
+                  >this transition issue template</a
+                >
+                MAY be used for triggering a transition additionally.</span
               >
-              (capable of understanding and performing all the operations described in the binding) and one Exposer
-              (capable of handling all the operations and features described in the binding and optionally be able to
-              create a valid TD). Additional implementations can be added even after the transition to the Current.
-            </li>
-            <li>
-              The exact contents of the Test Report is not decided yet. See
-              <a href="https://github.com/w3c/wot-binding-registry/issues/3"
-                >https://github.com/w3c/wot-binding-registry/issues/3</a
+            </p>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Current</code> to <code>Obsolete</code></h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-current-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Current</code> if the that binding is
+                not recommended for use.
+              </span>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-current-obsolete-template"
+                >The transition to the obsolete state from current MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
               >
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-transition"
-                >Submitters MAY call for transition but the custodian can also automatically trigger the process once it
-                is verified that the condition above is reached.</span
+            </p>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Superseded</code> to <code>Obsolete</code></h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-superseded-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Superseded</code> if the that binding
+                is not recommended for use anymore.
+              </span>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-superseded-obsolete-template"
+                >The transition to the obsolete state from superseded MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
               >
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
-                ><em>Test Reports</em> and related resources SHOULD be published in a git repository.</span
+            </p>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Superseded</code></h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-initial-superseded">
+                An entry MAY be transitioned to <code>Superseded</code> from <code>Initial</code> if another entry will
+                continue development and maintenance.
+              </span>
+              <span class="rfc2119-assertion" id="submission-requirements-current-initial-transition-template"
+                >While this transition happens automatically with a new binding transitioning to initial or current,
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_superseded.yaml"
+                  >this transition issue template</a
+                >
+                MAY be used for triggering a transition additionally.</span
               >
-              <span class="rfc2119-assertion" id="submission-requirements-test-report-public"
-                >The repository SHOULD be public and it MUST be accessible to the reviewers and the custodian.</span
+            </p>
+          </section>
+
+          <section>
+            <h4>Transition from <code>Initial</code> to <code>Obsolete</code></h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is
+                not recommended for use or testing anymore.
+              </span>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-obsolete-template"
+                >The transition to the obsolete state from initial MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
               >
-            </li>
-            <li>
-              Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a
-              Plugfest or another structured testing session where different implementations can be evaluated
-              collectively.
-            </li>
-          </ul>
+            </p>
+          </section>
         </section>
 
         <section id="req-content">
@@ -866,18 +1047,22 @@
             <span class="rfc2119-assertion" id="submission-requirements-content-table-template"
               >The submitter SHOULD use the table template provided in the document for the vocabulary.</span
             >
+            <span class="rfc2119-assertion" id="submission-requirements-changelog"
+              >Each entry after the first version of the binding MUST contain a changelog in the entry itself.</span
+            >
           </p>
           <ul>
             <li>Introduction</li>
             <li>
               Binding Content:
               <ul>
-                <li>URL Format</li>
+                <li>URI Format</li>
                 <li>Form <a href="#dfn-vocabulary-document-for-a-binding">Vocabulary Definition as Table</a></li>
                 <li>Default and possible mappings to operations as a Table</li>
               </ul>
             </li>
             <li>Examples</li>
+            <li>Changelog</li>
           </ul>
           <p class="note">
             A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can
