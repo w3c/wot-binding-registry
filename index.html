@@ -791,6 +791,14 @@
           <section id="req-traninit">
             <h3>Transition to Initial</h3>
             <p>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-submission-template"
+                >The initial submission MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
+              >
               <span class="rfc2119-assertion" id="submission-requirements-req-content"
                 >Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
                 <a href="#req-docs"></a>.</span
@@ -807,6 +815,16 @@
           <section id="req-trancurr">
             <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
             <ul>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-initial-current-transition-template"
+                  >The transition to the current state MUST be made using
+                  <a
+                    href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml"
+                    >the corresponding issue template</a
+                  >
+                  and conform to the requirements defined in the template.</span
+                >
+              </li>
               <li>
                 <span class="rfc2119-assertion" id="transition-current-reviews">
                   The transition MUST be reviewed from the protocol specification and WoT point of views and result in
@@ -925,6 +943,14 @@
               >
               No additional reviews are necessary as the reviewers of the new version would have already reviewed the
               previous version as part of their review process.
+              <span class="rfc2119-assertion" id="submission-requirements-current-superseded-transition-template"
+                >While this transition happens automatically with a new binding transitioning to current,
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_superseded.yaml"
+                  >this transition issue template</a
+                >
+                MAY be used for triggering a transition additionally.</span
+              >
             </p>
           </section>
 
@@ -936,6 +962,14 @@
                 An entry MAY be transitioned to <code>Obsolete</code> from <code>Current</code> if the that binding is
                 not recommended for use.
               </span>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-current-obsolete-template"
+                >The transition to the obsolete state from current MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
+              >
             </p>
           </section>
 
@@ -943,10 +977,18 @@
             <h4>Transition from <code>Superseded</code> to <code>Obsolete</code></h4>
 
             <p>
-              <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
-                An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is
-                not recommended for use or testing anymore.
+              <span class="rfc2119-assertion" id="submission-requirements-transition-superseded-obsolete">
+                An entry MAY be transitioned to <code>Obsolete</code> from <code>Superseded</code> if the that binding
+                is not recommended for use anymore.
               </span>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-superseded-obsolete-template"
+                >The transition to the obsolete state from superseded MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
+              >
             </p>
           </section>
 
@@ -958,6 +1000,14 @@
                 An entry MAY be transitioned to <code>Superseded</code> from <code>Initial</code> if another entry will
                 continue development and maintenance.
               </span>
+              <span class="rfc2119-assertion" id="submission-requirements-current-initial-transition-template"
+                >While this transition happens automatically with a new binding transitioning to initial or current,
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_superseded.yaml"
+                  >this transition issue template</a
+                >
+                MAY be used for triggering a transition additionally.</span
+              >
             </p>
           </section>
 
@@ -969,6 +1019,14 @@
                 An entry MAY be transitioned to <code>Obsolete</code> from <code>Initial</code> if the that binding is
                 not recommended for use or testing anymore.
               </span>
+              <span class="rfc2119-assertion" id="submission-requirements-initial-obsolete-template"
+                >The transition to the obsolete state from initial MUST be made using
+                <a
+                  href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
+                  >the corresponding issue template</a
+                >
+                and conform to the requirements defined in the template.</span
+              >
             </p>
           </section>
         </section>
