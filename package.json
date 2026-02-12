@@ -4,7 +4,7 @@
   "description": "Registry of Web of Things Bindings",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier . --write"
+    "format": "node prettify.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   "homepage": "http://w3c.github.io/wot-binding-registry",
   "dependencies": {
     "npm": "^6.14.11",
-    "prettier": "3.0.0"
+    "pretty": "^2.0.0"
   }
 }

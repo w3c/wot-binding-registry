@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
@@ -19,29 +20,23 @@
         edDraftURI: "https://w3c.github.io/wot-binding-registry/",
         github: "https://github.com/w3c/wot-binding-registry",
         issueBase: "https://www.github.com/w3c/wot-binding-registry/issues",
-        editors: [
-          {
-            name: "Ege Korkan",
-            w3cid: "110131",
-            company: "Siemens AG",
-            companyURL: "https://www.siemens.com/"
-          }
-        ],
+        editors: [{
+          name: "Ege Korkan",
+          w3cid: "110131",
+          company: "Siemens AG",
+          companyURL: "https://www.siemens.com/"
+        }],
         xref: ["i18n-glossary", "w3c-process"],
-        otherLinks: [
-          {
+        otherLinks: [{
             key: "Contributors",
-            data: [
-              {
-                value: "In the GitHub repository",
-                href: "https://github.com/w3c/wot-binding-registry/graphs/contributors"
-              }
-            ]
+            data: [{
+              value: "In the GitHub repository",
+              href: "https://github.com/w3c/wot-binding-registry/graphs/contributors"
+            }]
           },
           {
             key: "Repository",
-            data: [
-              {
+            data: [{
                 value: "We are on GitHub",
                 href: "https://github.com/w3c/wot-binding-registry/"
               },
@@ -59,9 +54,11 @@
       .rfc2119-assertion {
         background-color: #e6e6e6;
       }
+
       .darkmode .rfc2119-assertion {
         background-color: #223a2c;
       }
+
       .at-risk {
         background-color: yellow;
       }
@@ -121,10 +118,7 @@
 
       <p>
         The fundamental WoT terminology such as <dfn class="lint-ignore">Thing</dfn>,
-        <dfn class="lint-ignore">Consumer</dfn>, <dfn class="lint-ignore">Thing Description</dfn> (<dfn
-          class="lint-ignore"
-          >TD</dfn
-        >), <dfn class="lint-ignore">Interaction Model</dfn>, <dfn class="lint-ignore">Interaction Affordance</dfn>,
+        <dfn class="lint-ignore">Consumer</dfn>, <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>), <dfn class="lint-ignore">Interaction Model</dfn>, <dfn class="lint-ignore">Interaction Affordance</dfn>,
         <dfn class="lint-ignore">Property</dfn>, <dfn class="lint-ignore">Action</dfn>,
         <dfn class="lint-ignore">Event</dfn>, <dfn class="lint-ignore">Data Schema</dfn>,
         <dfn class="lint-ignore">Content Type</dfn>, <dfn class="lint-ignore">Protocol Binding</dfn>,
@@ -257,9 +251,7 @@
 
       <p>
         A <a href="#dfn-wot-binding-registry-definition">set of rules</a> extending the
-        <a href="https://www.w3.org/2023/Process-20230612/#reg-def"
-          >Registry Definitions from the W3C Process Document</a
-        >
+        <a href="https://www.w3.org/2023/Process-20230612/#reg-def">Registry Definitions from the W3C Process Document</a>
         can be found below and is structured as follows.
       </p>
 
@@ -284,11 +276,9 @@
 
         <p>
           <span class="rfc2119-assertion" id="entry-format-information"
-            >Each entry MUST contain the following information</span
-          >.
+            >Each entry MUST contain the following information</span>.
           <span class="rfc2119-assertion" id="entry-format-conflict"
-            >All parts of the entry MUST not conflict with existing bindings</span
-          >.
+            >All parts of the entry MUST not conflict with existing bindings</span>.
         </p>
         <table class="def numbered">
           <!-- -->
@@ -379,8 +369,7 @@
 
               <td>
                 <span class="rfc2119-assertion" id="entry-format-supported-td-version"
-                  >A binding SHOULD correspond to specific TD specification version(s).</span
-                >
+                  >A binding SHOULD correspond to specific TD specification version(s).</span>
                 <br />
                 Note: <em>no uniqueness needed</em>
               </td>
@@ -452,12 +441,10 @@
             <li>
               <span class="rfc2119-assertion" id="life-subm-mark-conflict"
                 >If a new entry conflicts with another entry, the reviewer MUST mark the new submission
-                accordingly.</span
-              >
+                accordingly.</span>
               <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection"
                 >As two bindings that do the same are not allowed, either the old one MUST be deprecated or the new one
-                MUST be rejected.</span
-              >
+                MUST be rejected.</span>
               See also point 13 under &quot;Requirements on the Submitted Document&quot;.
             </li>
           </ul>
@@ -555,11 +542,9 @@
           <p>
             <span class="rfc2119-assertion" id="ownership-custodian-role"
               >A change in the registry MUST be confirmed by the <a>Custodian</a>. The custodian of this registry is the
-              WoT WG in the beginning.</span
-            >
+              WoT WG in the beginning.</span>
             <span class="rfc2119-assertion" id="ownership-custodian-delegation"
-              >If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.</span
-            >
+              >If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.</span>
             For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
             can be maintained for a long period.
           </p>
@@ -593,8 +578,7 @@
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-wot-operation"
               >A binding that uses a protocol MUST map at least one WoT operation (<code>op</code> keyword value such as
-              <code>readproperty</code>) to a protocol message and vice versa.</span
-            >
+              <code>readproperty</code>) to a protocol message and vice versa.</span>
           </p>
         </section>
 
@@ -603,8 +587,7 @@
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-contenttype"
               >A binding that uses a serialization format via the <code>contentType</code> keyword MUST mention how the
-              Data Schema terms should be used to describe the messages.</span
-            >
+              Data Schema terms should be used to describe the messages.</span>
             This avoids submission of a binding like &quot;XML Binding&quot; that says &quot;Use
             <code>contentType:application/xml</code> and nothing more. That alone would not be enough to serialize
             correct messages based on the data schema.
@@ -623,8 +606,7 @@
             </span>
             <span class="rfc2119-assertion" id="submission-requirements-section-link"
               >In that case, the &quot;Link to the binding document&quot; in the registry entry MUST point to the
-              specific location.</span
-            >
+              specific location.</span>
             PDF or similar document types MAY be submitted if the &quot;Link to the binding document&quot; in the
             registry entry contains a text pointing to the section. However, HTML and Webpages SHOULD be favored.
           </p>
@@ -634,8 +616,7 @@
           <h3>Copyright</h3>
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-copyright"
-              >The WoT binding document MAY follow another copyright than the W3C copyright.</span
-            >
+              >The WoT binding document MAY follow another copyright than the W3C copyright.</span>
             The submitter is free to choose based on the process they or their organization follows.
           </p>
         </section>
@@ -645,8 +626,7 @@
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-openread"
               >The binding document linked in the registry entry SHOULD be open to read, use, and implement, but that is
-              not required for the document to be added to the registry.</span
-            >
+              not required for the document to be added to the registry.</span>
           </p>
         </section>
 
@@ -655,8 +635,7 @@
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-openrev"
               >Reviewers MUST have access to the binding document and to the protocol or media type specification (what
-              the binding specifies).</span
-            >
+              the binding specifies).</span>
           </p>
         </section>
 
@@ -666,15 +645,13 @@
             <span class="rfc2119-assertion" id="submission-requirements-summary-document"
               >The submitter MUST fill in the GitHub form provided by the custodian to generate a
               <a href="#dfn-binding-summary">summary document</a>, which is hosted by the custodian together with the
-              registry.</span
-            >
+              registry.</span>
             This form contains the following:
           </p>
           <ul>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-abstract"
-                >Abstract - It MUST contain an abstract with the following information</span
-              >:
+                >Abstract - It MUST contain an abstract with the following information</span>:
               <ul>
                 <li>What is the content of the binding about, e.g., what is this protocol?</li>
                 <li>Who should use it?</li>
@@ -687,14 +664,12 @@
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-examples"
                 >Examples - It SHOULD contain examples (can be one) TDs or TMs demonstrating the use of the
-                binding</span
-              >
+                binding</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-access-usage"
                 >It MUST contain Access/Usage restrictions about the binding, protocol, implementation, etc., using the
-                terminology and/or documents of the submitter.</span
-              >
+                terminology and/or documents of the submitter.</span>
               A non-exhaustive list of examples of restrictions:
               <ul>
                 <li>Reading the binding document</li>
@@ -708,26 +683,22 @@
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-dependency"
                 >If the entry depends on another one, it MUST specify the exact version of the dependency upon which it
-                depends at the time of submission.</span
-              >
+                depends at the time of submission.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-availability"
                 >The availability of the machine-readable documents MUST be indicated in the summary document using the
-                submission mechanism.</span
-              >
+                submission mechanism.</span>
               Also see <a href="#req-docs">Req-Docs</a>.
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-previous-version"
-                >The previous version of the summary document MUST be listed as a link</span
-              >.
+                >The previous version of the summary document MUST be listed as a link</span>.
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document-chronological-ordering"
                 >If the chronological ordering of the entries is not clear from the version string, the summary document
-                MUST explain the ordering mechanism.</span
-              >
+                MUST explain the ordering mechanism.</span>
             </li>
           </ul>
         </section>
@@ -768,25 +739,21 @@
             </span>
             <span class="rfc2119-assertion" id="transition-check-old-entries">
               If there are other entries in the registry with <code>Initial</code> or <code>Current</code> status
-              targeting the same specification, the reviewers MUST take them into account.</span
-            >
+              targeting the same specification, the reviewers MUST take them into account.</span>
             For example, a newer version of the same binding would result in a transition to <code>Superseded</code> for
             the older version, which should be used in the review.
             <span class="rfc2119-assertion" id="transition-reviewer-finding-guarantees">
               While the custodian is tasked with assigning reviewers, the custodian MAY NOT be able to assign
-              reviewers</span
-            >
+              reviewers</span>
             <span class="rfc2119-assertion" id="transition-reviewinger-reassign">
               As there are no guarantees that reviewers complete their reviews, the custodian MAY reassign reviewers if
-              necessary.</span
-            >
+              necessary.</span>
           </p>
 
           <p>
             <span class="rfc2119-assertion" id="transition-issue-template-conformance"
               >The submitter MUST use the correct transition issue template for each transition request and conform to
-              the requirements defined in the template.</span
-            >
+              the requirements defined in the template.</span>
           </p>
           <section id="req-traninit">
             <h3>Transition to Initial</h3>
@@ -797,12 +764,10 @@
                   href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml"
                   >the corresponding issue template</a
                 >
-                and conform to the requirements defined in the template.</span
-              >
+                and conform to the requirements defined in the template.</span>
               <span class="rfc2119-assertion" id="submission-requirements-req-content"
                 >Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
-                <a href="#req-docs"></a>.</span
-              >
+                <a href="#req-docs"></a>.</span>
               The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
               non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
             </p>
@@ -822,20 +787,17 @@
                     href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml"
                     >the corresponding issue template</a
                   >
-                  and conform to the requirements defined in the template.</span
-                >
+                  and conform to the requirements defined in the template.</span>
               </li>
               <li>
                 <span class="rfc2119-assertion" id="transition-current-reviews">
                   The transition MUST be reviewed from the protocol specification and WoT point of views and result in
-                  two separate review documents.</span
-                >
+                  two separate review documents.</span>
               </li>
               <li>
                 <span class="rfc2119-assertion" id="transition-current-reviewers">
                   The custodian SHOULD assign at least two reviewers, one of whom is an expert in the binding&#39;s
-                  target specification and another who is a WoT expert.</span
-                >
+                  target specification and another who is a WoT expert.</span>
                 Thus, it is possible that the same person can be both reviewers if they are experts in both the
                 binding&#39;s target specification and WoT. Nevertheless, two separate reviews need to be done as
                 explained in the point above.
@@ -843,8 +805,7 @@
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-transition-submission"
                   >Starting from the initial submission, each binding MUST demonstrate a certain level of concrete
-                  development maturity.</span
-                >
+                  development maturity.</span>
                 This process involves real-world testing, which can take place in Plugfests, independent testing events,
                 or even informal collaboration between developers. These testing events do not have to be organized by
                 W3C and can be conducted remotely, including over VPN. The goal is to demonstrate that the binding
@@ -854,75 +815,62 @@
                 <span class="rfc2119-assertion" id="submission-requirements-transition-validated"
                   >At each testing event,
                   <a href="#dfn-execution-binding-instance">every operation defined in the binding MUST be validated</a>
-                  automatically (e.g., scripts, test suites, etc.).</span
-                >
+                  automatically (e.g., scripts, test suites, etc.).</span>
                 <span class="rfc2119-assertion" id="submission-requirements-transition-dedicated-document"
                   >The results MUST be published in a dedicated document (README, or other human-readable documents)
-                  called <em>Test Report</em>.</span
-                >
+                  called <em>Test Report</em>.</span>
               </li>
               <li>
                 <em>Test Report</em>
                 <ul>
                   <li>
                     <span class="rfc2119-assertion" id="submission-requirements-test-report-information"
-                      >A <em>Test Report</em> MUST contain information on the testing environment.</span
-                    >
+                      >A <em>Test Report</em> MUST contain information on the testing environment.</span>
                   </li>
                   <li>
                     <span class="rfc2119-assertion" id="submission-requirements-test-report-logical-process"
                       >A <em>Test Report</em> MUST provide an example of the logical process (not necessarily code)
-                      about how a TD can be processed to establish a communication between consumer and exposer.</span
-                    >
+                      about how a TD can be processed to establish a communication between consumer and exposer.</span>
                   </li>
                   <li>
                     <span class="rfc2119-assertion" id="submission-requirements-test-report-scenario"
                       >A <em>Test Report</em> MUST contain information about the scenario that was tested, e.g.
-                      controlling the room temperature by measuring temperature and adjusting the heater.</span
-                    >
+                      controlling the room temperature by measuring temperature and adjusting the heater.</span>
                   </li>
                   <li>
                     <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation-experience"
                       >A <em>Test Report</em> MUST explain where discussions on implementation experience should be
-                      collected.</span
-                    >
+                      collected.</span>
                   </li>
                   <li>
                     <span class="rfc2119-assertion" id="submission-requirements-test-report-history"
                       >A <em>Test Report</em> SHOULD provide the history of all the past testing events (or explain how
-                      to retrieve the history of the results gathered during those events).</span
-                    >
+                      to retrieve the history of the results gathered during those events).</span>
                   </li>
                   <li>
                     <span class="rfc2119-assertion" id="submission-requirements-test-report-reference"
                       >A <em>Test Report</em> SHOULD contain a reference to the
-                      <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span
-                    >
+                      <a href="#dfn-binding-implementation">implementations of Consumers or Exposers</a>.</span>
                   </li>
                 </ul>
               </li>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation"
-                  >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span
-                >
+                  >The <em>Test Report</em> MUST contain at least one implementation of a Consumer</span>
                 (capable of understanding and performing all the operations described in the binding) and one Exposer
                 (capable of handling all the operations and features described in the binding and optionally be able to
                 create a valid TD). Additional implementations can be added even after the transition to the Current.
               </li>
               <li>
                 The exact contents of the Test Report is not decided yet. See
-                <a href="https://github.com/w3c/wot-binding-registry/issues/3"
-                  >https://github.com/w3c/wot-binding-registry/issues/3</a
-                >
+                <a href="https://github.com/w3c/wot-binding-registry/issues/3">https://github.com/w3c/wot-binding-registry/issues/3</a>
               </li>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-published"
-                  ><em>Test Reports</em> and related resources SHOULD be published in a public git repository.</span
-                >
+                  ><em>Test Reports</em> and related resources SHOULD be published in a public git repository.</span>
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-public"
                   >The repository containing the test reports and related resources MUST be accessible to the reviewers
-                  and the custodian.</span
-                >
+                  and the custodian.</span>
               </li>
               <li>
                 Collaboration between the custodian, reviewers, and submitters is highly encouraged, ideally through a
@@ -939,8 +887,7 @@
               the older version available for reference.
               <span class="rfc2119-assertion" id="submission-requirements-transition-superseded"
                 >When a new version of a binding is accepted as <code>Current</code>, the previous
-                <code>Current</code> version MUST be transitioned to <code>Superseded</code>.</span
-              >
+                <code>Current</code> version MUST be transitioned to <code>Superseded</code>.</span>
               No additional reviews are necessary as the reviewers of the new version would have already reviewed the
               previous version as part of their review process.
               <span class="rfc2119-assertion" id="submission-requirements-current-superseded-transition-template"
@@ -949,8 +896,7 @@
                   href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_superseded.yaml"
                   >this transition issue template</a
                 >
-                MAY be used for triggering a transition additionally.</span
-              >
+                MAY be used for triggering a transition additionally.</span>
             </p>
           </section>
 
@@ -968,8 +914,7 @@
                   href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
                   >the corresponding issue template</a
                 >
-                and conform to the requirements defined in the template.</span
-              >
+                and conform to the requirements defined in the template.</span>
             </p>
           </section>
 
@@ -987,8 +932,7 @@
                   href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
                   >the corresponding issue template</a
                 >
-                and conform to the requirements defined in the template.</span
-              >
+                and conform to the requirements defined in the template.</span>
             </p>
           </section>
 
@@ -1006,8 +950,7 @@
                   href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_superseded.yaml"
                   >this transition issue template</a
                 >
-                MAY be used for triggering a transition additionally.</span
-              >
+                MAY be used for triggering a transition additionally.</span>
             </p>
           </section>
 
@@ -1025,8 +968,7 @@
                   href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_obsolete.yaml"
                   >the corresponding issue template</a
                 >
-                and conform to the requirements defined in the template.</span
-              >
+                and conform to the requirements defined in the template.</span>
             </p>
           </section>
         </section>
@@ -1035,21 +977,16 @@
           <h3>Content</h3>
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-content-sections"
-              >The binding MUST contain the following sections in the order presented below.</span
-            >
+              >The binding MUST contain the following sections in the order presented below.</span>
             <span class="rfc2119-assertion" id="submission-requirements-content-other-sections"
-              >The binding CAN contain other sections anywhere, including between the required ones.</span
-            >
+              >The binding CAN contain other sections anywhere, including between the required ones.</span>
             The submitters are encouraged to look at the existing submissions.
             <span class="rfc2119-assertion" id="submission-requirements-content-operation-mapping"
-              >There MUST be at least one operation mapped to a protocol message/vocabulary term.</span
-            >
+              >There MUST be at least one operation mapped to a protocol message/vocabulary term.</span>
             <span class="rfc2119-assertion" id="submission-requirements-content-table-template"
-              >The submitter SHOULD use the table template provided in the document for the vocabulary.</span
-            >
+              >The submitter SHOULD use the table template provided in the document for the vocabulary.</span>
             <span class="rfc2119-assertion" id="submission-requirements-changelog"
-              >Each entry after the first version of the binding MUST contain a changelog in the entry itself.</span
-            >
+              >Each entry after the first version of the binding MUST contain a changelog in the entry itself.</span>
           </p>
           <ul>
             <li>Introduction</li>
@@ -1078,42 +1015,35 @@
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-json-schema"
                 >There MUST be a <a href="#dfn-json-schema-for-a-binding">JSON Schema</a> (version to be defined) that
-                allows validating the elements added by the entry.</span
-              >
+                allows validating the elements added by the entry.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-json-ld-context"
                 >There SHOULD be a <a href="#dfn-json-ld-context-for-a-binding">JSON-LD Context</a> and an ontology for
                 the registry entry. Note that, when converting the TD to an RDF format, the lack of JSON-LD Context will
-                create an RDF representation that will cause issues in RDF triple stores.</span
-              >
+                create an RDF representation that will cause issues in RDF triple stores.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-other"
                 >There MAY be other documents which are helpful to implementers, such as code, diagrams, and/or
-                standalone examples.</span
-              >
+                standalone examples.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-available-reviewer"
-                >These documents MUST be available to the reviewer.</span
-              >
+                >These documents MUST be available to the reviewer.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-include"
-                >The reviewer MUST include these documents in their review.</span
-              >
+                >The reviewer MUST include these documents in their review.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-same-version"
                 >All documents associated with the registry entry MUST have the same version string, i.e., the versions
-                of all associated documents MUST be updated when there is a change to any of them.</span
-              >
+                of all associated documents MUST be updated when there is a change to any of them.</span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-version-visible"
-                >The version MUST be a string that is visible in all the documents.</span
-              >
+                >The version MUST be a string that is visible in all the documents.</span>
             </li>
           </ul>
         </section>
@@ -1124,12 +1054,10 @@
             <span class="rfc2119-assertion" id="submission-requirements-conflict"
               >The binding entry SHOULD NOT conflict with other entries in the registry, such as its other versions or
               its <a>dependents</a>, by redefining the same concepts, such as redefining the URI Scheme, the vocabulary
-              terms, or the default assignments.</span
-            >
+              terms, or the default assignments.</span>
             <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation"
               >If a previously stable binding is being improved upon by the same organization, that previous binding
-              MUST be deprecated once the new one reaches the <strong>stable</strong> status.</span
-            >
+              MUST be deprecated once the new one reaches the <strong>stable</strong> status.</span>
           </p>
         </section>
 
@@ -1139,8 +1067,7 @@
             <span class="rfc2119-assertion" id="submission-requirements-redefinition"
               >The namespace (prefix and its values) defined in a binding SHALL NOT be redefined or extended in any
               other binding, e.g., <code>cov:method</code> values shall not be extended in LWM2M and
-              <code>cov:newTerm</code> shall not be added in LWM2M binding.</span
-            >
+              <code>cov:newTerm</code> shall not be added in LWM2M binding.</span>
           </p>
         </section>
 
@@ -1149,8 +1076,7 @@
           <p>
             <span class="rfc2119-assertion" id="submission-requirements-dependency"
               >If parts of the entry require the existence of another binding, i.e., has dependencies, the
-              <a>dependency</a> MUST first be submitted as a separate entry.</span
-            >
+              <a>dependency</a> MUST first be submitted as a separate entry.</span>
             For example, before LWM2M can be submitted, the CoAP Binding must exist.
           </p>
         </section>
@@ -1197,4 +1123,5 @@
       </table>
     </section>
   </body>
+
 </html>
