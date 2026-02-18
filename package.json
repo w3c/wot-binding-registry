@@ -10,7 +10,12 @@
     "type": "git",
     "url": "https://github.com/w3c/wot-binding-registry.git"
   },
-  "keywords": ["wot", "w3c", "specification", "registry"],
+  "keywords": [
+    "wot",
+    "w3c",
+    "specification",
+    "registry"
+  ],
   "author": "w3c",
   "license": "W3C-20150513",
   "bugs": {
@@ -22,6 +27,6 @@
     "prettier": "3.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.15"
+    "@biomejs/biome": "^2.4.2"
   }
 }

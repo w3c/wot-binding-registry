@@ -28,7 +28,7 @@
   },
   "linter": { "enabled": true, "rules": { "recommended": true } },
   "html": {
-    "formatter": { "enabled": true, "indentScriptAndStyle": false, "selfCloseVoidElements": "always" }
+    "formatter": { "enabled": true, "selfCloseVoidElements": "never" }
   },
   "assist": { "enabled": true, "actions": { "source": { "organizeImports": "on" } } }
 }
