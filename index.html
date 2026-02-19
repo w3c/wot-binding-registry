@@ -450,6 +450,14 @@
               changes are reflected as comments in the original issue.
             </li>
             <li>
+              <span class="rfc2119-assertion" id="life-subm-archival">
+                If the submitter cannot guarantee the stability of the link to the binding, they MUST to send an email
+                to <code>https://lists.w3.org/Archives/Public/www-archive/</code> and attach the binding and supporting
+                documents.
+              </span>
+              This way, if the submitter fails to keep the link stable, an archived version exists for the users.
+            </li>
+            <li>
               <span class="rfc2119-assertion" id="life-subm-mark-conflict"
                 >If a new entry conflicts with another entry, the reviewer MUST mark the new submission
                 accordingly.</span
@@ -647,6 +655,11 @@
               >The binding document linked in the registry entry SHOULD be open to read, use, and implement, but that is
               not required for the document to be added to the registry.</span
             >
+          </p>
+
+          <p class="note">
+            Given that a submitter who cannot guarantee the stability of the link needs to send the binding to the W3C Archive (see <a href="#life-subm-archival">submission instructions</a>),
+            such bindings automatically become open to read.
           </p>
         </section>
 
