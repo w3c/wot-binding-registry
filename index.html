@@ -1145,13 +1145,23 @@
         </section>
 
         <section id="req-deps">
-          <h3>Dependency</h3>
+          <h3>Dependencies to other Bindings</h3>
           <p>
-            <span class="rfc2119-assertion" id="submission-requirements-dependency"
+            It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
+            e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON.
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state"
               >If parts of the entry require the existence of another binding, i.e., has dependencies, the
-              <a>dependency</a> MUST first be submitted as a separate entry.</span
+              <a>dependency</a> MUST be in the <code>current</code> state if the dependent needs to transition to the
+              <code>current</code> state.</span
             >
-            For example, before LWM2M can be submitted, the CoAP Binding must exist.
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state"
+              >The dependent entry CAN be submitted in the <code>initial</code> state even if the dependency is not in
+              the registry.</span
+            >
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state"
+              >If a dependency needs to transition to obsolete state, the dependent MUST be reevaluated by the
+              custodian.</span
+            >
           </p>
         </section>
       </section>
