@@ -347,27 +347,6 @@
                 Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>,
                 <code>&quot;href&quot;:&quot;http://example.com&quot;</code>,
                 <code>&quot;contentType&quot;:&quot;application/json&quot;</code>
-
-                <!--
-                  TODO: These assertions should be moved to the registry definition.
-                  see https://github.com/w3c/wot-binding-registry/pull/17#discussion_r2267069020
-                -->
-                <!-- <ul>
-                  <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
-                  <li>Reasons Behind the Requirement:<ul>
-                  <li>This avoids conflicts that are mentioned in the previous requirement</li>
-                  </ul>
-                  </li>
-                  <li>Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.</li>
-                  </ul>
-                  </li>
-                </ul> -->
-                <p class="note">
-                  Until a custodian review, no registration is needed. A full IANA registration is required for the
-                  final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If
-                  needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional
-                  registration to simplify the process on the IANA side.
-                </p>
               </td>
             </tr>
             <tr id="form-tdver">
@@ -803,6 +782,9 @@
                 >Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
                 <a href="#req-docs"></a>.</span
               >
+              <span class="rfc2119-assertion" id="submission-requirements-IANA-registration-provisional">
+                The submitter MAY do a provisional registration of the URI Scheme at IANA.
+              </span>
               The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
               non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
             </p>
@@ -824,6 +806,17 @@
                   >
                   and conform to the requirements defined in the template.</span
                 >
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-iana-registration">
+                  The URI Scheme MUST be registered as a full registration at IANA for this transition.
+                </span>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-iana-registration">
+                  The submitter SHOULD trigger the registration at IANA.
+                </span>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-iana-registration">
+                  If needed, the custodian MAY trigger the IANA registration.
+                </span>
               </li>
               <li>
                 <span class="rfc2119-assertion" id="transition-current-reviews">
