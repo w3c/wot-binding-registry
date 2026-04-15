@@ -337,27 +337,6 @@
                 Examples: <code>&quot;subprotocol&quot;:&quot;sse&quot;</code>,
                 <code>&quot;href&quot;:&quot;http://example.com&quot;</code>,
                 <code>&quot;contentType&quot;:&quot;application/json&quot;</code>
-
-                <!--
-                  TODO: These assertions should be moved to the registry definition.
-                  see https://github.com/w3c/wot-binding-registry/pull/17#discussion_r2267069020
-                -->
-                <!-- <ul>
-                  <li>In a TD, a binding SHOULD be identifiable by the terms in a form such as <code>href</code>, <code>contentType</code>, <code>subprotocol</code>, or connection information found in the root of the TD.<ul>
-                  <li>Reasons Behind the Requirement:<ul>
-                  <li>This avoids conflicts that are mentioned in the previous requirement</li>
-                  </ul>
-                  </li>
-                  <li>Until a custodian review, no registration is needed. A full IANA registration is required for the final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional registration to simplify the process on the IANA side.</li>
-                  </ul>
-                  </li>
-                </ul> -->
-                <p class="note">
-                  Until a custodian review, no registration is needed. A full IANA registration is required for the
-                  final and stable version of the binding. The submitter SHOULD trigger the registration at IANA. If
-                  needed, the custodian MAY trigger the IANA registration. The submitter MAY do a provisional
-                  registration to simplify the process on the IANA side.
-                </p>
               </td>
             </tr>
             <tr id="form-tdver">
@@ -439,6 +418,14 @@
               changes are reflected as comments in the original issue.
             </li>
             <li>
+              <span class="rfc2119-assertion" id="life-subm-archival">
+                If the submitter cannot guarantee the stability of the link to the binding, they MUST send an email to
+                <code>https://lists.w3.org/Archives/Public/www-archive/</code> and attach the binding and supporting
+                documents.
+              </span>
+              This way, if the submitter fails to keep the link stable, an archived version exists for the users.
+            </li>
+            <li>
               <span class="rfc2119-assertion" id="life-subm-mark-conflict"
                 >If a new entry conflicts with another entry, the reviewer MUST mark the new submission
                 accordingly.</span>
@@ -501,10 +488,6 @@
             <span class="rfc2119-assertion" id="entry-format-version-form"
               >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
               <code>YYYY-MM-DD</code>.
-            </span>
-
-            <span class="rfc2119-assertion" id="life-versioning-unique-version">
-              The content of a registry entry MAY not be updated for a given version.
             </span>
 
             <span class="rfc2119-assertion" id="life-versioning-unique-version">
@@ -627,6 +610,12 @@
             <span class="rfc2119-assertion" id="submission-requirements-openread"
               >The binding document linked in the registry entry SHOULD be open to read, use, and implement, but that is
               not required for the document to be added to the registry.</span>
+          </p>
+
+          <p class="note">
+            Given that a submitter who cannot guarantee the stability of the link needs to send the binding to the W3C
+            Archive (see <a href="#life-subm-archival">submission instructions</a>), such bindings automatically become
+            open to read.
           </p>
         </section>
 
@@ -767,7 +756,11 @@
                 and conform to the requirements defined in the template.</span>
               <span class="rfc2119-assertion" id="submission-requirements-req-content"
                 >Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
-                <a href="#req-docs"></a>.</span>
+                <a href="#req-docs"></a>.
+              </span>
+              <span class="rfc2119-assertion" id="submission-requirements-IANA-registration-provisional">
+                The submitter MAY do a provisional registration of the URI Scheme at IANA.
+              </span>
               The reviewer does not need to check whether the binding tries to map <code>readproperty</code> to a
               non-existent HTTP method. A successful initial document triggers a &quot;Call for Implementation&quot;.
             </p>
@@ -788,6 +781,23 @@
                     >the corresponding issue template</a
                   >
                   and conform to the requirements defined in the template.</span>
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-transition-current-full-iana-registration">
+                  The URI Scheme MUST be registered as a full registration at IANA for this transition.
+                </span>
+                <span
+                  class="rfc2119-assertion"
+                  id="submission-requirements-transition-iana-registration-submitter-trigger"
+                >
+                  The submitter SHOULD trigger the registration at IANA.
+                </span>
+                <span
+                  class="rfc2119-assertion"
+                  id="submission-requirements-transition-iana-registration-custodian-trigger"
+                >
+                  If needed, the custodian MAY trigger the IANA registration.
+                </span>
               </li>
               <li>
                 <span class="rfc2119-assertion" id="transition-current-reviews">
@@ -976,36 +986,47 @@
         <section id="req-content">
           <h3>Content</h3>
           <p>
-            <span class="rfc2119-assertion" id="submission-requirements-content-sections"
-              >The binding MUST contain the following sections in the order presented below.</span>
-            <span class="rfc2119-assertion" id="submission-requirements-content-other-sections"
-              >The binding CAN contain other sections anywhere, including between the required ones.</span>
-            The submitters are encouraged to look at the existing submissions.
-            <span class="rfc2119-assertion" id="submission-requirements-content-operation-mapping"
-              >There MUST be at least one operation mapped to a protocol message/vocabulary term.</span>
-            <span class="rfc2119-assertion" id="submission-requirements-content-table-template"
-              >The submitter SHOULD use the table template provided in the document for the vocabulary.</span>
-            <span class="rfc2119-assertion" id="submission-requirements-changelog"
-              >Each entry after the first version of the binding MUST contain a changelog in the entry itself.</span>
+            Registry entries are expected to contain a human-readable document describing the binding. In order to
+            ensure a certain level of consistency and to make it easier for developers to understand how the binding
+            works and to implement it, the document is expected to contain specific sections. As protocol bindings and
+            media type bindings are expected to have different content, the requirements are different for each of them.
+            <span class="rfc2119-assertion" id="submission-requirements-content-findability">
+              While the order of the sections is not strict, the required sections MUST be present in the document with
+              the names defined in the respective types of bindings.
+            </span>
+            This allows readers to easily find the required sections. The submitters are encouraged to look at the
+            existing submissions.
           </p>
-          <ul>
-            <li>Introduction</li>
-            <li>
-              Binding Content:
-              <ul>
-                <li>URI Format</li>
-                <li>Form <a href="#dfn-vocabulary-document-for-a-binding">Vocabulary Definition as Table</a></li>
-                <li>Default and possible mappings to operations as a Table</li>
-              </ul>
-            </li>
-            <li>Examples</li>
-            <li>Changelog</li>
-          </ul>
-          <p class="note">
+          <p>
             A binding may not fit newer or older versions of a TD specification (e.g., <code>readproperty</code> can
-            become <code>readprop</code>, or a new operation can arrive). Thus, when writing a binding, it must be
-            associated with one or more known TD specification versions.
+            become <code>readprop</code>, or a new operation can arrive).
+            <span class="rfc2119-assertion" id="submission-requirements-content-td-specification-version">
+              Therefore, the binding document MUST specify the TD specification version(s) that the binding is designed
+              for and compatible with.
+            </span>
           </p>
+
+          <p>The required sections for the content of the protocol binding documents are as follows:</p>
+
+          <ul>
+            <li>URI Format</li>
+            <li>Form Vocabulary Definition</li>
+            <li>Default Mappings</li>
+            <li>Possible Mappings</li>
+            <li>Changelog of the Binding</li>
+          </ul>
+
+          <p>
+            <span class="rfc2119-assertion" id="submission-requirements-content-recommendations">
+              To help the readers, it is RECOMMENDED to include an introduction and examples of TDs with the binding.
+            </span>
+            <span class="rfc2119-assertion" id="submission-requirements-content-table-template">
+              Additionally, the submitter SHOULD use the table template provided in the document for the form vocabulary
+              definition.
+            </span>
+          </p>
+          <p>The required sections for the content of the media type binding documents are as follows:</p>
+          <p class="ednote">This will be defined separately later on.</p>
         </section>
 
         <section id="req-docs">
@@ -1072,12 +1093,23 @@
         </section>
 
         <section id="req-deps">
-          <h3>Dependency</h3>
+          <h3>Dependencies to other Bindings</h3>
           <p>
-            <span class="rfc2119-assertion" id="submission-requirements-dependency"
+            It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
+            e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON.
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state"
               >If parts of the entry require the existence of another binding, i.e., has dependencies, the
-              <a>dependency</a> MUST first be submitted as a separate entry.</span>
-            For example, before LWM2M can be submitted, the CoAP Binding must exist.
+              <a>dependency</a> MUST be in the <code>current</code> state if the dependent needs to transition to the
+              <code>current</code> state.</span
+            >
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state"
+              >The dependent entry CAN be submitted in the <code>initial</code> state even if the dependency is not in
+              the registry.</span
+            >
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state"
+              >If a dependency needs to transition to obsolete state, the dependent MUST be reevaluated by the
+              custodian.</span
+            >
           </p>
         </section>
       </section>
@@ -1099,14 +1131,16 @@
 
       <table class="def numbered">
         <thead>
-          <th>Name</th>
-          <th>Version</th>
-          <th>Status</th>
-          <th>Binding Document Link</th>
-          <th>Ontology Prefix</th>
-          <th>Identification in TD</th>
-          <th>Supported TD version</th>
-          <th>Summary Document</th>
+          <tr>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Status</th>
+            <th>Binding Document Link</th>
+            <th>Ontology Prefix</th>
+            <th>Identification in TD</th>
+            <th>Supported TD version</th>
+            <th>Summary Document</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

@@ -46,6 +46,14 @@ body:
     validations:
       required: true
   - type: input
+    id: archive-link
+    attributes:
+      label: Archival Link
+      description: |
+        Link to the email sent to the https://lists.w3.org/Archives/Public/www-archive/ . Only required by submitters that cannot guarantee the stability of the link to the binding.
+    validations:
+      required: false
+  - type: input
     id: link-test-report
     attributes:
       label: Link to the test report
