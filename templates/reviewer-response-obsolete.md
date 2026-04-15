@@ -1,0 +1,1 @@
+<!-- the template to be used by each reviewer for a transition to the obsolete state -->
