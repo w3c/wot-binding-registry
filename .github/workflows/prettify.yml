@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Nerixyz/actionsx-prettier@v3-adj
+      - uses: actions/setup-node@v3
         with:
-          args: --check .
+          node-version: '24.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Prettifying script
+        run: npm run format
