@@ -284,7 +284,7 @@
           <a href="#lifecycle"></a>
           <!-- how are they submitted, updated, deprecated etc. -->
         </li>
-        <li><a href="#ownership"></a></li>
+        <li><a href="#personas"></a></li>
         <li>
           <a href="#submission-requirements"></a>
           <!--What the binding has to contain to go into the table-->
@@ -416,7 +416,7 @@
         <p>
           Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>, which is reflected in the <code>Status</code> field of the entry.
           Additionally, <a href="https://github.com/orgs/w3c/projects/222">a GitHub project</a> is used to track submissions and
-          transition requests.
+          <a>transition</a> requests.
         </p>
 
         <section id="life-entry">
@@ -506,31 +506,47 @@
         </section>
       </section>
 
-      <section id="ownership">
-        <h2>Ownership</h2>
+      <section id="personas">
+        <h2>Personas</h2>
 
         <p>
-          The registry is managed by a <a>Custodian</a> and submissions and transitions are reviewed by
-          <a href="#dfn-reviewer">Reviewers</a>.
+          Multiple personas are involved in the registry. This section defines the roles and responsibilities of these
+          personas and how they interact with each other in the context of the registry.
         </p>
 
         <section id="own-cust">
           <h3>Custodian</h3>
 
           <p>
-            <span class="rfc2119-assertion" id="ownership-custodian-role"
-              >A change in the registry MUST be confirmed by the <a>Custodian</a>. The custodian of this registry is the
-              WoT WG in the beginning.</span>
-            <span class="rfc2119-assertion" id="ownership-custodian-delegation"
-              >If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.</span>
+            The registry is managed by a <a>Custodian</a>.
+            <span class="rfc2119-assertion" id="ownership-custodian-role">
+              A change in the registry MUST be confirmed by the <a>Custodian</a>. The custodian of this registry is the
+              WoT WG in the beginning.
+            </span>
+            <span class="rfc2119-assertion" id="ownership-custodian-delegation">
+              If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.
+            </span>
             For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
             can be maintained for a long period.
           </p>
         </section>
         <section id="own-reviewer">
           <h3>Reviewers</h3>
+          <p>
+            Submissions and transitions are reviewed by <a href="#dfn-reviewer">Reviewers</a>.
+            Their decision instruct the custodian on which actions to take on the transitions.
+          </p>
           <!-- TODO: https://github.com/w3c/wot-binding-registry/issues/43  -->
           <!-- define a WoT and binding's spec expert -->
+        </section>
+        <section id="own-submitter">
+          <h3>Submitter</h3>
+          <p>
+            Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
+            organization that the issue creator represents. For example, a submitter can be a standards development organization
+            that has developed a binding and wants to submit it to the registry, or an individual who has created a binding
+            and wants to share it with the community.
+          </p>
         </section>
       </section>
 
