@@ -104,10 +104,25 @@
       </p>
 
       <p>
-        This enables a binding to be written by people with a good understanding of the binding, who are not necessarily
-        participants of the WoT Working Group, such as other organizations developing a standard that can be used with
-        WoT. This also allows the WoT Working Group to focus on the core specifications and engage other communities at
-        the same time.
+        Firstly, the registry mechanism enables a binding to be written by people and organizations with a good understanding
+        of the specification the binding is based on. These people and organizations do not necessarily need to be participants
+        of the WoT Working Group, such as other those developing a standard that can be used with WoT. This also allows the WoT
+        Working Group to focus on the core specifications and engage other communities at the same time.
+      </p>
+
+      <p>
+        Secondly, the registry mechanism allows the bindings to be maintained and evolve over time without going through the
+        publication process of a W3C Recommendation. As long as the rules in the registry definition are followed, the registry
+        can be updated via transition requests and new submissions.
+      </p>
+
+      <p>
+        This document serves three purposes. Firstly, it lets implementer find the list of current bindings that they can
+        use to implement their Things and Consumers. This is demonstrated in Section [[[#registry]]] and is called the <a>Registry Table</a>.
+        Secondly, Section [[[#entry-format]]] helps implementers understand what different values in each entry of the registry table mean.
+        Thirdly, it defines the rules that govern the registry, which are explained in Section [[[#registry-definition]]].
+        These define who manages the registry, how to submit new entries, how to update existing entries, and how to review <a>transitions</a>, which are important
+        for the long-term maintenance of the registry and the quality of the entries.
       </p>
     </section>
 
@@ -163,7 +178,7 @@
         </dt>
         <dd>
           A list of bindings that are usable in the context of WoT. See
-          <a href="https://www.w3.org/policies/process/#registry-table">registry table</a> for more information.
+          <a>registry table</a> for more information.
         </dd>
         <dt>
           <dfn id="dfn-wot-binding-registry-definition">WoT Binding Registry Definition</dfn>
@@ -1037,7 +1052,7 @@
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-doc-json-ld-context"
-                >There SHOULD be a <a href="#dfn-json-ld-context-for-a-binding">JSON-LD Context</a> and an ontology for
+                >There SHOULD be a <a href="#dfn-json-ld-context-for-a-binding">JSON-LD Context</a> and an ontology (see <a>Vocabulary Document for a Binding</a>) for
                 the registry entry. Note that, when converting the TD to an RDF format, the lack of JSON-LD Context will
                 create an RDF representation that will cause issues in RDF triple stores.</span>
             </li>
@@ -1110,7 +1125,7 @@
     </section>
 
     <section id="registry">
-      <h2>Registry</h2>
+      <h2>Registry Table</h2>
 
       <p>
         The following table defines the <a>WoT Binding Registry</a> where each entry is a binding. Entries are ordered
