@@ -347,7 +347,7 @@
               <td>Not required</td>
               <td>
                 Indicates the lifecycle status of the entry and changes via transitions defined in
-                <a href="#transitions">Transitions</a> section.
+                <a href="#req-transitions">Transitions</a> section.
               </td>
             </tr>
             <tr id="form-link">
@@ -459,7 +459,7 @@
           </ul>
           <p>
             The diagram below represents the lifecycle of an entry and the possible transitions between them.
-            Please refer to <a href="#transitions">transitions</a> for the requirements and process for each transitions.
+            Please refer to <a href="#req-transitions">transitions</a> for the requirements and process for each transitions.
           </p>
           <figure style="text-align: center">
             <img src="./images/lifecycle-entries.svg" alt="Registry Entry Lifecycle Diagram" />
@@ -521,8 +521,8 @@
             <span class="rfc2119-assertion" id="life-versioning-unique-version">
               If anyone wants to submit a newer version of an entry, it MUST be a new submission.
             </span>
-            As indicated in <a href="#transition-from-current-to-superseded">transition to superseded</a> and
-            <a href="#transition-from-current-to-obsolete">transition to obsolete</a>, the newer versions results in
+            As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
+            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
             state changes.
             <span class="rfc2119-assertion" id="life-versioning-review-for-new-version">
               Review of a new version of an existing binding SHOULD take the previous reviews into account.
@@ -542,18 +542,18 @@
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
                 If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a> 
-                MUST be in the <code>current</code> state if the dependent needs to transition to the <code>current</code> state.
+                MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code> state.
               </span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
-                The dependent entry CAN be submitted in the <code>initial</code> state even if the dependency is not 
+                The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not 
                 in the registry.
               </span>
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
-                If a dependency needs to transition to obsolete state, the dependent MUST be reevaluated by the
+                If a dependency needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
                   custodian.
               </span>
             </li>
@@ -573,11 +573,8 @@
           <h3>Custodian</h3>
 
           <p>
-            The registry is managed by a <a>Custodian</a>.
-            <span class="rfc2119-assertion" id="ownership-custodian-role">
-              A change in the registry MUST be confirmed by the <a>Custodian</a>. The custodian of this registry is the
-              WoT WG in the beginning.
-            </span>
+            The registry is managed by a <a>Custodian</a>. 
+            The custodian of this registry is the WoT WG in the beginning.
             <span class="rfc2119-assertion" id="ownership-custodian-delegation">
               If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.
             </span>
@@ -625,23 +622,23 @@
 
         <ol>
           <li>
-            The first category is the administrative and overall requirements, which are related to the copyright,
+            <a href="#req-overall">The first category</a> is the administrative and overall requirements, which are related to the copyright,
             access rights and review process of the entries and transition.
           </li>
           <li>
-            The second category is the content requirements, which are related to the structure and content of the
+            <a href="#req-content">The second category</a> is the content requirements, which are related to the structure and content of the
             binding document itself. These requirements are defined to ensure that the binding document contains all
             the necessary information for developers to understand and implement the binding, and that it follows a
             certain structure that makes it easier for developers to find the information they need.
           </li>
           <li>
-            The third category is about what the supporting documents are and what they should contain. These documents
+            <a href="#req-docs">The third category</a> is about what the supporting documents are and what they should contain. These documents
             are important to provide additional information about the binding, such as a summary for developers, a JSON
             Schema for validating the binding instances, and a JSON-LD context for dereferencing the terms used in the
             binding instances.
           </li>
           <li>
-            The fourth category explains how different transitions should be handled and what the requirements are for
+            <a href="#req-transitions">The fourth category</a> explains how different transitions should be handled and what the requirements are for
             each transition on top of the content requirements. Submitters, reviews and the custodian should read them
             together with the lifecycle diagrams in the previous section to understand how the transitions work and what
             happens in each transition.
@@ -874,12 +871,15 @@
           </section>
         </section>
 
-        <section>
+        <section id="req-transitions">
           <h3>Transitions</h3>
 
           <p>
             Every transition including the initial submission is triggered by a GitHub issue, which can be made by the
             submitter of the initial version, the custodian or anyone who creates an issue using the correct template.
+            <span class="rfc2119-assertion" id="ownership-custodian-role">
+              All transitions MUST be applied or rejected by the <a>Custodian</a>.
+            </span>
             The issue submitter is expected to answer until the custodian makes a Pull Request to apply the transition.
             For each transition - defined in <a href="#life-entry">lifecycle status</a> - the following sections explain
             the requirements and rules that need to be followed by the submitter, custodian and reviewers.
@@ -929,7 +929,7 @@
               the requirements defined in the template.
             </span>
           </p>
-          <section id="req-traninit">
+          <section id="req-tran-init">
             <h3>Transition to Initial</h3>
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-initial-submission-template">
@@ -973,7 +973,7 @@
               </p>
             </section>
 
-            <section id="req-traninit-review">
+            <section id="req-tran-init-review">
               <h5>Review Organization</h5>
               <p>
                 <span class="rfc2119-assertion" id="submission-requirements-reviewer">
@@ -993,8 +993,8 @@
             </section>
           </section>
 
-          <section id="req-trancurr">
-            <h4>Transition from <code>Initial</code> to <code>Current</code></h4>
+          <section id="req-tran-init-curr">
+            <h4>Transition from Initial to Current</h4>
             <ul>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-initial-current-transition-template">
@@ -1110,7 +1110,7 @@
                 collectively.
               </li>
             </ul>
-            <section id="req-trancurr-review">
+            <section id="req-tran-init-curr-review">
               <h5>Review Organization</h5>
               <ul>
                 <li>
@@ -1122,8 +1122,8 @@
             </section>
           </section>
 
-          <section>
-            <h4>Transition from <code>Current</code> to <code>Superseded</code></h4>
+          <section id="req-tran-curr-supers">
+            <h4>Transition from Current to Superseded</h4>
             <p>
               Superseding a binding allows the custodian to recommend a newer version of a binding while still keeping
               the older version available for reference.
@@ -1141,8 +1141,8 @@
             </p>
           </section>
 
-          <section>
-            <h4>Transition from <code>Current</code> to <code>Obsolete</code></h4>
+          <section id="req-tran-curr-obsolete">
+            <h4>Transition from Current to Obsolete</h4>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-current-obsolete">
@@ -1158,8 +1158,8 @@
             </p>
           </section>
 
-          <section>
-            <h4>Transition from <code>Superseded</code> to <code>Obsolete</code></h4>
+          <section id="req-tran-supers-obsolete">
+            <h4>Transition from Superseded to Obsolete</h4>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-superseded-obsolete">
@@ -1175,8 +1175,8 @@
             </p>
           </section>
 
-          <section>
-            <h4>Transition from <code>Initial</code> to <code>Superseded</code></h4>
+          <section id="req-tran-init-supers">
+            <h4>Transition from Initial to Superseded</h4>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-superseded">
@@ -1192,8 +1192,8 @@
             </p>
           </section>
 
-          <section>
-            <h4>Transition from <code>Initial</code> to <code>Obsolete</code></h4>
+          <section id="req-tran-init-obsolete">
+            <h4>Transition from Initial to Obsolete</h4>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
