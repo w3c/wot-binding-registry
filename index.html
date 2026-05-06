@@ -27,6 +27,7 @@
           companyURL: "https://www.siemens.com/"
         }],
         xref: ["i18n-glossary", "w3c-process"],
+        maxTocLevel: 4,
         otherLinks: [{
             key: "Contributors",
             data: [{
@@ -83,7 +84,18 @@
         lifecycle and ease of use for the developers.
       </p>
     </section>
-    <section id="sotd"></section>
+    <section id="sotd">
+      <p>
+        <span class="rfc2119-assertion" id="ownership-custodian-initial">
+          The custodian of this registry is the Web of Things Working Group.
+        </span>
+        <span class="rfc2119-assertion" id="ownership-custodian-delegation">
+          If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a> and this paragraph MUST be updated.
+        </span>
+        For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
+        can be maintained for a long period.
+      </p>
+    </section>
 
     <section id="introduction" class="informative">
       <h2>Introduction</h2>
@@ -242,12 +254,23 @@
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
         </dt>
-        <dd>See <a href="https://www.w3.org/policies/process/#custodian">custodian</a> in the W3C Process Document and
-          its role for this registry in the <a href="#own-cust">custodian persona description</a>.</dd>
+        <dd>It is the entity managing the registry who works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a> 
+          in the W3C Process Document for the overall definition and [[[#sotd]]] to see the current custodian.</dd>
         <dt>
+          <dfn id="dfn-submitter">Submitter</dfn>
+        </dt>
+          <dd>
+            Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
+            organization that the issue creator represents. For example, a submitter can be a standards development
+            organization that has developed a binding and wants to submit it to the registry, or an individual who has
+            created a binding and wants to share it with the community.
+          </dd>
           <dfn id="dfn-reviewer">Reviewer</dfn>
         </dt>
-        <dd>A person who is an expert in the specification that the binding is targeting or in the Web of Things.</dd>
+        <dd>A person who is an expert in the specification that the binding is targeting or in the Web of Things.
+          Submissions and transitions of <a>Submitters</a> are reviewed by Reviewers and their decision instructs the <a>Custodian</a> on
+          which actions to take on the transitions.
+        </dd>
         <dt>
           <dfn id="dfn-dependency">Dependency</dfn>
         </dt>
@@ -286,7 +309,6 @@
           <a href="#lifecycle"></a>
           <!-- how are they submitted, updated, deprecated etc. -->
         </li>
-        <li><a href="#personas"></a></li>
         <li>
           <a href="#submission-requirements"></a>
           <!--What the binding has to contain to go into the table-->
@@ -563,48 +585,6 @@
         </section>
       </section>
 
-        <section id="personas">
-          <h2>Personas</h2>
-
-          <p>
-            Multiple personas are involved in the registry. This section defines the roles and responsibilities of these
-            personas and how they interact with each other in the context of the registry.
-          </p>
-
-          <section id="own-cust">
-            <h3>Custodian</h3>
-
-            <p>
-              The registry is managed by a <a>Custodian</a>.
-              The custodian of this registry is the WoT WG in the beginning.
-              <span class="rfc2119-assertion" id="ownership-custodian-delegation">
-                If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.
-              </span>
-              For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
-              can be maintained for a long period.
-            </p>
-          </section>
-          <section id="own-reviewer">
-            <h3>Reviewers</h3>
-            <p>
-              Submissions and transitions are reviewed by <a href="#dfn-reviewer">Reviewers</a>.
-              Their decision instructs the custodian on which actions to take on the transitions.
-            </p>
-            <!-- TODO: https://github.com/w3c/wot-binding-registry/issues/43  -->
-            <!-- define a WoT and binding's spec expert -->
-          </section>
-          <section id="own-submitter">
-            <h3>Submitter</h3>
-            <p>
-              Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
-              organization that the issue creator represents. For example, a submitter can be a standards development
-              organization that has developed a binding and wants to submit it to the registry, or an individual who has
-              created a binding and wants to share it with the community.
-            </p>
-          </section>
-
-      </section>
-
       <section id="submission-requirements">
         <h2>Submission Requirements</h2>
         <!-- Requirements on the Submitted Document -->
@@ -652,6 +632,16 @@
           <h3>Administrative Requirements</h3>
 
           <ul>
+            <li>
+              <b>Stable Link:</b> <span class="rfc2119-assertion" id="submission-requirements-stablelink">
+                The link to the binding document in the registry table MUST be stable.
+              </span>
+            </li>
+            <li>
+              <b>Immutable Content:</b> <span class="rfc2119-assertion" id="submission-requirements-immutable">
+                The submitter MUST guarantee that the content of the binding document will not change over time.
+              </span>
+            </li>
             <li>
               <b>Copyright:</b> <span class="rfc2119-assertion" id="submission-requirements-copyright">
                 The WoT binding document MAY follow another copyright than the W3C copyright.
@@ -951,7 +941,7 @@
 
             <p>
               <span class="rfc2119-assertion" id="life-subm-archival">
-                If the submitter cannot guarantee the stability of the link to the binding, they MUST send an email to
+                If the submitter cannot guarantee the immutability of the binding content or the stability of the link to the binding, they MUST send an email to
                 <code>https://lists.w3.org/Archives/Public/www-archive/</code> and attach the binding and supporting
                 documents.
               </span>
