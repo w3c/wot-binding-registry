@@ -118,8 +118,8 @@
 
       <p>
         This document serves three purposes. Firstly, it lets implementer find the list of current bindings that they can
-        use to implement their Things and Consumers. This is demonstrated in Section [[[#registry]]] and is called the <a>Registry Table</a>.
-        Secondly, Section [[[#entry-format]]] helps implementers understand what different values in each entry of the registry table mean.
+        use to implement their Things and Consumers. Each binding is a row in the <a>Registry Table</a> in Section [[[#registry]]] and are called registry entries.
+        Secondly, Section [[[#entry-format]]] helps implementers understand what each column of the registry table mean.
         Thirdly, it defines the rules that govern the registry, which are explained in Section [[[#registry-definition]]].
         These define who manages the registry, how to submit new entries, how to update existing entries, and how to review <a>transitions</a>, which are important
         for the long-term maintenance of the registry and the quality of the entries.
@@ -151,12 +151,11 @@
 
       <dl>
         <dt>
-          <dfn id="dfn-binding">Binding</dfn>
+          <dfn id="dfn-binding">Binding</dfn> or <dfn id="dfn-entry">Registry Entry</dfn>
         </dt>
         <dd>
           A human-readable document that gives guidance on how to describe a specific IoT protocol, data format or IoT
-          platform in the context of WoT. This is also the registry entry. See
-          <a href="https://www.w3.org/policies/process/#registry-entry">registry entry</a> for more information.
+          platform in the context of WoT. See <a href="https://www.w3.org/policies/process/#registry-entry">registry entry</a> for more information.
         </dd>
         <dt>
           <dfn id="dfn-binding-instance">Binding Instance</dfn>
@@ -170,7 +169,7 @@
         </dt>
         <dd>
           A W3C Registry Track document that contains the <a>WoT Binding Registry Table</a>, its requirements and
-          possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry</a> for more
+          possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry section of the W3C Process document</a> for more
           information on the definition.
         </dd>
         <dt>
@@ -243,7 +242,8 @@
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
         </dt>
-        <dd>See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>.</dd>
+        <dd>See <a href="https://www.w3.org/policies/process/#custodian">custodian</a> in the W3C Process Document and
+          its role for this registry in the <a href="#own-cust">custodian persona description</a>.</dd>
         <dt>
           <dfn id="dfn-reviewer">Reviewer</dfn>
         </dt>
@@ -297,15 +297,35 @@
         <h2>Entry format</h2>
 
         <p>
+          Each <a>registry entry</a> is a row in the registry table, which contains registration-related information about the binding.
+          This section provides the meaning of each row in the registry table and the requirements related to them.
           <span class="rfc2119-assertion" id="entry-format-information">
-            Each entry MUST contain the information found in the following table.
+            Each registry entry MUST contain the information found in [[[#entry-format-definitions]]].
           </span>
-          <span class="rfc2119-assertion" id="entry-format-conflict">
-            The values in the table where the uniqueness is required MUST not conflict with the values of other entries 
-            in the registry.
-          </span>
+          The information in the registry table is not the same as the information in the binding document, but it is related to it.
+          For example, the registry table contains the vocabulary prefix of the binding, but it does not contain all the information in the binding document, such as the vocabulary terms.
+          The requirements on the content of the binding document are defined in the [[[#req-content]]] section.
+
         </p>
-        <table class="def numbered">
+
+        <p>
+          In general, <a>registry entry</a> is immutable and unique in the registry, and the information in the registry
+          table is used to identify and differentiate the entries by the readers as well as implementations.
+          Thus, the uniqueness column indicates whether the value of the information is required to be unique across the registry or not.
+          <span class="rfc2119-assertion" id="entry-format-conflict">
+            The entry values of rows in [[[#entry-format-definitions]]] where the uniqueness column has the value "Required" MUST not conflict with the values of other entries
+            in the registry table.
+          </span>
+          For example, the name of the binding is unique for the readers to associate with it, and the vocabulary term prefix is required to be unique so that implementations can use it to dereference the terms in the binding instance.
+          A special case is the version field.
+          <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
+            Different bindings may share the same version string, but each version of a binding MUST be unique within
+            that binding's history.
+          </span>
+          This is because the version string is used to differentiate different versions of the same binding, but it is not used to differentiate different bindings.
+        </p>
+
+        <table class="def numbered" id="entry-format-definitions">
           <!-- -->
           <caption>
             Entry format information
@@ -334,8 +354,10 @@
               </td>
               <td>Required within one Binding's Lifecycle</td>
               <td>
-                A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>. See
-                <a href="#life-ver">Versioning</a> for more information.
+                A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>.
+                <span class="rfc2119-assertion" id="entry-format-version-form">
+                  The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of <code>YYYY-MM-DD</code>.
+                </span>
               </td>
             </tr>
             <tr id="form-stat">
@@ -479,6 +501,12 @@
           <p class="note">
             Please note these transitions do not allow an entry to be ever deleted. An entry can become obsolete or
             superseded by another one.
+            <span class="rfc2119-assertion" id="life-versioning-unique-version">
+              If anyone wants to submit a newer version of an entry, it MUST be a new submission.
+            </span>
+            As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
+            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
+            state changes.
           </p>
 
         </section>
@@ -505,29 +533,45 @@
           </figure>
         </section>
 
-        <section id="life-ver">
-          <h3>Versioning</h3>
+        <section id="personas">
+          <h2>Personas</h2>
 
           <p>
-            <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
-              Different bindings may share the same version string, but each version of a binding MUST be unique within
-              that binding's history.
-            </span>
-            <span class="rfc2119-assertion" id="entry-format-version-form"
-              >The version string SHOULD contain a UTC-based date in ISO 8601 format in the form of
-              <code>YYYY-MM-DD</code>.
-            </span>
-
-            <span class="rfc2119-assertion" id="life-versioning-unique-version">
-              If anyone wants to submit a newer version of an entry, it MUST be a new submission.
-            </span>
-            As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
-            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
-            state changes.
-            <span class="rfc2119-assertion" id="life-versioning-review-for-new-version">
-              Review of a new version of an existing binding SHOULD take the previous reviews into account.
-            </span>
+            Multiple personas are involved in the registry. This section defines the roles and responsibilities of these
+            personas and how they interact with each other in the context of the registry.
           </p>
+
+          <section id="own-cust">
+            <h3>Custodian</h3>
+
+            <p>
+              The registry is managed by a <a>Custodian</a>.
+              The custodian of this registry is the WoT WG in the beginning.
+              <span class="rfc2119-assertion" id="ownership-custodian-delegation">
+                If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.
+              </span>
+              For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
+              can be maintained for a long period.
+            </p>
+          </section>
+          <section id="own-reviewer">
+            <h3>Reviewers</h3>
+            <p>
+              Submissions and transitions are reviewed by <a href="#dfn-reviewer">Reviewers</a>.
+              Their decision instructs the custodian on which actions to take on the transitions.
+            </p>
+            <!-- TODO: https://github.com/w3c/wot-binding-registry/issues/43  -->
+            <!-- define a WoT and binding's spec expert -->
+          </section>
+          <section id="own-submitter">
+            <h3>Submitter</h3>
+            <p>
+              Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
+              organization that the issue creator represents. For example, a submitter can be a standards development
+              organization that has developed a binding and wants to submit it to the registry, or an individual who has
+              created a binding and wants to share it with the community.
+            </p>
+          </section>
         </section>
 
         <section id="life-deps">
@@ -553,52 +597,11 @@
             </li>
             <li>
               <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
-                If a dependency needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
+                If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
                   custodian.
               </span>
             </li>
           </ul>
-        </section>
-      </section>
-
-      <section id="personas">
-        <h2>Personas</h2>
-
-        <p>
-          Multiple personas are involved in the registry. This section defines the roles and responsibilities of these
-          personas and how they interact with each other in the context of the registry.
-        </p>
-
-        <section id="own-cust">
-          <h3>Custodian</h3>
-
-          <p>
-            The registry is managed by a <a>Custodian</a>. 
-            The custodian of this registry is the WoT WG in the beginning.
-            <span class="rfc2119-assertion" id="ownership-custodian-delegation">
-              If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a>.
-            </span>
-            For example, a dedicated W3C community group can be created to maintain the registry. This way, the registry
-            can be maintained for a long period.
-          </p>
-        </section>
-        <section id="own-reviewer">
-          <h3>Reviewers</h3>
-          <p>
-            Submissions and transitions are reviewed by <a href="#dfn-reviewer">Reviewers</a>.
-            Their decision instructs the custodian on which actions to take on the transitions.
-          </p>
-          <!-- TODO: https://github.com/w3c/wot-binding-registry/issues/43  -->
-          <!-- define a WoT and binding's spec expert -->
-        </section>
-        <section id="own-submitter">
-          <h3>Submitter</h3>
-          <p>
-            Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
-            organization that the issue creator represents. For example, a submitter can be a standards development
-            organization that has developed a binding and wants to submit it to the registry, or an individual who has
-            created a binding and wants to share it with the community.
-          </p>
         </section>
       </section>
 
@@ -987,6 +990,9 @@
                 <span class="rfc2119-assertion" id="life-subm-mark-conflict">
                   If a new initial submission conflicts with another entry with status &quot;initial&quot; or 
                   &quot;current&quot;, the reviewer MUST mark the new submission accordingly.
+                </span>
+                <span class="rfc2119-assertion" id="life-versioning-review-for-new-version">
+                  Review of a new version of an existing binding SHOULD take the previous reviews into account.
                 </span>
               </p>
 
