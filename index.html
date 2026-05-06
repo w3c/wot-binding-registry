@@ -508,6 +508,35 @@
             <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
             state changes.
           </p>
+          
+          <p>
+            <b>Dependencies to other Bindings:</b>
+            It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
+            e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON. This makes the
+            lifecycle of both entries more complex and creates a dependency between the two entries in the registry.
+            The following rules apply to these dependencies.
+          </p>
+          <ul>
+            <li>
+              <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
+                If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a>
+                MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code>
+                state.
+              </span>
+            </li>
+            <li>
+              <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
+                The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not
+                in the registry.
+              </span>
+            </li>
+            <li>
+              <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
+                If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
+                custodian.
+              </span>
+            </li>
+          </ul>
 
         </section>
 
@@ -532,6 +561,7 @@
             <figcaption>Registry Transitions Lifecycle</figcaption>
           </figure>
         </section>
+      </section>
 
         <section id="personas">
           <h2>Personas</h2>
@@ -572,37 +602,7 @@
               created a binding and wants to share it with the community.
             </p>
           </section>
-        </section>
 
-        <section id="life-deps">
-          <h3>Dependencies to other Bindings</h3>
-          <p>
-            It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
-            e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON. This makes the
-            lifecycle of both entries more complex and creates a dependency between the two entries in the registry.
-            The following rules apply to these dependencies.
-          </p>
-          <ul>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
-                If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a> 
-                MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code> state.
-              </span>
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
-                The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not 
-                in the registry.
-              </span>
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
-                If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
-                  custodian.
-              </span>
-            </li>
-          </ul>
-        </section>
       </section>
 
       <section id="submission-requirements">
