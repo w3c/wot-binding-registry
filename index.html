@@ -145,7 +145,8 @@
 
       <p>
         The fundamental WoT terminology such as <dfn class="lint-ignore">Thing</dfn>,
-        <dfn class="lint-ignore">Consumer</dfn>, <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>), <dfn class="lint-ignore">Interaction Model</dfn>, <dfn class="lint-ignore">Interaction Affordance</dfn>,
+        <dfn class="lint-ignore">Consumer</dfn>, <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>),
+        <dfn class="lint-ignore">Interaction Model</dfn>, <dfn class="lint-ignore">Interaction Affordance</dfn>,
         <dfn class="lint-ignore">Property</dfn>, <dfn class="lint-ignore">Action</dfn>,
         <dfn class="lint-ignore">Event</dfn>, <dfn class="lint-ignore">Data Schema</dfn>,
         <dfn class="lint-ignore">Content Type</dfn>, <dfn class="lint-ignore">Protocol Binding</dfn>,
@@ -254,18 +255,18 @@
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
         </dt>
-        <dd>It is the entity managing the registry who works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a> 
+        <dd>It is the entity managing the registry who works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>
           in the W3C Process Document for the overall definition and [[[#sotd]]] to see the current custodian.</dd>
         <dt>
           <dfn id="dfn-submitter">Submitter</dfn>
         </dt>
-          <dd>
-            Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
-            organization that the issue creator represents. For example, a submitter can be a standards development
-            organization that has developed a binding and wants to submit it to the registry, or an individual who has
-            created a binding and wants to share it with the community.
-          </dd>
-          <dfn id="dfn-reviewer">Reviewer</dfn>
+        <dd>
+          Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
+          organization that the issue creator represents. For example, a submitter can be a standards development
+          organization that has developed a binding and wants to submit it to the registry, or an individual who has
+          created a binding and wants to share it with the community.
+        </dd>
+        <dfn id="dfn-reviewer">Reviewer</dfn>
         </dt>
         <dd>A person who is an expert in the specification that the binding is targeting or in the Web of Things.
           Submissions and transitions of <a>Submitters</a> are reviewed by Reviewers and their decision instructs the <a>Custodian</a> on
@@ -325,7 +326,8 @@
             Each registry entry MUST contain the information found in [[[#entry-format-definitions]]].
           </span>
           The information in the registry table is not the same as the information in the binding document, but it is related to it.
-          For example, the registry table contains the vocabulary prefix of the binding, but it does not contain all the information in the binding document, such as the vocabulary terms.
+          For example, the registry table contains the vocabulary prefix of the binding, but it does not contain all
+          the information in the binding document, such as the vocabulary terms.
           The requirements on the content of the binding document are defined in the [[[#req-content]]] section.
 
         </p>
@@ -335,16 +337,19 @@
           table is used to identify and differentiate the entries by the readers as well as implementations.
           Thus, the uniqueness column indicates whether the value of the information is required to be unique across the registry or not.
           <span class="rfc2119-assertion" id="entry-format-conflict">
-            The entry values of rows in [[[#entry-format-definitions]]] where the uniqueness column has the value "Required" MUST not conflict with the values of other entries
+            The entry values of rows in [[[#entry-format-definitions]]] where the uniqueness column has the value 
+            "Required" MUST not conflict with the values of other entries
             in the registry table.
           </span>
-          For example, the name of the binding is unique for the readers to associate with it, and the vocabulary term prefix is required to be unique so that implementations can use it to dereference the terms in the binding instance.
+          For example, the name of the binding is unique for the readers to associate with it, and the vocabulary term
+          prefix is required to be unique so that implementations can use it to dereference the terms in the binding instance.
           A special case is the version field.
           <span class="rfc2119-assertion" id="entry-format-version-uniqueness">
             Different bindings may share the same version string, but each version of a binding MUST be unique within
             that binding's history.
           </span>
-          This is because the version string is used to differentiate different versions of the same binding, but it is not used to differentiate different bindings.
+          This is because the version string is used to differentiate different versions of the same binding, but it is
+          not used to differentiate different bindings.
         </p>
 
         <table class="def numbered" id="entry-format-definitions">
@@ -468,7 +473,7 @@
       </section>
 
       <section id="lifecycle">
-        <h2>Lifecycles</h2>
+        <h2>Lifecycle</h2>
 
         <p>
           Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>, which is reflected in the
@@ -477,112 +482,87 @@
           submissions and <a>transition</a> requests.
         </p>
 
-        <section id="life-entry">
-          <h3>Entry Lifecycle</h3>
-          <p>
-            An entry can have the following status values: <code>Initial</code> -&gt; <code>Current</code> -&gt;
-            <code>Superseded</code> or <code>Obsolete</code>. These terms are defined below:
-          </p>
-          <ul>
-            <li>
-              <code>Initial</code>: Document is correctly written but no implementation experience has been necessarily
-              documented.
-            </li>
-            <li>
-              <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
-              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
-              recommended to use the term <code>current</code>.
-            </li>
-            <li>
-              <code>Superseded</code>: An entry that previously had the status &quot;initial&quot; or &quot;current&quot;
-              is now superseded with a newer one.
-            </li>
-            <li><code>Obsolete</code>: An entry that previously had the status &quot;initial&quot;, &quot;current&quot;
-              or &quot;superseded&quot; is now obsolete and the Custodian does not recommend the usage of this binding.
-            </li>
-          </ul>
-          <p>
-            The diagram below represents the lifecycle of an entry and the possible transitions between them.
-            Please refer to <a href="#req-transitions">transitions</a> for the requirements and process for each transitions.
-          </p>
-          <figure style="text-align: center">
-            <img src="./images/lifecycle-entries.svg" alt="Registry Entry Lifecycle Diagram" />
-            <figcaption>Registry Entry Lifecycle</figcaption>
-          </figure>
+        <p>
+          An entry can have the following status values: <code>Initial</code> -&gt; <code>Current</code> -&gt;
+          <code>Superseded</code> or <code>Obsolete</code>. These terms are defined below:
+        </p>
+        <ul>
+          <li>
+            <code>Initial</code>: Document is correctly written but no implementation experience has been necessarily
+            documented.
+          </li>
+          <li>
+            <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
+            experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
+            recommended to use the term <code>current</code>.
+          </li>
+          <li>
+            <code>Superseded</code>: An entry that previously had the status &quot;initial&quot; or &quot;current&quot;
+            is now superseded with a newer one.
+          </li>
+          <li><code>Obsolete</code>: An entry that previously had the status &quot;initial&quot;, &quot;current&quot;
+            or &quot;superseded&quot; is now obsolete and the Custodian does not recommend the usage of this binding.
+          </li>
+        </ul>
+        <p>
+          The diagram below represents the lifecycle of an entry and the possible transitions between them.
+          Please refer to <a href="#req-transitions">transitions</a> for the requirements and process for each transitions.
+        </p>
+        <figure style="text-align: center">
+          <img src="./images/lifecycle-entries.svg" alt="Registry Entry Lifecycle Diagram" />
+          <figcaption>Registry Entry Lifecycle</figcaption>
+        </figure>
 
-          <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection">As two bindings that do the same 
-            are not allowed, either the old one MUST transition to superseded or obsolete, or the new initial submission
-            MUST be rejected.</span>
+        <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection">As two bindings that do the same 
+          are not allowed, either the old one MUST transition to superseded or obsolete, or the new initial submission
+          MUST be rejected.</span>
 
-          <p>
-            <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">If a previously stable 
-              binding is being improved upon by the same organization, that previous binding MUST be deprecated once the 
-              new one reaches the <strong>stable</strong> status.</span>
-          </p>
+        <p>
+          <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">If a previously stable 
+            binding is being improved upon by the same organization, that previous binding MUST be deprecated once the 
+            new one reaches the <strong>stable</strong> status.</span>
+        </p>
 
-          <p class="note">
-            Please note these transitions do not allow an entry to be ever deleted. An entry can become obsolete or
-            superseded by another one.
-            <span class="rfc2119-assertion" id="life-versioning-unique-version">
-              If anyone wants to submit a newer version of an entry, it MUST be a new submission.
+        <p class="note">
+          Please note these transitions do not allow an entry to be ever deleted. An entry can become obsolete or
+          superseded by another one.
+          <span class="rfc2119-assertion" id="life-versioning-unique-version">
+            If anyone wants to submit a newer version of an entry, it MUST be a new submission.
+          </span>
+          As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
+          <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
+          state changes.
+        </p>
+
+        <p>
+          <b>Dependencies to other Bindings:</b>
+          It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
+          e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON. This makes the
+          lifecycle of both entries more complex and creates a dependency between the two entries in the registry.
+          The following rules apply to these dependencies.
+        </p>
+        <ul>
+          <li>
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
+              If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a>
+              MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code>
+              state.
             </span>
-            As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
-            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
-            state changes.
-          </p>
-          
-          <p>
-            <b>Dependencies to other Bindings:</b>
-            It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
-            e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON. This makes the
-            lifecycle of both entries more complex and creates a dependency between the two entries in the registry.
-            The following rules apply to these dependencies.
-          </p>
-          <ul>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
-                If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a>
-                MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code>
-                state.
-              </span>
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
-                The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not
-                in the registry.
-              </span>
-            </li>
-            <li>
-              <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
-                If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
-                custodian.
-              </span>
-            </li>
-          </ul>
+          </li>
+          <li>
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
+              The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not
+              in the registry.
+            </span>
+          </li>
+          <li>
+            <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
+              If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
+              custodian.
+            </span>
+          </li>
+        </ul>
 
-        </section>
-
-        <section id="life-transition">
-          <h3>Transition Lifecycle</h3>
-
-          <p>
-            In addition the entry lifecycle, the transitions between the states of an entry also have a lifecycle.
-            The issues created for transitions are automatically reflected in the GitHub project in their respective columns.
-            When the custodian assigns a reviewer to the transition, it goes to the &quot;Under Review&quot; column.
-            If the review is in favor of the transition, the issue goes to column &quot;Accepted&quot; and the Custodian
-            makes the Pull Request to apply the transition and closes the issue.
-            If the review is not in favor, it goes to the column &quot;Rejected&quot; and the Custodian closes the issue.
-          </p>
-
-          <p>
-            The diagram below represents the lifecycle of transitions.
-          </p>
-
-          <figure style="text-align: center">
-            <img src="./images/lifecycle-transitions.svg" alt="Registry Transitions Lifecycle Diagram" />
-            <figcaption>Registry Transitions Lifecycle</figcaption>
-          </figure>
-        </section>
       </section>
 
       <section id="submission-requirements">
@@ -621,10 +601,10 @@
             binding instances.
           </li>
           <li>
-            <a href="#req-transitions">The fourth category</a> explains how different transitions should be handled and what the requirements are for
-            each transition on top of the content requirements. Submitters, reviews and the custodian should read them
-            together with the lifecycle diagrams in the previous section to understand how the transitions work and what
-            happens in each transition.
+            <a href="#req-transitions">The fourth category</a> explains how different transitions should be handled and
+            what the requirements are for each transition on top of the content requirements. Submitters, reviews and
+            the custodian should read them together with the lifecycle diagrams in the previous section to understand
+            how the transitions work and what happens in each transition.
           </li>
         </ol>
 
@@ -874,54 +854,86 @@
               All transitions MUST be applied or rejected by the <a>Custodian</a>.
             </span>
             The issue submitter is expected to answer until the custodian makes a Pull Request to apply the transition.
-            For each transition - defined in <a href="#life-entry">lifecycle status</a> - the following sections explain
-            the requirements and rules that need to be followed by the submitter, custodian and reviewers.
-          </p>
-          <p>
-            <span class="rfc2119-assertion" id="transition-requirements-trigger">
-              As a general rule, a transition MAY be triggered by the submitter, the custodian or anyone who creates an
-              issue using the correct template.
-            </span>
-            <span class="rfc2119-assertion" id="transition-requirements-notify">
-              However, the custodian MUST notify the initial submitter and the organization related to the entry of any
-              transition request using the contact information provided in the submission issue.
-            </span>
-            <span class="rfc2119-assertion" id="transition-requirements-approve">
-              In the case of no replies within 30 days from the initial submitter or the organization related to the
-              entry, the custodian MUST process the transition, consulting reviewers when necessary for the transition
-              in question.
-            </span>
-            <span class="rfc2119-assertion" id="transition-reviewer-submitter-different">
-              The custodian MUST assign reviewers for the submission and transitions who are different from the initial
-              submitter and the organization related to the entry.
-            </span>
-            <span class="rfc2119-assertion" id="transition-post-review-time-minimum">
-              The custodian MUST wait 15 days after the end of the review process before making a decision on the
-              transition to allow for any further comments or discussions to take place.
-            </span>
-            <span class="rfc2119-assertion" id="transition-post-review-time-maximum">
-              The custodian MUST make a decision on the transition within 30 days after the end of the review process.
-            </span>
-            <span class="rfc2119-assertion" id="transition-check-old-entries">
-              If there are other entries in the registry with <code>Initial</code> or <code>Current</code> status
-              targeting the same specification, the reviewers MUST take them into account.
-            </span>
-            For example, a newer version of the same binding would result in a transition to <code>Superseded</code> for
-            the older version, which should be used in the review.
-            <span class="rfc2119-assertion" id="transition-reviewer-finding-guarantees">
-              While the custodian is tasked with assigning reviewers, the custodian MAY NOT be able to assign
-              reviewers.</span>
-            <span class="rfc2119-assertion" id="transition-reviewinger-reassign">
-              As there are no guarantees that reviewers complete their reviews, the custodian MAY reassign reviewers if
-              necessary.</span>
           </p>
 
           <p>
-            <span class="rfc2119-assertion" id="transition-issue-template-conformance">
-              The submitter MUST use the correct transition issue template for each transition request and conform to
-              the requirements defined in the template.
-            </span>
+            The issues created for transitions are automatically reflected in the GitHub project in their respective columns.
+            When the custodian assigns a reviewer to the transition, it goes to the &quot;Under Review&quot; column.
+            If the review is in favor of the transition, the issue goes to column &quot;Accepted&quot; and the Custodian
+            makes the Pull Request to apply the transition and closes the issue.
+            If the review is not in favor, it goes to the column &quot;Rejected&quot; and the Custodian closes the issue.
           </p>
+
+          <p>
+            The diagram below represents the lifecycle of transitions.
+          </p>
+
+          <figure style="text-align: center">
+            <img src="./images/lifecycle-transitions.svg" alt="Registry Transitions Lifecycle Diagram" />
+            <figcaption>Registry Transitions Lifecycle</figcaption>
+          </figure>
+
+          <p>
+            For each transition - defined in <a href="#lifecycle">lifecycle status</a> - the following sections explain
+            the requirements and rules that need to be followed by the submitter, custodian and reviewers.
+            While some aspects of the transition process are common for all transitions, some other aspects are specific
+            to each transition, e.g., the requirements on the test report for the transition to current, or the requirements
+            on the comparison between the old and new versions for the transition to superseded. Thus, there are some common
+            requirements defined in this section, and then there are specific requirements for each transition defined
+            in their respective sections.
+          </p>
+
+          <section id="req-tran-overall">
+            <h4>Overall Transition Requirements</h4>
+
+            <p>
+              <span class="rfc2119-assertion" id="transition-requirements-trigger">
+                As a general rule, a transition MAY be triggered by the submitter, the custodian or anyone who creates an
+                issue using the correct template.
+              </span>
+              <span class="rfc2119-assertion" id="transition-requirements-notify">
+                However, the custodian MUST notify the initial submitter and the organization related to the entry of any
+                transition request using the contact information provided in the submission issue.
+              </span>
+              <span class="rfc2119-assertion" id="transition-requirements-approve">
+                In the case of no replies within 30 days from the initial submitter or the organization related to the
+                entry, the custodian MUST process the transition, consulting reviewers when necessary for the transition
+                in question.
+              </span>
+              <span class="rfc2119-assertion" id="transition-reviewer-submitter-different">
+                The custodian MUST assign reviewers for the submission and transitions who are different from the initial
+                submitter and the organization related to the entry.
+              </span>
+              <span class="rfc2119-assertion" id="transition-post-review-time-minimum">
+                The custodian MUST wait 15 days after the end of the review process before making a decision on the
+                transition to allow for any further comments or discussions to take place.
+              </span>
+              <span class="rfc2119-assertion" id="transition-post-review-time-maximum">
+                The custodian MUST make a decision on the transition within 30 days after the end of the review process.
+              </span>
+              <span class="rfc2119-assertion" id="transition-check-old-entries">
+                If there are other entries in the registry with <code>Initial</code> or <code>Current</code> status
+                targeting the same specification, the reviewers MUST take them into account.
+              </span>
+              For example, a newer version of the same binding would result in a transition to <code>Superseded</code> for
+              the older version, which should be used in the review.
+              <span class="rfc2119-assertion" id="transition-reviewer-finding-guarantees">
+                While the custodian is tasked with assigning reviewers, the custodian MAY NOT be able to assign
+                reviewers.</span>
+              <span class="rfc2119-assertion" id="transition-reviewinger-reassign">
+                As there are no guarantees that reviewers complete their reviews, the custodian MAY reassign reviewers if
+                necessary.</span>
+            </p>
+
+            <p>
+              <span class="rfc2119-assertion" id="transition-issue-template-conformance">
+                The submitter MUST use the correct transition issue template for each transition request and conform to
+                the requirements defined in the template.
+              </span>
+            </p>
+
+          </section>
+
           <section id="req-tran-init">
             <h3>Transition to Initial</h3>
             <p>
@@ -941,9 +953,9 @@
 
             <p>
               <span class="rfc2119-assertion" id="life-subm-archival">
-                If the submitter cannot guarantee the immutability of the binding content or the stability of the link to the binding, they MUST send an email to
-                <code>https://lists.w3.org/Archives/Public/www-archive/</code> and attach the binding and supporting
-                documents.
+                If the submitter cannot guarantee the immutability of the binding content or the stability of the link 
+                to the binding, they MUST send an email to <code>https://lists.w3.org/Archives/Public/www-archive/</code> 
+                and attach the binding and supporting documents.
               </span>
               This way, if the submitter fails to keep the link stable, an archived version exists for the users.
             </p>
