@@ -193,6 +193,12 @@
           the term and [[[#registry]]] for this document's registry table.
         </dd>
         <dt>
+          <dfn id="dfn-entry-property">Entry Property</dfn>
+        </dt>
+        <dd>
+          A cell in the <a>WoT Binding Registry Table</a> that represents a specific attribute or characteristic of a registry entry.
+        </dd>
+        <dt>
           <dfn id="dfn-wot-binding-registry-definition">WoT Binding Registry Definition</dfn>
         </dt>
         <dd>
@@ -280,6 +286,10 @@
           <dfn id="dfn-dependent">Dependent</dfn>
         </dt>
         <dd>An entry that uses or references another entry.</dd>
+        <dt>
+          <dfn id="dfn-uniqueness">Uniqueness</dfn>
+        </dt>
+        <dd>An <a>entry property</a> that ensures referring to the entry is unambiguous. As different properties of an entry are used in different contexts and scopes, uniqueness ensures that each entry can be identified and referenced without confusion.</dd>
       </dl>
     </section>
 
@@ -333,9 +343,9 @@
         </p>
 
         <p>
-          In general, <a>registry entry</a> is immutable and unique in the registry, and the information in the registry
+          In general, each <a>registry entry</a> is immutable and unique in the registry, and the information in the registry
           table is used to identify and differentiate the entries by the readers as well as implementations.
-          Thus, the uniqueness column indicates whether the value of the information is required to be unique across the registry or not.
+          Thus, the <a>uniqueness</a> column indicates whether that <a>entry property</a> is required to be unique across the registry or not.
           <span class="rfc2119-assertion" id="entry-format-conflict">
             The entry values of rows in [[[#entry-format-definitions]]] where the uniqueness column has the value 
             "Required" MUST not conflict with the values of other entries
@@ -359,7 +369,7 @@
           </caption>
           <thead>
             <tr>
-              <th>Information</th>
+              <th>Property</th>
               <th>Type</th>
               <th>Uniqueness</th>
               <th>Description</th>
