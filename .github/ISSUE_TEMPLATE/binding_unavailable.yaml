@@ -1,0 +1,48 @@
+name: Binding Unavailable
+description: |
+  Use this template to signal that a binding in the registry has become unavailable, e.g., the link to the binding document is not working.
+labels: ["bug"]
+title: "Binding Unavailable"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!Note]
+        Please make sure to comply with our Code of Conduct (https://www.w3.org/policies/code-of-conduct/).
+        It defines expected and unacceptable behaviors and promotes high standards of professional practice.
+        The custodian is encouraged to apply necessary measures when necessary.
+  - type: input
+    id: name
+    attributes:
+      label: Name and Version of the Binding
+      description: |
+        Examples: Web of Things (WoT) HTTP Binding v2024-07-26, Web of Things (WoT) CoAP Binding v2024-07-26
+    validations:
+      required: true
+  - type: input
+    id: link-broken
+    attributes:
+      label: Link to the binding document that is unavailable
+      description: |
+        The exact link from the registry table which you cannot reach anymore.
+    validations:
+      required: true
+  - type: input
+    id: link-new
+    attributes:
+      label: A new link to the binding document if available
+      description: |
+        If you have a new link to the binding document, please provide it here. The custodian will use this to inform the submitter
+    validations:
+      required: false
+  - type: dropdown
+    id: submitter-relationship
+    attributes:
+      label: Relationship to the Submitter
+      description: |
+        Are you related to the original submitter of the binding?
+      options:
+        - label: Yes, I am the original submitter or an authorized representative
+        - label: No, I am not related to the original submitter
+    validations:
+      required: true
