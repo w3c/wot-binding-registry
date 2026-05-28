@@ -623,9 +623,11 @@
 
           <ul>
             <li>
-              <b>Stable Link:</b> <span class="rfc2119-assertion" id="submission-requirements-stablelink">
-                The link to the binding document in the registry table MUST be stable.
+              <b>Stable Links:</b> <span class="rfc2119-assertion" id="submission-requirements-stablelink">
+                The link to the binding document and its supporting documents MUST guarantee the retrieval of the same document over time.
               </span>
+              This allows the one managing the hosting of the binding document to add redirection rules in case the hosting location
+              needs to be changed, while still guaranteeing the stability of the link and the immutability of the content.
             </li>
             <li>
               <b>Immutable Content:</b> <span class="rfc2119-assertion" id="submission-requirements-immutable">
@@ -663,6 +665,14 @@
             Given that a submitter who cannot guarantee the stability of the link needs to send the binding to the W3C
             Archive (see <a href="#life-subm-archival">submission instructions</a>), such bindings automatically become
             open to read.
+          </p>
+          <p class="note">
+            <span class="rfc2119-assertion" id="submission-link-fail-inform">
+              In case a submitter guarantees the stability of the link but the link still becomes unavailable, the custodian MUST inform the submitter about the issue.
+            </span>
+            <span class="rfc2119-assertion" id="submission-link-fail-obsolete">
+              If the submitter cannot fix the link within 30 days, the custodian SHOULD transition the entry to obsolete state.
+            </span>
           </p>
         </section>
 
