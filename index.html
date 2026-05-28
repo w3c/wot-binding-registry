@@ -210,7 +210,7 @@
           <dfn id="dfn-wot-binding-registry-transition">Transition</dfn>
         </dt>
         <dd>
-          The process of moving from one state to another in the lifecycle of an entry. See [[[#lifecycle]]] for possible
+          The process of moving from one state to another in the lifecycle of an entry. See [[[#sec-lifecycle]]] for possible
           transitions and what happens in a transition.
         </dd>
         <dt>
@@ -317,7 +317,7 @@
           <!-- what is put into the table and not what the binding should contain -->
         </li>
         <li>
-          <a href="#lifecycle"></a>
+          <a href="#sec-lifecycle"></a>
           <!-- how are they submitted, updated, deprecated etc. -->
         </li>
         <li>
@@ -406,7 +406,7 @@
               <td>Not required</td>
               <td>
                 Indicates the lifecycle status of the entry and changes via transitions defined in
-                <a href="#req-transitions">Transitions</a> section.
+                <a href="#sec-lifecycle">Lifecycle</a> section.
               </td>
             </tr>
             <tr id="form-link">
@@ -475,104 +475,11 @@
         </table>
 
         <p class="ednote">
-          With respect to "Binding Identification in TD": These terms should be refined based on the changes to the TD
+          With respect to "Binding Identification in TD": These terms may be refined based on the changes to the TD
           2.0 mechanism, e.g., introducing a <code>protocol</code> term or putting restrictions on URI scheme and
           <code>subprotocol</code> combination, data mapping, etc. However, for TD 1.0 and 1.1 versions, these terms
           are still valid and thus we need to keep the mechanism flexible enough to support them.
         </p>
-      </section>
-
-      <section id="lifecycle">
-        <h2>Lifecycle</h2>
-
-        <p>
-          Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>, which is reflected in the
-          <code>Status</code> field of the entry.
-          Additionally, <a href="https://github.com/orgs/w3c/projects/222">a GitHub project</a> is used to track
-          submissions and <a>transition</a> requests.
-        </p>
-
-        <p>
-          An entry can have the following status values: <code>Initial</code> -&gt; <code>Current</code> -&gt;
-          <code>Superseded</code> or <code>Obsolete</code>. These terms are defined below:
-        </p>
-        <ul>
-          <li>
-            <code>Initial</code>: Document is correctly written but no implementation experience has been necessarily
-            documented.
-          </li>
-          <li>
-            <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
-            experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
-            recommended to use the term <code>current</code>.
-          </li>
-          <li>
-            <code>Superseded</code>: An entry that previously had the status &quot;initial&quot; or &quot;current&quot;
-            is now superseded with a newer one.
-          </li>
-          <li><code>Obsolete</code>: An entry that previously had the status &quot;initial&quot;, &quot;current&quot;
-            or &quot;superseded&quot; is now obsolete and the Custodian does not recommend the usage of this binding.
-          </li>
-        </ul>
-        <p>
-          The diagram below represents the lifecycle of an entry and the possible transitions between them.
-          Please refer to <a href="#req-transitions">transitions</a> for the requirements and process for each transitions.
-        </p>
-        <figure style="text-align: center">
-          <img src="./images/lifecycle-entries.svg" alt="Registry Entry Lifecycle Diagram" />
-          <figcaption>Registry Entry Lifecycle</figcaption>
-        </figure>
-
-        <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection">As two bindings that do the same 
-          are not allowed, either the old one MUST transition to superseded or obsolete, or the new initial submission
-          MUST be rejected.</span>
-
-        <p>
-          <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">If a previously stable 
-            binding is being improved upon by the same organization, that previous binding MUST be deprecated once the 
-            new one reaches the <strong>stable</strong> status.</span>
-        </p>
-
-        <p class="note">
-          Please note these transitions do not allow an entry to be ever deleted. An entry can become obsolete or
-          superseded by another one.
-          <span class="rfc2119-assertion" id="life-versioning-unique-version">
-            If anyone wants to submit a newer version of an entry, it MUST be a new submission.
-          </span>
-          As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
-          <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in
-          state changes.
-        </p>
-
-        <p>
-          <b>Dependencies to other Bindings:</b>
-          It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
-          e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON. This makes the
-          lifecycle of both entries more complex and creates a dependency between the two entries in the registry.
-          The following rules apply to these dependencies.
-        </p>
-        <ul>
-          <li>
-            <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
-              If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a>
-              MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code>
-              state.
-            </span>
-          </li>
-          <li>
-            <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
-              The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not
-              in the registry.
-            </span>
-          </li>
-          <li>
-            <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
-              If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
-              custodian.
-            </span>
-          </li>
-        </ul>
-
       </section>
 
       <section id="submission-requirements">
@@ -611,10 +518,8 @@
             binding instances.
           </li>
           <li>
-            <a href="#req-transitions">The fourth category</a> explains how different transitions should be handled and
-            what the requirements are for each transition on top of the content requirements. Submitters, reviews and
-            the custodian should read them together with the lifecycle diagrams in the previous section to understand
-            how the transitions work and what happens in each transition.
+            <a href="#sec-lifecycle">The fourth category</a> explains the lifecycle of entries and how different transitions should be handled and
+            what the requirements are for each transition on top of the content requirements.
           </li>
         </ol>
 
@@ -864,8 +769,57 @@
           </section>
         </section>
 
-        <section id="req-transitions">
-          <h3>Transitions</h3>
+        <section id="sec-lifecycle">
+          <h3>Lifecycle</h3>
+
+          <p>
+            Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>, which is reflected in the
+            <code>Status</code> field of the entry.
+            Additionally, <a href="https://github.com/orgs/w3c/projects/222">a GitHub project</a> is used to track
+            submissions and <a>transition</a> requests.
+          </p>
+
+          <p>
+            An entry can have the following status values: <code>Initial</code> -&gt; <code>Current</code> -&gt;
+            <code>Superseded</code> or <code>Obsolete</code>. These terms are defined below:
+          </p>
+          <ul>
+            <li>
+              <code>Initial</code>: Document is correctly written but no implementation experience has been necessarily
+              documented.
+            </li>
+            <li>
+              <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
+              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
+              recommended to use the term <code>current</code>.
+            </li>
+            <li>
+              <code>Superseded</code>: An entry that previously had the status &quot;initial&quot; or &quot;current&quot;
+              is now superseded with a newer one.
+            </li>
+            <li><code>Obsolete</code>: An entry that previously had the status &quot;initial&quot;, &quot;current&quot;
+              or &quot;superseded&quot; is now obsolete and the Custodian does not recommend the usage of this binding.
+            </li>
+          </ul>
+          <p>
+            The diagram below represents the lifecycle of an entry and the possible transitions between them. Here, each box represents a status of an entry, and the arrows represent the possible transitions between them.
+            The subsequent sections describe the requirements and process for each transition.
+          </p>
+
+          <figure style="text-align: center">
+            <img src="./images/lifecycle-entries.svg" alt="Registry Entry Lifecycle Diagram" />
+            <figcaption>Registry Entry Lifecycle</figcaption>
+          </figure>
+
+          <p class="note">
+            Please note these transitions do not allow an entry to be ever deleted. An entry can become obsolete or
+            superseded by another one.
+            <span class="rfc2119-assertion" id="life-versioning-unique-version">
+              If anyone wants to submit a newer version of an entry, it MUST be a new submission.
+            </span>
+            As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
+            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in transitions.
+          </p>
 
           <p>
             Every transition including the initial submission is triggered by a GitHub issue, which can be made by the
@@ -894,8 +848,7 @@
           </figure>
 
           <p>
-            For each transition - defined in <a href="#lifecycle">lifecycle status</a> - the following sections explain
-            the requirements and rules that need to be followed by the submitter, custodian and reviewers.
+            For each transition, the following sections explain the requirements and rules that need to be followed by the submitter, custodian and reviewers.
             While some aspects of the transition process are common for all transitions, some other aspects are specific
             to each transition, e.g., the requirements on the test report for the transition to current, or the requirements
             on the comparison between the old and new versions for the transition to superseded. Thus, there are some common
@@ -951,6 +904,46 @@
                 the requirements defined in the template.
               </span>
             </p>
+
+            <p>
+              <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection">
+                As two bindings that do the same are not allowed, either the old one MUST transition to superseded or obsolete, 
+                or the new initial submission MUST be rejected.
+              </span>
+              <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">
+                If a previously stable binding is being improved upon by the same organization, that previous binding 
+                MUST be deprecated once the new one reaches the <strong>stable</strong> status.
+              </span>
+            </p>
+
+            <p>
+              <b>Dependencies to other Bindings:</b>
+              It could be that a binding uses another binding. For example, a protocol can be built on top of another one,
+              e.g. LWM2M and CoAP, or a binding can define a default content type, e.g., HTTP and JSON. This makes the
+              lifecycle of both entries more complex and creates a dependency between the two entries in the registry.
+              The following rules apply to these dependencies.
+            </p>
+            <ul>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-dependency-current-state">
+                  If parts of the entry require the existence of another binding, i.e., has dependencies, the <a>dependency</a>
+                  MUST be in the <code>current</code> state if the <a>dependent</a> needs to transition to the <code>current</code>
+                  state.
+                </span>
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-dependency-initial-state">
+                  The <a>dependent</a> entry CAN be submitted in the <code>initial</code> state even if the dependency is not
+                  in the registry.
+                </span>
+              </li>
+              <li>
+                <span class="rfc2119-assertion" id="submission-requirements-dependency-obsolete-state">
+                  If a <a>dependency</a> needs to transition to obsolete state, the <a>dependent</a> MUST be reevaluated by the
+                  custodian.
+                </span>
+              </li>
+            </ul>
 
           </section>
 
