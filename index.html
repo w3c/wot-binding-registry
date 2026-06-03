@@ -87,7 +87,7 @@
     <section id="sotd">
       <p>
         <span class="rfc2119-assertion" id="ownership-custodian-initial">
-          The custodian of this registry is the Web of Things Working Group.
+          The custodian of this registry is the Web of Things Working Group (WoT WG).
         </span>
         <span class="rfc2119-assertion" id="ownership-custodian-delegation">
           If the WoT WG no longer exists, the W3C Team or its delegated entity MUST be the <a>Custodian</a> and this paragraph MUST be updated.
@@ -181,7 +181,7 @@
           <dfn id="dfn-wot-binding-registry">WoT Binding Registry</dfn>
         </dt>
         <dd>
-          A W3C Registry Track document that contains the <a>WoT Binding Registry Table</a>, its requirements and
+          This document. A W3C Registry Track document that contains the <a>WoT Binding Registry Table</a>, its requirements and
           possibly other information. See <a href="https://www.w3.org/policies/process/#registry">registry section of the W3C Process document</a> for more
           information on the definition.
         </dd>
@@ -216,7 +216,7 @@
         <dt>
           <dfn id="dfn-binding-implementation">Binding Implementation</dfn>
         </dt>
-        <dd>One of the codebases that implements the binding to build the correct network messages</dd>
+        <dd>A codebase that implements the binding to build the correct network messages.</dd>
         <dt>
           <dfn id="dfn-execution-binding-instance">Execution of a Binding Instance</dfn>
         </dt>
@@ -261,8 +261,8 @@
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
         </dt>
-          <dd>It is the entity that manages the registry and works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>
-            in the W3C Process Document for the overall definition and [[[#sotd]]] to see the current custodian.</dd>
+        <dd>It is the entity that manages the registry and works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>
+          in the W3C Process Document for the overall definition and [[[#sotd]]] to see the current custodian.</dd>
         <dt>
           <dfn id="dfn-submitter">Submitter</dfn>
         </dt>
@@ -299,7 +299,7 @@
 
       <p class="note">
         This registry is currently not published as a <i>W3C Registry</i> yet, meaning it is not finalized and stable.
-        Thus, we are currently in a pilot phase where only a small number of bindings written by the WoT Working Group
+        Thus, it is currently in a pilot phase where only a small number of bindings written by the WoT Working Group
         are included. They are still managed using the rules explained in this section but will not leave the
         <code>Initial</code> state of the lifecycle. After the pilot phase, the registry will be opened to external
         submissions and the process defined here will be used to manage submissions and entries. This pilot exists to
@@ -318,14 +318,14 @@
           <!-- what is put into the table and not what the binding should contain -->
         </li>
         <li>
-          <a href="#sec-lifecycle"></a>
-          <!-- how are they submitted, updated, deprecated etc. -->
-        </li>
-        <li>
           <a href="#submission-requirements"></a>
           <!--What the binding has to contain to go into the table-->
         </li>
       </ul>
+
+      <p>
+        Additionally, lifecycle of a registry entry and the transitions are explained in the <a href="#sec-lifecycle">Lifecycle</a> section.
+      </p>
 
       <section id="entry-format">
         <h2>Entry format</h2>
@@ -390,7 +390,7 @@
               <td>
                 <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string"><code>string</code></a>
               </td>
-              <td>Required within one Binding's Lifecycle</td>
+              <td>Required within one Binding's lifecycle</td>
               <td>
                 A string that identifies a specific version of this binding. Example: <code>1.0-2026-01-15</code>.
                 <span class="rfc2119-assertion" id="entry-format-version-form">
@@ -488,9 +488,9 @@
         <!-- Requirements on the Submitted Document -->
 
         <p>
-          When a new entry is submitted to the registry, it needs to follow certain requirements to be accepted.
-          These requirements are defined in this section and are related to the content of the binding document,
-          the administrative aspects of the submission and the transition process. The requirements are defined to
+          When a new entry is submitted to the registry or needs to transition to other states, it needs to follow certain requirements to be accepted.
+          These requirements are defined in this section and are related to the content of the binding document and its supporting documents, as well as to
+          the administrative aspects of the submission. Each transition also has specific requirements. All these requirements are defined to
           ensure the quality of the entries in the registry, the long-term maintenance of the registry and the ease of
           use for developers who want to use the bindings in the registry. The requirements are also defined to ensure
           that the registry can be maintained by the custodian and that the transitions can be reviewed by the reviewers
@@ -520,7 +520,7 @@
           </li>
           <li>
             <a href="#sec-lifecycle">The fourth category</a> explains the lifecycle of entries and how different transitions should be handled and
-            what the requirements are for each transition on top of the content requirements.
+            what the requirements are for each transition on top of the content and administrative requirements.
           </li>
         </ol>
 
@@ -537,7 +537,7 @@
             </li>
             <li>
               <b>Immutable Content:</b> <span class="rfc2119-assertion" id="submission-requirements-immutable">
-                The submitter MUST guarantee that the content of the binding document will not change over time.
+                The submitter MUST guarantee that the content of the specific version of the binding document will not change over time.
               </span>
             </li>
             <li>
@@ -558,20 +558,18 @@
                 (what the binding specifies).
               </span>
             </li>
-            <li>
-              <b>Extensions:</b> <span class="rfc2119-assertion" id="submission-requirements-redefinition">
-                The namespace (prefix and its values) defined in a binding SHALL NOT be redefined or extended in any
-                other binding, e.g., <code>cov:method</code> values shall not be extended in LWM2M and
-                <code>cov:newTerm</code> shall not be added in LWM2M binding.
-              </span>
-            </li>
           </ul>
 
           <p class="note">
-            Given that a submitter who cannot guarantee the stability of the link needs to send the binding to the W3C
-            Archive (see <a href="#life-subm-archival">submission instructions</a>), such bindings automatically become
-            open to read.
+            <span class="rfc2119-assertion" id="life-subm-archival">
+              If the submitter cannot guarantee the immutability of the binding content or the stability of the link
+              to the binding, they MUST send an email to <code>https://lists.w3.org/Archives/Public/www-archive/</code>
+              and attach the binding and supporting documents.
+            </span>
+            This way, if the submitter fails to keep the link stable, an archived version exists for the users.
+            Such bindings automatically become open to read.
           </p>
+
           <p class="note">
             <span class="rfc2119-assertion" id="submission-link-fail-inform">
               In case a submitter guarantees the stability of the link but the link still becomes unavailable, the custodian MUST inform the submitter about the issue.
@@ -629,6 +627,14 @@
             <span class="rfc2119-assertion" id="submission-requirements-wot-operation">
               A binding that uses a protocol MUST map at least one WoT operation (<code>op</code> keyword value such as
               <code>readproperty</code>) to a protocol message and vice versa.</span>
+          </p>
+
+          <p>
+            <b>Extensions:</b> <span class="rfc2119-assertion" id="submission-requirements-redefinition">
+              The namespace (prefix and its values) defined in a binding SHALL NOT be redefined or extended in any
+              other binding, e.g., <code>cov:method</code> values shall not be extended in LWM2M and
+              <code>cov:newTerm</code> shall not be added in LWM2M binding.
+            </span>
           </p>
 
           <p>
@@ -965,14 +971,7 @@
               </span>
             </p>
 
-            <p>
-              <span class="rfc2119-assertion" id="life-subm-archival">
-                If the submitter cannot guarantee the immutability of the binding content or the stability of the link 
-                to the binding, they MUST send an email to <code>https://lists.w3.org/Archives/Public/www-archive/</code> 
-                and attach the binding and supporting documents.
-              </span>
-              This way, if the submitter fails to keep the link stable, an archived version exists for the users.
-            </p>
+
 
             <section id="req-docsec">
               <h5>Document Section</h5>
@@ -1134,13 +1133,12 @@
             </ul>
             <section id="req-tran-init-curr-review">
               <h5>Review Organization</h5>
-              <ul>
-                <li>
-                  <span class="rfc2119-assertion" id="transition-current-reviews">
+              <p>
+                <span class="rfc2119-assertion" id="transition-current-reviews">
                     The transition MUST be reviewed from the protocol specification and WoT point of views and result in
-                    two separate review documents.</span>
-                </li>
-              </ul>
+                    two separate review documents.
+                  </span>
+              </p>
             </section>
           </section>
 
@@ -1265,7 +1263,7 @@
         <tbody>
           <tr>
             <td>MyProtocol Binding</td>
-            <td>1.0</td>
+            <td>1.0-2026-01-15</td>
             <td>Initial</td>
             <td>https://example.com</td>
             <td>MyProtocol 1.2</td>
