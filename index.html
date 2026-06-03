@@ -79,9 +79,9 @@
         descriptive vocabularies, and examples that guide the implementors of WoT Things and Consumers alike.
       </p>
       <p>
-        This document defines a registry of WoT bindings that make it possible to have a record of the different
-        bindings. Additionally, it sets the rules that govern this registry to guarantee a quality standard, long
-        lifecycle and ease of use for the developers.
+        This document defines a registry of WoT bindings that establishes a record of the different bindings.
+        Additionally, it sets the rules that govern this registry to guarantee a quality standard, long
+        lifecycle, and ease of use for developers.
       </p>
     </section>
     <section id="sotd">
@@ -111,28 +111,28 @@
       <p>
         As the number of such protocols and media types is vast and tends to change over time, this document defines a
         flexible mechanism called a Binding Registry. This document relies on the registry track mechanism of the
-        <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and fit
+        <a href="https://www.w3.org/policies/process/#registries">W3C Process</a> and extends it to be specific and suited
         to the purposes of WoT bindings.
       </p>
 
       <p>
-        Firstly, the registry mechanism enables a binding to be written by people and organizations with a good understanding
+        First, the registry mechanism enables a binding to be written by people and organizations with a good understanding
         of the specification the binding is based on. These people and organizations do not necessarily need to be participants
-        of the WoT Working Group, such as other those developing a standard that can be used with WoT. This also allows the WoT
+        of the WoT Working Group, such as others developing a standard that can be used with WoT. This also allows the WoT
         Working Group to focus on the core specifications and engage other communities at the same time.
       </p>
 
       <p>
-        Secondly, the registry mechanism allows the bindings to be maintained and evolve over time without going through the
+        Second, the registry mechanism allows the bindings to be maintained and evolve over time without going through the
         publication process of a W3C Recommendation. As long as the rules in the registry definition are followed, the registry
         can be updated via transition requests and new submissions.
       </p>
 
       <p>
-        This document serves three purposes. Firstly, it lets implementer find the list of current bindings that they can
-        use to implement their Things and Consumers. Each binding is a row in the <a>Registry Table</a> in Section [[[#registry]]] and are called registry entries.
-        Secondly, Section [[[#entry-format]]] helps implementers understand what each column of the registry table mean.
-        Thirdly, it defines the rules that govern the registry, which are explained in Section [[[#registry-definition]]].
+        This document serves three purposes. First, it lets implementers find the list of current bindings that they can
+        use to implement their Things and Consumers. Each binding is a row in the <a>Registry Table</a> in Section [[[#registry]]] and is called a registry entry.
+        Second, Section [[[#entry-format]]] helps implementers understand what each column of the registry table means.
+        Third, it defines the rules that govern the registry, which are explained in Section [[[#registry-definition]]].
         These define who manages the registry, how to submit new entries, how to update existing entries, and how to review <a>transitions</a>, which are important
         for the long-term maintenance of the registry and the quality of the entries.
       </p>
@@ -152,7 +152,7 @@
         <dfn class="lint-ignore">Content Type</dfn>, <dfn class="lint-ignore">Protocol Binding</dfn>,
         <dfn class="lint-ignore">Binding Template</dfn>, <dfn class="lint-ignore">Servient</dfn>,
         <dfn class="lint-ignore">Vocabulary</dfn>, <dfn class="lint-ignore">WoT Interface</dfn>,
-        <dfn class="lint-ignore">WoT Runtime</dfn>, <dfn class="lint-ignore">IoT Platform</dfn>, etc. is defined in
+        <dfn class="lint-ignore">WoT Runtime</dfn>, <dfn class="lint-ignore">IoT Platform</dfn>, etc. are defined in
         <a data-cite="WOT-ARCHITECTURE#terminology">Section 3</a>
         of the WoT Architecture specification [[WOT-ARCHITECTURE]].
       </p>
@@ -261,18 +261,19 @@
         <dt>
           <dfn id="dfn-custodian">Custodian</dfn>
         </dt>
-        <dd>It is the entity managing the registry who works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>
-          in the W3C Process Document for the overall definition and [[[#sotd]]] to see the current custodian.</dd>
+          <dd>It is the entity that manages the registry and works together with <a>Reviewers</a> and <a>Submitters</a>. See <a href="https://www.w3.org/policies/process/#custodian">custodian</a>
+            in the W3C Process Document for the overall definition and [[[#sotd]]] to see the current custodian.</dd>
         <dt>
           <dfn id="dfn-submitter">Submitter</dfn>
         </dt>
         <dd>
-          Submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
+          A submitter is the persona triggering a transition, which can be the one creating the GitHub issue or the
           organization that the issue creator represents. For example, a submitter can be a standards development
           organization that has developed a binding and wants to submit it to the registry, or an individual who has
           created a binding and wants to share it with the community.
         </dd>
-        <dfn id="dfn-reviewer">Reviewer</dfn>
+        <dt>
+          <dfn id="dfn-reviewer">Reviewer</dfn>
         </dt>
         <dd>A person who is an expert in the specification that the binding is targeting or in the Web of Things.
           Submissions and transitions of <a>Submitters</a> are reviewed by Reviewers and their decision instructs the <a>Custodian</a> on
@@ -503,7 +504,7 @@
         <ol>
           <li>
             <a href="#req-overall">The first category</a> is the administrative and overall requirements, which are related to the copyright,
-            access rights and review process of the entries and transition.
+            access rights, and review process of the entries and transitions.
           </li>
           <li>
             <a href="#req-content">The second category</a> is the content requirements, which are related to the structure and content of the
@@ -675,8 +676,8 @@
               </li>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-summary-document-examples">
-                  Examples - It SHOULD contain examples (can be one) TDs or TMs demonstrating the use of the
-                  binding
+                  Examples - It SHOULD contain one or more example TDs or TMs demonstrating the use of the
+                  binding.
                 </span>
               </li>
               <li>
@@ -785,12 +786,12 @@
           </p>
           <ul>
             <li>
-              <code>Initial</code>: Document is correctly written but no implementation experience has been necessarily
-              documented.
+              <code>Initial</code>: Document is correctly written but no implementation experience has necessarily
+              been documented.
             </li>
             <li>
               <code>Current</code>: Custodian recommends it for new implementations and it has enough implementation
-              experience. While this is also called as <code>stable</code>, given that it can be superseded later, it is
+              experience. While this is also called <code>stable</code>, given that it can be superseded later, it is
               recommended to use the term <code>current</code>.
             </li>
             <li>
@@ -818,7 +819,7 @@
               If anyone wants to submit a newer version of an entry, it MUST be a new submission.
             </span>
             As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
-            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions results in transitions.
+            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions result in transitions.
           </p>
 
           <p>
@@ -827,7 +828,7 @@
             <span class="rfc2119-assertion" id="ownership-custodian-role">
               All transitions MUST be applied or rejected by the <a>Custodian</a>.
             </span>
-            The issue submitter is expected to answer until the custodian makes a Pull Request to apply the transition.
+            The issue submitter is expected to respond while the custodian prepares a Pull Request to apply the transition.
           </p>
 
           <p>
@@ -907,7 +908,7 @@
 
             <p>
               <span class="rfc2119-assertion" id="life-subm-conflict-deprecation-rejection">
-                As two bindings that do the same are not allowed, either the old one MUST transition to superseded or obsolete, 
+                As two bindings that do the same thing are not allowed, either the old one MUST transition to superseded or obsolete, 
                 or the new initial submission MUST be rejected.
               </span>
               <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">
@@ -956,8 +957,8 @@
                   the corresponding issue template</a> and conform to the requirements defined in the template.
               </span>
               <span class="rfc2119-assertion" id="submission-requirements-req-content">
-                Initial entry MUST be a correct document which complies with <a href="#req-content"></a> and
-                <a href="#req-docs"></a>.
+                Initial entry MUST be a correct document which complies with the requirements in <a href="#req-content">Binding Content</a> and
+                <a href="#req-docs">Supporting Documents</a>.
               </span>
               <span class="rfc2119-assertion" id="submission-requirements-IANA-registration-provisional">
                 The submitter MAY do a provisional registration of the URI Scheme at IANA.
@@ -986,7 +987,7 @@
                   PDF or similar document types MAY be submitted if the &quot;Link to the binding document&quot; in the
                   registry entry contains a text pointing to the section.</span>
                 <span class="rfc2119-assertion" id="submission-requirements-html">
-                  However, HTML and Webpages SHOULD be favored.
+                  However, HTML and web pages SHOULD be favored.
                 </span>
               </p>
             </section>
@@ -1107,13 +1108,13 @@
                 <span class="rfc2119-assertion" id="submission-requirements-test-report-implementation">
                   The <em>Test Report</em> MUST contain at least one implementation of a Consumer (capable of 
                   understanding and performing all the operations described in the binding) and one Exposer
-                  (capable of handling all the operations and features described in the binding and optionally be able to
+                  (capable of handling all the operations and features described in the binding and optionally able to
                   create a valid TD).
                 </span>
                 Additional implementations can be added even after the transition to the Current.
               </li>
               <li>
-                The exact contents of the Test Report is not decided yet. See
+                The exact contents of the Test Report are not decided yet. See
                 <a href="https://github.com/w3c/wot-binding-registry/issues/3">https://github.com/w3c/wot-binding-registry/issues/3</a>
               </li>
               <li>
