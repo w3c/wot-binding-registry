@@ -19,7 +19,7 @@
         wgPublicList: "public-wot-wg",
         edDraftURI: "https://w3c.github.io/wot-binding-registry/",
         github: "https://github.com/w3c/wot-binding-registry",
-        issueBase: "https://www.github.com/w3c/wot-binding-registry/issues",
+        issueBase: "https://github.com/w3c/wot-binding-registry/issues",
         editors: [{
           name: "Ege Korkan",
           w3cid: "110131",
@@ -158,7 +158,7 @@
       </p>
 
       <p>
-        In addition, this specification introduces further definitions below. These terms sometimes don't use the term
+        In addition, this specification introduces further definitions below. These terms do not always use the term
         <em>WoT</em>. Please use the "WoT" prefix outside of the context of Web of Things.
       </p>
 
@@ -300,7 +300,7 @@
         <dt>
           <dfn id="dfn-uniqueness">Uniqueness</dfn>
         </dt>
-        <dd>A specific <a>entry characteristic</a>, whose value can be used to refer to the entry in all contexts.
+        <dd>A specific <a>entry characteristic</a>, whose <a>entry value</a> can be used to refer to the entry in all contexts.
           As different characteristics of an entry are used in different contexts and scopes, uniqueness ensures that
           each entry can be identified and referenced without confusion.
           For example, the name of the binding is unique for the readers to associate with it, and the vocabulary term
@@ -329,11 +329,11 @@
 
       <ul>
         <li>
-          <a href="#entry-format"></a>
+          [[[#entry-format]]]
           <!-- what is put into the table and not what the binding should contain -->
         </li>
         <li>
-          <a href="#submission-requirements"></a>
+          [[[#submission-requirements]]]
           <!--What the binding has to contain to go into the table-->
         </li>
       </ul>
@@ -343,7 +343,7 @@
       </p>
 
       <section id="entry-format">
-        <h2>Entry format</h2>
+        <h3>Entry format</h3>
 
         <p>
           Each <a>registry entry</a> is a row in the registry table, which contains registration-related information about the binding.
@@ -494,12 +494,12 @@
           With respect to "Binding Identification in TD": These terms may be refined based on the changes to the TD
           2.0 mechanism, e.g., introducing a <code>protocol</code> term or putting restrictions on URI scheme and
           <code>subprotocol</code> combination, data mapping, etc. However, for TD 1.0 and 1.1 versions, these terms
-          are still valid and thus we need to keep the mechanism flexible enough to support them.
+          are still valid and thus the mechanism must remain flexible enough to support them.
         </p>
       </section>
 
       <section id="submission-requirements">
-        <h2>Submission Requirements</h2>
+        <h3>Submission Requirements</h3>
         <!-- Requirements on the Submitted Document -->
 
         <p>
@@ -540,7 +540,7 @@
         </ol>
 
         <section id="req-overall">
-          <h3>Administrative Requirements</h3>
+          <h4>Administrative Requirements</h4>
 
           <ul>
             <li>
@@ -596,7 +596,7 @@
         </section>
 
         <section id="req-content">
-          <h3>Binding Content</h3>
+          <h4>Binding Content</h4>
           <p>
             Registry entries are expected to contain a human-readable document describing the binding. In order to
             ensure a certain level of consistency and to make it easier for developers to understand how the binding
@@ -665,15 +665,15 @@
           <p>The required sections for the content of the media type binding documents are as follows:</p>
 
           <p class="ednote">
-            This will be defined separately later on. We will need additional mechanisms
-            (including vocabulary terms) to ensure that it is possible to use other media types.
+            This aspect will be defined in a future revision. 
+            Additional mechanisms (including vocabulary terms) will be required to support other media types.
           </p>
         </section>
 
         <section id="req-docs">
-          <h3>Supporting Documents</h3>
+          <h4>Supporting Documents</h4>
           <section id="req-summ">
-            <h4>Summary Document</h4>
+            <h5>Summary Document</h5>
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-summary-document">
                 The submitter MUST fill in the GitHub form provided by the custodian to generate a
@@ -746,7 +746,7 @@
             </ul>
           </section>
           <section id="req-docs-mach">
-            <h4>Machine-readable Documents</h4>
+            <h5>Machine-readable Documents</h5>
             <p>The requirements for the machine-readable supporting documents are as follows:</p>
             <ul>
               <li>
@@ -792,7 +792,7 @@
         </section>
 
         <section id="sec-lifecycle">
-          <h3>Lifecycle</h3>
+          <h4>Lifecycle</h4>
 
           <p>
             Each entry in the registry goes through a lifecycle managed by the <a>Custodian</a>, which is reflected in the
@@ -839,8 +839,8 @@
             <span class="rfc2119-assertion" id="life-versioning-unique-version">
               If anyone wants to submit a newer version of an entry, it MUST be a new submission.
             </span>
-            As indicated in <a href="#req-tran-init-supers">transition to superseded</a> and
-            <a href="#req-tran-curr-obsolete">transition to obsolete</a>, the newer versions result in transitions.
+            As indicated in <a href="#req-tran-init-supers">transition from initial to superseded</a> and
+            <a href="#req-tran-curr-supers">transition from current to superseded</a>, the newer versions result in transitions.
           </p>
 
           <p>
@@ -879,7 +879,7 @@
           </p>
 
           <section id="req-tran-overall">
-            <h4>Overall Transition Requirements</h4>
+            <h5>Overall Transition Requirements</h5>
 
             <p>
               <span class="rfc2119-assertion" id="transition-requirements-trigger">
@@ -915,7 +915,7 @@
               <span class="rfc2119-assertion" id="transition-reviewer-finding-guarantees">
                 While the custodian is tasked with assigning reviewers, the custodian MAY NOT be able to assign
                 reviewers.</span>
-              <span class="rfc2119-assertion" id="transition-reviewinger-reassign">
+              <span class="rfc2119-assertion" id="transition-reviewer-reassign">
                 As there are no guarantees that reviewers complete their reviews, the custodian MAY reassign reviewers if
                 necessary.</span>
             </p>
@@ -934,7 +934,7 @@
               </span>
               <span class="rfc2119-assertion" id="submission-requirements-conflict-deprecation">
                 If a previously stable binding is being improved upon by the same organization, that previous binding 
-                MUST be deprecated once the new one reaches the <strong>stable</strong> status.
+                MUST be deprecated once the new one reaches the <strong>Current</strong> status.
               </span>
             </p>
 
@@ -970,11 +970,11 @@
           </section>
 
           <section id="req-tran-init">
-            <h3>Transition to Initial</h3>
+            <h5>Transition to Initial</h5>
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-initial-submission-template">
                 The initial submission MUST be made using
-                <a href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_transition_current.yaml">
+                <a href="https://github.com/w3c/wot-binding-registry/issues/new?template=binding_submission.yaml">
                   the corresponding issue template</a> and conform to the requirements defined in the template.
               </span>
               <span class="rfc2119-assertion" id="submission-requirements-req-content">
@@ -989,7 +989,7 @@
 
 
             <section id="req-docsec">
-              <h5>Document Section</h5>
+              <h6>Document Section</h6>
               <p>
                 <span class="rfc2119-assertion" id="submission-requirements-one-section">
                   The WoT binding MAY be just one section of the document.
@@ -1007,7 +1007,7 @@
             </section>
 
             <section id="req-tran-init-review">
-              <h5>Review Organization</h5>
+              <h6>Review Organization</h6>
               <p>
                 <span class="rfc2119-assertion" id="submission-requirements-reviewer">
                   The custodian MUST assign at least one reviewer who is a WoT expert for an initial submission.
@@ -1030,7 +1030,7 @@
           </section>
 
           <section id="req-tran-init-curr">
-            <h4>Transition from Initial to Current</h4>
+            <h5>Transition from Initial to Current</h5>
             <ul>
               <li>
                 <span class="rfc2119-assertion" id="submission-requirements-initial-current-transition-template">
@@ -1147,7 +1147,7 @@
               </li>
             </ul>
             <section id="req-tran-init-curr-review">
-              <h5>Review Organization</h5>
+              <h6>Review Organization</h6>
               <p>
                 <span class="rfc2119-assertion" id="transition-current-reviews">
                     The transition MUST be reviewed from the protocol specification point of view and the adherence to the 
@@ -1158,7 +1158,7 @@
           </section>
 
           <section id="req-tran-curr-supers">
-            <h4>Transition from Current to Superseded</h4>
+            <h5>Transition from Current to Superseded</h5>
             <p>
               Superseding a binding allows the custodian to recommend a newer version of a binding while still keeping
               the older version available for reference.
@@ -1177,7 +1177,7 @@
           </section>
 
           <section id="req-tran-curr-obsolete">
-            <h4>Transition from Current to Obsolete</h4>
+            <h5>Transition from Current to Obsolete</h5>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-current-obsolete">
@@ -1194,7 +1194,7 @@
           </section>
 
           <section id="req-tran-supers-obsolete">
-            <h4>Transition from Superseded to Obsolete</h4>
+            <h5>Transition from Superseded to Obsolete</h5>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-superseded-obsolete">
@@ -1211,7 +1211,7 @@
           </section>
 
           <section id="req-tran-init-supers">
-            <h4>Transition from Initial to Superseded</h4>
+            <h5>Transition from Initial to Superseded</h5>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-superseded">
@@ -1228,7 +1228,7 @@
           </section>
 
           <section id="req-tran-init-obsolete">
-            <h4>Transition from Initial to Obsolete</h4>
+            <h5>Transition from Initial to Obsolete</h5>
 
             <p>
               <span class="rfc2119-assertion" id="submission-requirements-transition-initial-obsolete">
@@ -1256,8 +1256,8 @@
       </p>
 
       <p class="note">
-        The first entry is a placeholder example. It will be deleted once the first real entry is added. You can find
-        the list of bindings that predate the registry mechanism at
+        The first entry is a placeholder example and will be removed upon the addition of the first substantive registry entry.
+         You can find the list of bindings that predate the registry mechanism at
         <a href="https://github.com/w3c/wot-binding-templates/?tab=readme-ov-file#publications">this Readme file</a>.
       </p>
 
