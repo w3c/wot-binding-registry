@@ -193,10 +193,20 @@
           the term and [[[#registry]]] for this document's registry table.
         </dd>
         <dt>
-          <dfn id="dfn-entry-property">Entry Property</dfn>
+          <dfn id="dfn-entry-characteristic">Entry Characteristic</dfn>
         </dt>
         <dd>
-          A cell in the <a>WoT Binding Registry Table</a> that represents a specific attribute or characteristic of a registry entry.
+          Each column in the <a>WoT Binding Registry Table</a> that represents a specific attribute of a registry entry.
+          For example, the <i>Name of the Binding</i> and <i>Status</i> are entry characteristics that represent the name
+          and status of the binding. See [[[#entry-format-definitions]]] for the list of entry characteristics and their explanations.
+        </dd>
+        <dt>
+          <dfn id="dfn-entry-value">Entry Value</dfn>
+        </dt>
+        <dd>
+          Each cell in the <a>WoT Binding Registry Table</a> that represents the value of an entry characteristic for a registry entry.
+          For example, the <i>WoT HTTP Binding</i> is the entry value for the entry characteristic <i>Name of the Binding</i>
+          and <i>Current</i> is the entry value for the entry characteristic <i>Status</i>.
         </dd>
         <dt>
           <dfn id="dfn-wot-binding-registry-definition">WoT Binding Registry Definition</dfn>
@@ -290,7 +300,12 @@
         <dt>
           <dfn id="dfn-uniqueness">Uniqueness</dfn>
         </dt>
-        <dd>An <a>entry property</a> that ensures referring to the entry is unambiguous. As different properties of an entry are used in different contexts and scopes, uniqueness ensures that each entry can be identified and referenced without confusion.</dd>
+        <dd>A specific <a>entry characteristic</a>, whose value can be used to refer to the entry in all contexts.
+          As different characteristics of an entry are used in different contexts and scopes, uniqueness ensures that
+          each entry can be identified and referenced without confusion.
+          For example, the name of the binding is unique for the readers to associate with it, and the vocabulary term
+          prefix is required to be unique so that implementations can use it to dereference the terms in the binding instance.
+        </dd>
       </dl>
     </section>
 
@@ -346,7 +361,7 @@
         <p>
           In general, each <a>registry entry</a> is immutable and unique in the registry, and the information in the registry
           table is used to identify and differentiate the entries by the readers as well as implementations.
-          Thus, the <a>uniqueness</a> column indicates whether that <a>entry property</a> is required to be unique across the registry or not.
+          Thus, the <a>uniqueness</a> column indicates whether that <a>entry characteristic</a> is required to have a unique value across the registry or not.
           <span class="rfc2119-assertion" id="entry-format-conflict">
             The entry values of rows in [[[#entry-format-definitions]]] where the uniqueness column has the value 
             "Required" MUST not conflict with the values of other entries
