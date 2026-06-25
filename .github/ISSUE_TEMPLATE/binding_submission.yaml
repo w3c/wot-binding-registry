@@ -66,8 +66,8 @@ body:
   - type: checkboxes
     id: td-version
     attributes:
-      label: Supported TD version
-      description: A binding SHOULD correspond to specific TD specification version(s).
+      label: Supported TD versions
+      description: The versions of TD Recommendations that the binding supports.
       options:
         - label: V1.0
         - label: V1.1
