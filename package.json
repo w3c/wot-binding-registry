@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/w3c/wot-binding-registry/issues"
   },
-  "homepage": "http://w3c.github.io/wot-binding-registry",
+  "homepage": "https://w3c.github.io/wot-binding-registry",
   "dependencies": {
     "npm": "^6.14.11",
     "pretty": "^2.0.0"

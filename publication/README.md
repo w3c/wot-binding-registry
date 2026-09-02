@@ -39,7 +39,7 @@ original at index.html later.
    "HTML",
 3. copy static.html to Overview.html and tidy it up,
 4. If there are any remaining errors/warnings with the Pubrules checker results, repeat the edit by going back to #1.
-5. Generate diff.html via <http://services.w3.org/htmldiff>
+5. Generate diff.html via <https://services.w3.org/htmldiff>
 
 - Note1: You cannot use a tool like <https://htmlpreview.github.io> since they do not have static html as a resource
   that the pubrule checkers can use.
