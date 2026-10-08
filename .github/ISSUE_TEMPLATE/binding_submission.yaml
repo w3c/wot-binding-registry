@@ -60,7 +60,7 @@ body:
       label: Binding Identification
       description: |
         URI Scheme or other TD terms reserved for this binding, each provided as a new line.
-        Examples: "subprotocol":"sse", "href":"http://example.com", "contentType":"application/json"
+        Examples: "subprotocol":"sse", "href":"https://example.com", "contentType":"application/json"
     validations:
       required: true
   - type: checkboxes
